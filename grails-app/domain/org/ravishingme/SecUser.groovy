@@ -1,5 +1,7 @@
 package org.ravishingme
 
+import java.util.Date;
+
 class SecUser implements Serializable {
 
 	private static final long serialVersionUID = 1
@@ -11,6 +13,8 @@ class SecUser implements Serializable {
 	boolean enabled = true
 	boolean accountExpired
 	boolean accountLocked
+	Date lastUpdated
+	Date dateCreated
 	
 //	static hasOne = [profile:Profile]
 	

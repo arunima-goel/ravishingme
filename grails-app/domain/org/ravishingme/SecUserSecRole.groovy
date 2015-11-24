@@ -1,5 +1,7 @@
 package org.ravishingme
 
+import java.util.Date;
+
 import grails.gorm.DetachedCriteria
 import groovy.transform.ToString
 
@@ -12,7 +14,9 @@ class SecUserSecRole implements Serializable {
 
 	SecUser secUser
 	SecRole secRole
-
+	Date lastUpdated
+	Date dateCreated
+	
 	SecUserSecRole(SecUser u, SecRole r) {
 		this()
 		secUser = u
