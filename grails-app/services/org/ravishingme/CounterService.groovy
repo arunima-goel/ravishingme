@@ -1,5 +1,8 @@
 package org.ravishingme
 
+import grails.transaction.Transactional;
+
+@Transactional
 class CounterService {
 	public static final String USER_NAME_SEQUENCE_NAME = "username_";
 	
@@ -14,7 +17,7 @@ class CounterService {
 			counter.save(failOnError: true)
 			nextUsernameInSequence = nextUsernameInSequence + "-" + counter.sequence
 		} else {
-		 	//new Counter(usernameKey, 1).save(failOnError: true)
+		 	new Counter(usernameKey, 1).save(failOnError: true)
 		}
 		
 		log.info("Next username in sequence is " + nextUsernameInSequence)

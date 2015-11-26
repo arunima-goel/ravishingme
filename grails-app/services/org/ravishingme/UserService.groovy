@@ -5,7 +5,7 @@ import grails.transaction.Transactional
 
 import org.scribe.model.Token
 
-@Transactional(readOnly = true)
+@Transactional
 class UserService {
 
 	def counterService

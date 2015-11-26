@@ -16,12 +16,13 @@ class SecUser implements Serializable {
 	Date lastUpdated
 	Date dateCreated
 	
-//	static hasOne = [profile:Profile]
+	static hasOne = [profile:Profile]
 	
-	SecUser(String userid, String username) {
+	SecUser(String userid, String username, Profile profile) {
 		this()
 		this.userid = userid
 		this.username = username
+		this.profile = profile
 	}
 
 	@Override

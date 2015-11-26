@@ -28,7 +28,7 @@ class Profile implements Serializable {
 	Boolean isArtist
 	String socialNetworks // split this into different networks? figure out how I will model this
 	
-	static hasOne = [profilePic: Image, coverPic: Image]
+	//static hasOne = [profilePic: Image, coverPic: Image]
 	static hasMany = [services: Service, favorites: Profile,
 		specialities: Speciality, cosmeticBrands: CosmeticBrand]
 	static belongsTo = [user: SecUser]
