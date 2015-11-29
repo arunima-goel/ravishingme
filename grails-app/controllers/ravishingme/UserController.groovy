@@ -29,6 +29,7 @@ class UserController {
 			SecUser user = SecUser.findByUserid(userid)
 			redirect(controller: "profile", action: "index", params:[username: user.profile.getUsername()])
 		} catch (Exception e) {
+			log.error(e.getMessage())
 			flash.error = "Exception during login"
 		}
 

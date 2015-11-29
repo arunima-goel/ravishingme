@@ -2,14 +2,15 @@ package org.ravishingme
 
 import java.util.Date;
 
-class CosmeticBrand {
+class City {
+
 	String name
 	Date lastUpdated
 	Date dateCreated
 	
-	static searchable = true
-		
-	CosmeticBrand(String name) {
-		this.name = name
+	static belongsTo = [state: State]
+
+		static constraints = {
+		name nullable:false
 	}
 }

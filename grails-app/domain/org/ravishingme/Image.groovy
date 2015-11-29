@@ -5,6 +5,8 @@ import java.util.Date;
 class Image {
 	byte[] image
 	String imageType
+	Date lastUpdated
+	Date dateCreated
 	
 	static belongsTo = [profile: Profile]
 	

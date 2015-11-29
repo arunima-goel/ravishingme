@@ -11,45 +11,52 @@ class Profile implements Serializable {
 		this.isArtist = false
 	}
 
-	// add photos
-	String name
-	String username
-	String aboutYou // will this have a limit?
-	String locationsServed // checked combo box on the UI and a list here based on location
-	String baseLocation // combo box containing states
 	Date lastUpdated
 	Date dateCreated
-	//List modesOfPayment // what modes of payment are available in india?
-	String phoneNumber // required? what data type?
-	String businessHours
-	Double startingPrice // Floating / Decimal
-	String accomplishments
-	Integer yearsOfExperience // do we need this?
 	Boolean isArtist
-	String socialNetworks // split this into different networks? figure out how I will model this
+	String name
+	String username
+	String email
+	Address address 
+	String phoneNumber
+	String whatsAppNumber
+	String aboutYou
+	Boolean willingToTravel
+	Boolean complimentaryTrial
+	Integer yearsOfExperience
+	BusinessHours businessHours
+	SocialNetworks socialNetworks 
+	String awards
+	String affiliations
 	
-	//static hasOne = [profilePic: Image, coverPic: Image]
-	static hasMany = [services: Service, favorites: Profile,
-		specialities: Speciality, cosmeticBrands: CosmeticBrand]
 	static belongsTo = [user: SecUser]
+	static hasOne = [profilePic: Image, coverPic: Image]
+	static hasMany = [services: Service, favorites: Profile, cosmeticBrands: CosmeticBrand,
+		preferredCosmeticBrands: CosmeticBrand, preferredService: Service]
+	
+	
 //	static searchable = {
 //		except = ['profilePic', 'coverPic', 'user', 'specialities', 'services']
 //		cosmeticBrands reference:true
 //	}
 
-	static constraints = {
-		username blank: false, nullable: false, editable: false
-		locationsServed nullable: true
-		baseLocation nullable: true
-		//modesOfPayment nullable: true
-		businessHours nullable: true
-		startingPrice nullable: true
-		yearsOfExperience nullable: true
+	static constraints = { // TODO: check constraints
 		isArtist blank: false, nullable: false
-		socialNetworks nullable: true
-		aboutYou nullable:true, maxSize: 250
-		//modesOfPayment nullable: true, inList:["Cash", "Cheque", "Credit Card", "Debit Card"].subsequences() as List
-		accomplishments nullable: true
+		name blank: false, nullable: false
+		username blank: false, nullable: false, editable: false
+		email email: true, nullable: true
+		aboutYou nullable:true, maxSize: 250 // TODO: check size
+		affiliations nullable: true
+		address nullable: true
+		awards nullable: true
+		businessHours nullable: true
+		complimentaryTrial nullable: true
+		coverPic nullable: true
 		phoneNumber nullable: true
+		profilePic nullable: true
+		socialNetworks nullable: true
+		whatsAppNumber nullable: true
+		willingToTravel nullable: true
+		yearsOfExperience nullable: true
 	}
 }
