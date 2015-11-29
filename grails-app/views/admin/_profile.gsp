@@ -7,16 +7,17 @@
 	<g:radio name="isWillingToTravel" value="true" checked="${profile?.isWillingToTravel.equals(true)}"/>Yes
 	<g:radio name="isWillingToTravel" value="false" checked="${profile?.isWillingToTravel.equals(false)}"/>No
 	</br>
-	Cosmetics:
+	Cosmetics:</br>
 	<g:each in="${org.ravishingme.CosmeticBrand.list(sort: 'id', order: 'asc')}" var="cosmeticBrand" status="i">
 	    <g:checkBox name="cosmeticBrands" value="${cosmeticBrand.id}" checked="${profile.cosmeticBrands.contains(cosmeticBrand)}" />
-	    <label for="cosmeticBrands">${cosmeticBrand.name}</label>
+	    <label for="cosmeticBrands">${cosmeticBrand.name}</label></br>
 	</g:each>
 	</br>
-	Services:
+	Services:</br>
 	<g:each in="${org.ravishingme.Service.list(sort: 'id', order: 'asc')}" var="service" status="i">
 	    <g:checkBox name="services" value="${service.id}" checked="${profile.services.contains(service)}" />
-	    <label for="service">${service.serviceName}</label>
+	    <label for="service">${service.name}</label>
+	    <g:textField name="service.startingPrice" value="${service.startingPrice}"/>
 	</g:each>
 	</br>
 	Trial: 

@@ -24,16 +24,12 @@ class AdminController {
 
 	}
 	
-	def update() {
-		log.info("update called");
-	}
-	
 	def getUserProfile() {
 		log.info("Getting user by username: " + params.username)
 		SecUser loggedInUser = getLoggedInUser();
 		SecRole role = SecRole.findByAuthority("ROLE_ADMIN")
 		if(SecUserSecRole.exists(loggedInUser.id, role.id)) {
-			render(view: "/admin/index", model: [profile: Profile.findByUsername(params.username)])
+			render(template:'/admin/profileInfo', model: [profile: Profile.findByUsername(params.username)])
 		} else {
 			println("User " + loggedInUser.getUsername() + " is not an admin user")
 			redirect(uri: "/")

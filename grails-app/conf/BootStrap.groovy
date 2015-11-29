@@ -12,18 +12,36 @@ import org.ravishingme.State
 class BootStrap {
 
     def init = { servletContext ->
+		
+		def cosmeticBrands = [
+			"Avon",
+			"Blue Heaven",
+			"Bobbi Brown",
+			"Chambor",
+			"Christian Dior",
+			"Color Bar",
+			"Elle 18",
+			"Lakme",
+			"Lancome",
+			"L’Oreal Paris",
+			"M.A.C.",
+			"Maybelline",
+			"Miss Claire",
+			"Nars",
+			"O.P.I.",
+			"Oriflame",
+			"Revlon",
+			"Viviana"]
+	
+		cosmeticBrands.each { cosmeticBrand ->
+			new CosmeticBrand(cosmeticBrand).save(failOnError:true);
+		}
+		
 		new State("Mumbai").save(failOnError:true);
 		State state = new State("Delhi").save(failOnError:true);
 		
 		SecRole secRoleUser = SecRole.findByAuthority('ROLE_USER') ?: new SecRole(authority: 'ROLE_USER').save(failOnError: true)
 		SecRole secRoleAdmin = SecRole.findByAuthority('ROLE_ADMIN') ?: new SecRole(authority: 'ROLE_ADMIN').save(failOnError: true)
-		
-		CosmeticBrand cosmeticBrand = new CosmeticBrand("CosmeticBrand1").save(failOnError:true);
-		new CosmeticBrand("CosmeticBrand2").save(failOnError:true);
-		new CosmeticBrand("CosmeticBrand3").save(failOnError:true);
-		new CosmeticBrand("CosmeticBrand4").save(failOnError:true);
-		new CosmeticBrand("CosmeticBrand5").save(failOnError:true);
-		new CosmeticBrand("CosmeticBrand6").save(failOnError:true);
 		
 		Profile profile = new Profile("test-user-name", "test-name");
 		profile.setAboutYou("Test about you");
@@ -65,25 +83,23 @@ class BootStrap {
 		profile.setYearsOfExperience(10);
 		
 		Service service = new Service();
-		service.setServiceName("Test service name 1");
+		service.setName("Test service name 1");
 		service.setStartingPrice(1000);
 		service.save(failOnError:true);
 		Service service2 = new Service();
-		service2.setServiceName("Test service name 1");
+		service2.setName("Test service name 1");
 		service2.setStartingPrice(2000);
 		service2.save(failOnError:true);
 		Service service3 = new Service();
-		service3.setServiceName("Test service name 1");
+		service3.setName("Test service name 1");
 		service3.setStartingPrice(3000);
 		service3.save(failOnError:true);
 		Service service4 = new Service();
-		service4.setServiceName("Test service name 1");
+		service4.setName("Test service name 1");
 		service4.setStartingPrice(4000);
 		service4.save(failOnError:true);
 		profile.addToServices(service);
 		profile.addToPreferredServices(service);
-		profile.addToCosmeticBrands(cosmeticBrand);
-		profile.addToPreferredCosmeticBrands(cosmeticBrand);
 		
 		SecUser secUser = new SecUser("testId", "testName", profile);
 		secUser.save(failOnError: true);

@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<body>
+		<!-- jQuery -->
+    	<asset:javascript src="jquery.js"/>
+
 		Admin page
 		
-		<g:form>
+		<g:form controller="admin">
         	<g:textField name="username" value="test-user-name" />
-        	<g:actionSubmit action="getUserProfile" value="GetProfileInfo" />
+        	<g:submitToRemote url="[action:'getUserProfile']" update="profileInfo" value="Get Profile Info"/>
 		</g:form>
 		
-		<g:if test="${profile != null}">
-	    	
-			<div id="accountBasics">
-				<g:render template="/admin/accountBasics" model="${profile}"/>
-			</div>
-			<div id="profileInfo">
-				<g:render template="/admin/profile" model="${profile}"/>
-			</div>
-			
-	    </g:if>
-	    <g:else>
-	    	Could not find user
-	    </g:else>
+		<div id="profileInfo">
+			<g:render template="/admin/profileInfo" model="${profile}" />
+	    </div>
 	</body>
 </html>
