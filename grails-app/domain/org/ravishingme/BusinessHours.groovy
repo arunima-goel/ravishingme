@@ -26,5 +26,7 @@ class BusinessHours {
 	public enum Period {
 		AM,
 		PM
+		
+		String getKey() { name() }
 	}
 }

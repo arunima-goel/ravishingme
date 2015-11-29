@@ -19,6 +19,11 @@ class BootStrap {
 		SecRole secRoleAdmin = SecRole.findByAuthority('ROLE_ADMIN') ?: new SecRole(authority: 'ROLE_ADMIN').save(failOnError: true)
 		
 		CosmeticBrand cosmeticBrand = new CosmeticBrand("CosmeticBrand1").save(failOnError:true);
+		new CosmeticBrand("CosmeticBrand2").save(failOnError:true);
+		new CosmeticBrand("CosmeticBrand3").save(failOnError:true);
+		new CosmeticBrand("CosmeticBrand4").save(failOnError:true);
+		new CosmeticBrand("CosmeticBrand5").save(failOnError:true);
+		new CosmeticBrand("CosmeticBrand6").save(failOnError:true);
 		
 		Profile profile = new Profile("test-user-name", "test-name");
 		profile.setAboutYou("Test about you");
@@ -42,7 +47,7 @@ class BootStrap {
 		businessHours.save(failOnError:true);
 		profile.setBusinessHours(businessHours);
 		
-		profile.setComplimentaryTrial(true);
+		profile.setIsComplimentaryTrial(true);
 		profile.setEmail("agoel@test.com");
 		profile.setPhoneNumber("123456");
 		
@@ -56,12 +61,25 @@ class BootStrap {
 		profile.setSocialNetworks(socialNetworks);
 		
 		profile.setWhatsAppNumber("654321");
-		profile.setWillingToTravel(true);
+		profile.setIsWillingToTravel(true);
 		profile.setYearsOfExperience(10);
 		
 		Service service = new Service();
 		service.setServiceName("Test service name 1");
 		service.setStartingPrice(1000);
+		service.save(failOnError:true);
+		Service service2 = new Service();
+		service2.setServiceName("Test service name 1");
+		service2.setStartingPrice(2000);
+		service2.save(failOnError:true);
+		Service service3 = new Service();
+		service3.setServiceName("Test service name 1");
+		service3.setStartingPrice(3000);
+		service3.save(failOnError:true);
+		Service service4 = new Service();
+		service4.setServiceName("Test service name 1");
+		service4.setStartingPrice(4000);
+		service4.save(failOnError:true);
 		profile.addToServices(service);
 		profile.addToPreferredServices(service);
 		profile.addToCosmeticBrands(cosmeticBrand);

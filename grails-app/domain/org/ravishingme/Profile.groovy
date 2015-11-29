@@ -21,8 +21,8 @@ class Profile implements Serializable {
 	String phoneNumber
 	String whatsAppNumber
 	String aboutYou
-	Boolean willingToTravel
-	Boolean complimentaryTrial
+	Boolean isWillingToTravel
+	Boolean isComplimentaryTrial
 	Integer yearsOfExperience
 	BusinessHours businessHours
 	SocialNetworks socialNetworks 
@@ -50,13 +50,13 @@ class Profile implements Serializable {
 		address nullable: true
 		awards nullable: true
 		businessHours nullable: true
-		complimentaryTrial nullable: true
+		isComplimentaryTrial nullable: true
 		coverPic nullable: true
 		phoneNumber nullable: true
 		profilePic nullable: true
 		socialNetworks nullable: true
 		whatsAppNumber nullable: true
-		willingToTravel nullable: true
+		isWillingToTravel nullable: true
 		yearsOfExperience nullable: true
 	}
 }
