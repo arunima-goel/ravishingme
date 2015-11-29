@@ -5,6 +5,7 @@ import org.ravishingme.SecRole
 import org.ravishingme.SecUser
 import org.ravishingme.SecUserSecRole
 import org.scribe.model.Token
+import org.ravishingme.Profile
 
 class AdminController {
 	def oauthService
@@ -12,17 +13,33 @@ class AdminController {
 	def facebookService
 
 	def index() {
-		SecUser user = getLoggedInUser();
+		SecUser loggedInUser = getLoggedInUser();
 		SecRole role = SecRole.findByAuthority("ROLE_ADMIN")
-		if(SecUserSecRole.exists(user.id, role.id)) {
-			println("User " + user.getUsername() + " is an admin user")
+		if(SecUserSecRole.exists(loggedInUser.id, role.id)) {
+			println("User " + loggedInUser.getUsername() + " is an admin user")
 		} else {
-			println("User " + user.getUsername() + " is not an admin user")
+			println("User " + loggedInUser.getUsername() + " is not an admin user")
 			redirect(uri: "/")
 		}
 
 	}
-
+	
+	def update() {
+		log.info("update called");
+	}
+	
+	def getUserProfile() {
+		log.info("Getting user by username: " + params.username)
+		SecUser loggedInUser = getLoggedInUser();
+		SecRole role = SecRole.findByAuthority("ROLE_ADMIN")
+		if(SecUserSecRole.exists(loggedInUser.id, role.id)) {
+			render(view: "/admin/index", model: [profile: Profile.findByUsername(params.username)])
+		} else {
+			println("User " + loggedInUser.getUsername() + " is not an admin user")
+			redirect(uri: "/")
+		}
+	}
+	
 	def getLoggedInUser() {
 		log.info("Getting logged in user")
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]

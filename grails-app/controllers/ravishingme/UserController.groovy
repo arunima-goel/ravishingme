@@ -34,6 +34,7 @@ class UserController {
 		}
 
 	}
+	
 
 	def loginError() {
 		flash.error = "Error."

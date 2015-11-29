@@ -11,7 +11,7 @@ class BusinessHours {
 	Date lastUpdated
 	Date dateCreated
 		
-	enum Time {
+	public enum Time {
 		TEN("10:00"),
 		TEN_THIRTY("10:30")
 		
@@ -23,7 +23,7 @@ class BusinessHours {
 		String getKey() { name() }
 	}
 
-	enum Period {
+	public enum Period {
 		AM,
 		PM
 	}

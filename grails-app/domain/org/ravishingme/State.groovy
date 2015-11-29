@@ -8,7 +8,9 @@ class State {
 	Date lastUpdated
 	Date dateCreated
 	
-	static hasMany = [cities: City]
+	State(String name) {
+		this.name = name;
+	}
 	
 	static constraints = {
 		name nullable:false

@@ -32,7 +32,7 @@ class Profile implements Serializable {
 	static belongsTo = [user: SecUser]
 	static hasOne = [profilePic: Image, coverPic: Image]
 	static hasMany = [services: Service, favorites: Profile, cosmeticBrands: CosmeticBrand,
-		preferredCosmeticBrands: CosmeticBrand, preferredService: Service]
+		preferredCosmeticBrands: CosmeticBrand, preferredServices: Service]
 	
 	
 //	static searchable = {
