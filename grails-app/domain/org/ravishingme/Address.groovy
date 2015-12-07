@@ -5,8 +5,9 @@ import java.util.Date;
 class Address {
 
 	String streetAddress
-	String city
+	City city
 	State state
+	Country country
 	
 	Date lastUpdated
 	Date dateCreated
@@ -15,5 +16,6 @@ class Address {
 		streetAddress nullable:false
 		state nullable:true
 		city nullable:true
+		country nullable:true
 	}
 }

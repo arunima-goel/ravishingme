@@ -2,19 +2,20 @@ package org.ravishingme
 
 import java.util.Date;
 
-class State {
+class Country {
 
 	String name
+	
+	static hasMany = [states: State]
+	
 	Date lastUpdated
 	Date dateCreated
 	
-	static hasMany = [cities: City]
-	
-	State(String name) {
+	Country(String name) {
 		this.name = name;
 	}
 	
 	static constraints = {
-		name nullable:false
+		name nullable:false, unique:true
 	}
 }
