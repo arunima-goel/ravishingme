@@ -9,6 +9,8 @@ class City {
 	Date lastUpdated
 	Date dateCreated
 	
+	static belongsTo = [state: State]
+	
 	City(String name) {
 		this.name = name;
 	}

@@ -11,10 +11,17 @@
 	Username: www.ravishing.me/${profile?.username} </br><!-- TODO: convert this to a link? -->
     Location: </br>
     Street Address: <g:textField name="address.streetAddress" value="${profile?.address?.streetAddress}"/> </br>
-    City: <g:textField name="address.city" value="${profile?.address?.city}"/> </br>
+    City: <g:select name="address.city"
+			from="${org.ravishingme.City.list()}"
+			value="${profile?.address?.city?.id}" optionValue="name" optionKey="id"/>
+		</br>
     State: <g:select name="address.state"
 			from="${org.ravishingme.State.list()}"
 			value="${profile?.address?.state?.id}" optionValue="name" optionKey="id"/>
+		</br>
+	Country: <g:select name="address.country"
+			from="${org.ravishingme.Country.list()}"
+			value="${profile?.address?.country?.id}" optionValue="name" optionKey="id"/>
 		</br>
 		
 	Phone: <g:textField name="phoneNumber" value="${profile?.phoneNumber}"/> </br>

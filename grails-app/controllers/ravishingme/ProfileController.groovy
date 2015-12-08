@@ -22,6 +22,9 @@ class ProfileController {
 			profileInstance.preferredServices.clear();
 		}
 		bindData profileInstance, params
+		profileInstance.address.state = profileInstance.address.city.state
+		profileInstance.address.country = profileInstance.address.city.state.country
+		
 		profileInstance.save(flush:true)
 
 		render(view: "/admin/index", model: [profile: Profile.findByUsername(params.username)])

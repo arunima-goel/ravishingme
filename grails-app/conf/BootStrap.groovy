@@ -39,34 +39,27 @@ class BootStrap {
 			new CosmeticBrand(cosmeticBrand).save(failOnError:true);
 		}
 
+		// Populate countries, states and cities
 		Country country = new Country("India").save(failOnError: true);
 
 		def states = ["Delhi", "Karnataka", "Maharashtra"];
 		states.each { state ->
-			new State(state).save(flush:true);
+			country.addToStates(new State(state));
+			country.save(flush:true);
 		}
 
-		def cities = ["Delhi", "Mumbai", "Mysore", "Pune"];
-		cities.each { city ->
-			new City(city).save(flush:true);
-		}
-
-		def citiesStatesCountries = [
-			[city: "Delhi", state: "Delhi", country: "India"],
-			[city: "Mumbai", state: "Maharashtra", country: "India"],
-			[city: "Mysore", state: "Karnataka", country: "India"],
-			[city: "Pune", state: "Maharashtra", country: "India"]
+		def citiesStates = [
+			[city: "Delhi", state: "Delhi"],
+			[city: "Mumbai", state: "Maharashtra"],
+			[city: "Mysore", state: "Karnataka"],
+			[city: "Pune", state: "Maharashtra"]
 		]
 
 
-		citiesStatesCountries.each { cityStateCountry ->
-			State state = State.findByName(cityStateCountry.state);
-			state.addToCities(City.findByName(cityStateCountry.city));
-			state.save(failOnError: true);
-
-			Country currentCountry = Country.findByName(cityStateCountry.country);
-			currentCountry.addToStates(State.findByName(cityStateCountry.state));
-			currentCountry.save(failOnError: true);
+		citiesStates.each { cityState ->
+			State state = State.findByName(cityState.state);
+			state.addToCities(new City(cityState.city));
+			state.save(flush: true);
 		}
 
 		SecRole secRoleUser = SecRole.findByAuthority('ROLE_USER') ?: new SecRole(authority: 'ROLE_USER').save(failOnError: true)
@@ -76,9 +69,10 @@ class BootStrap {
 		profile.setAboutYou("Test about you");
 
 		Address address = new Address();
-		City city = City.findByName("Delhi");
+		City city = City.findByName("Pune");
 		address.setCity(city);
-		address.setState(State.cities.find { it.name = "Delhi" });
+		address.setState(city.state);
+		address.setCountry(city.state.country);
 		address.setStreetAddress("Test street address");
 		address.save(failOnError:true);
 

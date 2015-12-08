@@ -8,6 +8,7 @@ class State {
 	Date lastUpdated
 	Date dateCreated
 	
+	static belongsTo = [country: Country]
 	static hasMany = [cities: City]
 	
 	State(String name) {
