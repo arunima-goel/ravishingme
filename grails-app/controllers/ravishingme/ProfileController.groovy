@@ -21,9 +21,9 @@ class ProfileController {
 			profileInstance.preferredCosmeticBrands.clear();
 			profileInstance.preferredServices.clear();
 		}
-		bindData profileInstance, params
-		profileInstance.address.state = profileInstance.address.city.state
-		profileInstance.address.country = profileInstance.address.city.state.country
+		bindData profileInstance, params;
+		profileInstance.address.state = profileInstance.address.city.state;
+		profileInstance.address.country = profileInstance.address.city.state.country;
 		
 		profileInstance.save(flush:true)
 

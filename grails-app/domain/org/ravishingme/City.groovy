@@ -15,6 +15,12 @@ class City {
 		this.name = name;
 	}
 	
+	static transients = [ 'displayName' ]
+	
+	String getDisplayName() {
+		return name + ", " + state.name 
+	}
+	
 	static constraints = {
 		name nullable:false
 	}

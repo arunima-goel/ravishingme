@@ -13,7 +13,7 @@
     Street Address: <g:textField name="address.streetAddress" value="${profile?.address?.streetAddress}"/> </br>
     City: <g:select name="address.city"
 			from="${org.ravishingme.City.list()}"
-			value="${profile?.address?.city?.id}" optionValue="name" optionKey="id"/>
+			value="${profile?.address?.city?.id}" optionValue="displayName" optionKey="id"/>
 		</br>
     State: <g:select name="address.state"
 			from="${org.ravishingme.State.list()}"
