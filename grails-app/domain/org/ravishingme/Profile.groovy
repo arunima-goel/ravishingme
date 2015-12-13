@@ -8,7 +8,7 @@ class Profile implements Serializable {
 	Profile(String username, String name) {
 		this.name = name
 		this.username = username
-		this.isArtist = false
+		this.isArtist = true // TODO: this should be false
 	}
 
 	Date lastUpdated
@@ -28,12 +28,21 @@ class Profile implements Serializable {
 	SocialNetworks socialNetworks 
 	String awards
 	String affiliations
+	List servicesOffered = new ArrayList()
 	
 	static belongsTo = [user: SecUser]
 	static hasOne = [profilePic: Image, coverPic: Image]
-	static hasMany = [services: Service, favorites: Profile, cosmeticBrands: CosmeticBrand,
+	static hasMany = [servicesOffered: ServiceWithPrice, favorites: Profile, cosmeticBrands: CosmeticBrand,
 		preferredCosmeticBrands: CosmeticBrand, preferredServices: Service]
 	
+	static mapping = {
+		servicesOffered cascade:"all-delete-orphan"
+	}
+		
+	def getServicesOfferedList() {
+		println("Service offered: " + servicesOffered)
+		return servicesOffered;
+	}
 	
 //	static searchable = {
 //		except = ['profilePic', 'coverPic', 'user', 'specialities', 'services']

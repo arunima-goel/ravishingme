@@ -13,12 +13,19 @@
 	    <label for="cosmeticBrands">${cosmeticBrand.name}</label></br>
 	</g:each>
 	</br>
+	
+	
 	Services:</br>
-	<g:each in="${org.ravishingme.Service.list(sort: 'id', order: 'asc')}" var="service" status="i">
-	    <g:checkBox name="services" value="${service.id}" checked="${profile.services.contains(service)}" />
-	    <label for="service">${service.name}</label>
-	    <g:textField name="service.startingPrice" value="${service.startingPrice}"/>
+	<g:each in="${profile?.servicesOffered}" var="serviceOffered" status="i">
+		<div id="serviceOffered${i}">
+			<g:hiddenField name='servicesOffered[${i}].id' value='${serviceOffered.id}'/>
+			<g:checkBox name="servicesOffered[${i}].isOffered" checked="${serviceOffered.isOffered}" />
+	    	<g:textField name='servicesOffered[${i}].service.name' value='${serviceOffered.service.name}'/>
+		    <g:textField name="servicesOffered[${i}].startingPrice" value="${serviceOffered.startingPrice}"/></br>
+		</div>
 	</g:each>
+	
+	
 	</br>
 	Trial: 
 	<g:radio name="isComplimentaryTrial" value="true" checked="${profile?.isComplimentaryTrial.equals(true)}"/>Complimentary

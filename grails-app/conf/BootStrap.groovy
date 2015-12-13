@@ -34,11 +34,29 @@ class BootStrap {
 			"Oriflame",
 			"Revlon",
 			"Viviana"]
-
+		
 		cosmeticBrands.each { cosmeticBrand ->
 			new CosmeticBrand(cosmeticBrand).save(failOnError:true);
 		}
 
+		def services = [
+			"Base Makeup",
+//			"Bridal Makeup",
+//			"Editorial Makeup",
+//			"Engagement Makeup",
+//			"Eye Makeup",
+//			"Ramp Shows",
+//			"Haircut",
+//			"Hair styling",
+//			"Light Makeup",
+//			"Party Makeup",
+//			"Reception Makeup",
+			"Airbrush"]		
+		
+		services.each { service ->
+			new Service(service).save(failOnError:true);
+		}
+		
 		// Populate countries, states and cities
 		Country country = new Country("India").save(failOnError: true);
 
@@ -106,24 +124,24 @@ class BootStrap {
 		profile.setIsWillingToTravel(true);
 		profile.setYearsOfExperience(10);
 
-		Service service = new Service();
-		service.setName("Test service name 1");
-		service.setStartingPrice(1000);
-		service.save(failOnError:true);
-		Service service2 = new Service();
-		service2.setName("Test service name 1");
-		service2.setStartingPrice(2000);
-		service2.save(failOnError:true);
-		Service service3 = new Service();
-		service3.setName("Test service name 1");
-		service3.setStartingPrice(3000);
-		service3.save(failOnError:true);
-		Service service4 = new Service();
-		service4.setName("Test service name 1");
-		service4.setStartingPrice(4000);
-		service4.save(failOnError:true);
-		profile.addToServices(service);
-		profile.addToPreferredServices(service);
+//		Service service = new Service();
+//		service.setName("Test service name 1");
+//		service.setStartingPrice(1000);
+//		service.save(failOnError:true);
+//		Service service2 = new Service();
+//		service2.setName("Test service name 1");
+//		service2.setStartingPrice(2000);
+//		service2.save(failOnError:true);
+//		Service service3 = new Service();
+//		service3.setName("Test service name 1");
+//		service3.setStartingPrice(3000);
+//		service3.save(failOnError:true);
+//		Service service4 = new Service();
+//		service4.setName("Test service name 1");
+//		service4.setStartingPrice(4000);
+//		service4.save(failOnError:true);
+//		profile.addToServices(service);
+//		profile.addToPreferredServices(service);
 
 		SecUser secUser = new SecUser("testId", "testName", profile);
 		secUser.save(failOnError: true);

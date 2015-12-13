@@ -29,7 +29,9 @@ class AdminController {
 		SecUser loggedInUser = getLoggedInUser();
 		SecRole role = SecRole.findByAuthority("ROLE_ADMIN")
 		if(SecUserSecRole.exists(loggedInUser.id, role.id)) {
-			render(template:'/admin/profileInfo', model: [profile: Profile.findByUsername(params.username)])
+			Profile profileInstance = Profile.findByUsername(params.username);
+			log.info("Got user: " + profileInstance.servicesOffered);
+			render(template:'/admin/profileInfo', model: [profile: profileInstance])
 		} else {
 			println("User " + loggedInUser.getUsername() + " is not an admin user")
 			redirect(uri: "/")

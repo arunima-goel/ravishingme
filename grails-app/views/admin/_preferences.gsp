@@ -12,7 +12,6 @@
 	<g:each in="${org.ravishingme.Service.list(sort: 'id', order: 'asc')}" var="service" status="i">
 	    <g:checkBox name="preferredServices" value="${service.id}" checked="${profile.preferredServices.contains(service)}" />
 	    <label for="preferredService">${service.name}</label>
-	    <g:textField name="service.startingPrice" value="${service.startingPrice}"/>
 	</g:each>
 	</br>
 	
