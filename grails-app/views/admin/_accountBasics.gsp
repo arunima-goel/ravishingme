@@ -1,5 +1,5 @@
 <h2>Account Basics</h2>
-<g:form controller="profile">
+<g:form>
 	<g:hiddenField name="username" value="${profile?.username}" />
 	<g:hiddenField name="id" value="${profile?.id}" />
 	Are you an artist: 
@@ -27,6 +27,6 @@
 	Phone: <g:textField name="phoneNumber" value="${profile?.phoneNumber}"/> </br>
     WhatsApp number: <g:textField name="whatsAppNumber" value="${profile?.whatsAppNumber}"/> </br> 
     </br>
-  	<g:actionSubmit action="update" value="Update Account Basics" />
-  	
+  	<g:submitToRemote url="[controller:'profile', action:'update']" update="profileInfo" value="Update Account Basics"/>
+		
 </g:form>

@@ -1,5 +1,5 @@
 <h2>Profile</h2>
-<g:form controller="profile">
+<g:form>
 	<g:hiddenField name="username" value="${profile?.username}" />
 	<g:hiddenField name="id" value="${profile?.id}" />
 	Bio: <g:textField name="aboutYou" value="${profile?.aboutYou}"/></br>
@@ -49,7 +49,6 @@
 			value="${profile?.businessHours?.endTimePeriod}" optionValue="key" optionKey="key"/>
 			
 	</br></br>
-	
-	<g:actionSubmit action="update" value="Update Profile" /> 
+	<g:submitToRemote url="[controller:'profile', action:'update']" update="profileInfo" value="Update Profile"/>  	
   	
 </g:form>

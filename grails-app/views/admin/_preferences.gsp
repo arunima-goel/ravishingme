@@ -1,5 +1,5 @@
 <h2>Preferences</h2>
-<g:form controller="profile">
+<g:form>
 	<g:hiddenField name="username" value="${profile?.username}" />
 	<g:hiddenField name="id" value="${profile?.id}" />
 	Cosmetics:</br>
@@ -14,8 +14,5 @@
 	    <label for="preferredService">${service.name}</label>
 	</g:each>
 	</br>
-	
-	
-	<g:actionSubmit action="update" value="Update Profile" /> 
-  	
+	<g:submitToRemote url="[controller:'profile', action:'update']" update="profileInfo" value="Update Preferences"/>  	
 </g:form>
