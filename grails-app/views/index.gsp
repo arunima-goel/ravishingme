@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,12 +61,26 @@
                             <li>
                                 <a href="about.html">FAQS</a>
                             </li>
-                            <li>
-                                <a href="#">Sign in</a>
-                            </li>
-                            <li>
-                                <a class="signup-highlight" href="#" data-toggle="modal" data-target="#signup">Sign up</a>
-                            </li>
+                            <oauth:disconnected provider="facebook">
+	                            <li>
+	                               <oauth:connect provider="facebook" id="facebook-connect-link">Sign in</oauth:connect>
+                                </li>
+	                           	 <li>
+	                               <oauth:connect provider="facebook" id="facebook-connect-link" class="signup-highlight" href="#" data-toggle="modal" data-target="#signup">Sign up</oauth:connect>
+                                </li>	
+                            </oauth:disconnected>
+                            <oauth:connected provider="facebook">
+	                            <li>
+	                                <div class="dropdown">
+	                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><asset:image src="profile.jpg" class="profile-pic" alt="Profile" /></a>
+	                                    <ul class="dropdown-menu arrow_box">
+	                                        <li><a href="profile.html" target="_blank">Profile</a></li>	
+	                                        <li><a href="settings.html">Settings</a></li>		
+	                                        <li><a href="index.html">Logout</a></li>		
+	                                    </ul>		
+	                                </div>		
+	                            </li>
+                            </oauth:connected>
                         </ul>
                     </div>
                 </div>
