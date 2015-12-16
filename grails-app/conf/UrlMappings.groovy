@@ -11,6 +11,8 @@ class UrlMappings {
 		"500"(view:'/error')
 		name about: "/about"(view:"/about")
 		name search: "/search"(view:"/search/index")
+		name profile: "/profile"(view:"/profile/index")
+		name profileSettings: "/profile/settings"(view:"/profile/settings")
 		
 	}
 }
