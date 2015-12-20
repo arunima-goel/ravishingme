@@ -64,4 +64,42 @@ class ProfileController {
 
 		render(template:'/admin/profileInfo', model: [profile: Profile.findByUsername(params.username)])
 	}
+
+	def index(String username) {
+		log.info("Getting profile: " + username)
+		try {
+			def profile = Profile.findByUsername(username)
+			if (profile) {
+				// checkMinContent(username) // if logged in user is the same as the username,
+				// then check min content and display edit page
+				// def user = getLoggedInUser()
+				[profile:profile]
+			} else {
+				redirect(uri: "/")
+			}
+
+		} catch (Exception e) {
+			flash.error = "Exception during profile index"
+		}
+
+
+	}
+
+	def checkMinContent(String name) {
+	}
+
+	def getLoggedInUser() {
+		log.info("Getting logged in user")
+		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
+		try {
+			// Get user id and username from facebook
+			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me")
+			log.info("Got logged in user")
+			log.info("userId: " + userid + " name: " + name)
+			return User.findByUserid(userid)
+		} catch (CustomException ce) {
+			log.info("Error getting logged in user")
+			flash.error = "Exception during login"
+		}
+	}
 }

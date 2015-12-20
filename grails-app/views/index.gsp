@@ -43,7 +43,7 @@
             <div class="container-fluid nav-container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="index.html" class="navbar-brand"><asset:image class="logo" src="logo.png" alt="Ravishing.me" /></a>
+                    <g:link mapping="/" class="navbar-brand"><asset:image class="logo" src="logo.png" alt="Ravishing.me" /></g:link>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -56,10 +56,10 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="about.html">About</a>
+                                <g:link mapping="about">About</g:link>
                             </li>
                             <li>
-                                <a href="about.html">FAQS</a>
+                                <g:link mapping="faqs">FAQs</g:link>
                             </li>
                             <oauth:disconnected provider="facebook">
 	                            <li>
@@ -96,51 +96,43 @@
     <div id="home-wrapper">
         <asset:image class="home-bg" alt="home" src="home_bg.png" />
         <div class="container home-content">
-            <div class="row">
-                <div class="col-md-5 col-md-offset-1 col-xs-12 home-search">
-                    <span class="drp-caret"></span>
-                    <div class="button-group">
-                        <button type="button" class="dropdown-search-btn" data-toggle="dropdown">Bridal Makeup</button>
-                        <ul class="search-header-checkboxes dropdown-menu outer-noscroll">
-                            <div class="inner-noscroll">
-                                <li><input type="checkbox" name="cosmetics" value="Bridal Makeup" data-label="Bridal Makeup" checked/></li>
-                                <li><input type="checkbox" name="cosmetics" value="Engagement" data-label="Engagement"/></li>
-                                <li><input type="checkbox" name="cosmetics" value="Eye Makeup" data-label="Eye Makeup"/></li>
-                                <li><input type="checkbox" name="cosmetics" value="Fashion Shows" data-label="Fashion Shows"/></li>
-                                <li><input type="checkbox" name="cosmetics" value="Hairstyle" data-label="Hairstyle"/></li>
-                                <li><input type="checkbox" name="cosmetics" value="Light Makeup" data-label="Light Makeup"/></li>
-                                <li><input type="checkbox" name="cosmetics" value="Engagement" data-label="Engagement"/></li>
-                                <li><input type="checkbox" name="cosmetics" value="Eye Makeup" data-label="Eye Makeup"/></li>
-                            </div>
-                            <div class="scroll-opac"></div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-5 col-xs-12 home-city">
-                    <div class="input-group">
-                        <div class="drp-caret"></div>
-                        <div class="button-group">
-                        <button type="button" class="dropdown-city-btn" data-toggle="dropdown">Delhi</button>
-                            <ul class="dropdown-menu outer-noscroll">
-                                <div class="inner-noscroll">
-                                    <li><a>Ahemdabad</a></li>
-                                    <li><a>Chennai</a></li>
-                                    <li class="selected"><a>Delhi</a></li>
-                                    <li><a>Goa</a></li>
-                                    <li><a>Hyderabad</a></li>
-                                    <li><a>Chennai</a></li>
-                                    <li><a>Ahemdabad</a></li>
-                                    <li><a>Chennai</a></li>
-                                </div>
-                                <div class="scroll-opac"></div>
-                            </ul>
-                        </div>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default home-btn" type="button">Search</button>
-                        </span>
-                    </div><!-- /input-group -->
-                </div><!-- /home-city row -->
-            </div><!-- /Search Bar Row -->
+            <g:form controller="search">
+				<div class="row">
+	                <div class="col-md-5 col-md-offset-1 col-xs-12 home-search">
+	                    <span class="drp-caret"></span>
+	                    <div class="button-group">
+	                        <button type="button" class="dropdown-search-btn" data-toggle="dropdown"></button>
+	                        <ul class="search-header-checkboxes dropdown-menu outer-noscroll">
+	                            <div class="inner-noscroll">
+	                            	<g:each in="${org.ravishingme.Service.list()}" var="service" >
+									  <li><input type="checkbox" name="services" value="${service.id}" data-label="${service.name}"/></li>
+	                                </g:each>
+	                            </div>
+	                            <div class="scroll-opac"></div>
+	                        </ul>
+	                    </div>
+	                </div>
+	                <div class="col-md-5 col-xs-12 home-city">
+	                    <div class="input-group">
+	                        <div class="drp-caret"></div>
+	                        <div class="button-group">
+	                        <button type="button" class="dropdown-city-btn" data-toggle="dropdown">Delhi</button>
+	                            <ul class="dropdown-menu outer-noscroll">
+	                                <div class="inner-noscroll">
+	                                    <g:each in="${org.ravishingme.City.list()}" var="city" >
+										  <li><a>${city.name}</a></li>
+										</g:each>
+	                                </div>
+	                                <div class="scroll-opac"></div>
+	                            </ul>
+	                        </div>
+	                        <span class="input-group-btn">
+	                            <g:actionSubmit class="btn btn-default home-btn" action="index" value="Search" />
+							</span>
+	                    </div><!-- /input-group -->
+	                </div><!-- /home-city row -->
+	            </div><!-- /Search Bar Row -->
+            </g:form>
         </div><!-- Home Content Container -->
     </div><!-- /Home Wrapper -->
     
@@ -164,14 +156,14 @@
               <h4>It's <span>Free</span></h4>
           </div>
           <div class="modal-body">
-            <a href="#" class="btn btn-block btn-social btn-facebook"><span class="fa fa-5x fa-facebook"></span>Sign up with Facebook</a>
+            <oauth:connect provider="facebook" id="facebook-connect-link" class="btn btn-block btn-social btn-facebook"><span class="fa fa-5x fa-facebook"></span>Sign up with Facebook</oauth:connect>
             <p>We will not post anything without your permission</p>
           </div>
           <div class="signup-terms">
               <p>By clicking "sign up", you confirm that you accept</p><p> our <a href="#">Terms of service</a> and <a href="#">Privacy Policy</a>.</p>  
           </div>
           <div class="modal-footer">
-              <h4>Already a member? <a href="#">Login</a></h4>
+              <h4>Already a member? <oauth:connect provider="facebook" id="facebook-connect-link">Login</oauth:connect>
           </div>
         </div>
 

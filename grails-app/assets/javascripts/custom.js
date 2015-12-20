@@ -39,7 +39,7 @@ $('.search-header-checkboxes label, .search-header-checkboxes').click(function(e
     e.stopPropagation();
     
     var checkedValues = $('.search-header-checkboxes input:checkbox:checked').map(function() {
-        return this.value;
+        return $(this).data("label");
     }).get();
     
     
