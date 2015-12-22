@@ -15,6 +15,7 @@ import org.ravishingme.Profile
 class SearchController {
 	def index() {
 		log.info("Searching: " + params);
+		[profiles: Profile.list()];
 	}
 
 }

@@ -45,7 +45,7 @@
                 
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="index.html" class="navbar-brand"><asset:image class="logo" src="logo.png" alt="Ravishing.me" /></a>
+                    <g:link mapping="/" class="navbar-brand"><asset:image class="logo" src="logo.png" alt="Ravishing.me" /></g:link>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -58,21 +58,31 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="about.html">About</a>
+                                <g:link mapping="about">About</g:link>
                             </li>
                             <li>
-                                <a href="FAQs.html">FAQs</a>
+                                <g:link mapping="faqs">FAQs</g:link>
                             </li>
-                            <li>
-                                <div class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><asset:image src="profile.jpg" class="profile-pic" alt="Profile" /></a>
-                                    <ul class="dropdown-menu arrow_box">
-                                        <li><a href="profile.html" target="_blank">Profile</a></li>
-                                        <li><a href="settings.html">Settings</a></li>
-                                        <li><a href="index.html">Logout</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                            <oauth:disconnected provider="facebook">
+	                            <li>
+	                               <oauth:connect provider="facebook" id="facebook-connect-link">Sign in</oauth:connect>
+                                </li>
+	                           	 <li>
+	                               <oauth:connect provider="facebook" id="facebook-connect-link" class="signup-highlight" href="#" data-toggle="modal" data-target="#signup">Sign up</oauth:connect>
+                                </li>	
+                            </oauth:disconnected>
+                            <oauth:connected provider="facebook">
+		                        <li>
+	                                <div class="dropdown">
+	                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><asset:image src="profile.jpg" class="profile-pic" alt="Profile" /></a>
+	                                    <ul class="dropdown-menu arrow_box">
+	                                        <li><a href="profile.html" target="_blank">Profile</a></li>
+	                                        <li><a href="settings.html">Settings</a></li>
+	                                        <li><a href="index.html">Logout</a></li>
+	                                    </ul>
+	                                </div>
+	                            </li>
+                            </oauth:connected>
                         </ul>
                     </div>
                 </div>
@@ -183,7 +193,18 @@
     <div class="search-results">
         <div class="container">
             <div class="row" id="search-results-container">
-                <div class="col-md-4 result">
+				<g:each in="${profiles}" var="profile">
+					<div class="col-md-4 result">
+	                	<a href="profile.html"><image src="http://placehold.it/350x200" alt="" class="result-img"/></a>
+	                    <div class="row result-info">
+	                        <a href="profile.html"><asset:image src="search-circle.png" alt="" class="result-circle-img"/></a>
+	                        <h3><a href="profile.html">${profile.name}</a></h3>
+	                        <div class="col-md-6 travel">Travel<span>Yes</span></div>
+	                        <div class="col-md-6 inquiry"><a href="#">Inquiry</a></div>
+	                    </div>
+                    </div>
+				</g:each>
+				<div class="col-md-4 result">
                     <a href="profile.html"><asset:image src="http://placehold.it/350x200" alt="" class="result-img"/></a>
                     <div class="row result-info">
                         <a href="profile.html"><asset:image src="search-circle.png" alt="" class="result-circle-img"/></a>
