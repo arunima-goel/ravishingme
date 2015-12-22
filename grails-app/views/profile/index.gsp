@@ -76,7 +76,7 @@
                 <div class="container-fluid nav-container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a href="index-signedin.html" class="navbar-brand"><asset:image class="logo" src="logo.png" alt="Ravishing.me" /></a>
+                    <g:link mapping="/" class="navbar-brand"><asset:image class="logo" src="logo.png" alt="Ravishing.me" /></g:link>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -89,21 +89,31 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                                <a href="about.html">About</a>
+                                <g:link mapping="about">About</g:link>
                             </li>
                             <li>
-                                <a href="FAQs.html">FAQs</a>
+                                <g:link mapping="faqs">FAQs</g:link>
                             </li>
-                            <li>
-                                <div class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><asset:image src="profile.jpg" class="profile-pic" alt="Profile" /></a>
-                                    <ul class="dropdown-menu arrow_box">
-                                        <li class="selected"><a href="#" target="_blank">Profile</a></li>
-                                        <li><a href="settings.html">Settings</a></li>
-                                        <li><a href="index.html">Logout</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                            <oauth:disconnected provider="facebook">
+	                            <li>
+	                               <oauth:connect provider="facebook" id="facebook-connect-link">Sign in</oauth:connect>
+                                </li>
+	                           	 <li>
+	                               <oauth:connect provider="facebook" id="facebook-connect-link" class="signup-highlight" href="#" data-toggle="modal" data-target="#signup">Sign up</oauth:connect>
+                                </li>	
+                            </oauth:disconnected>
+                            <oauth:connected provider="facebook">
+		                        <li>
+	                                <div class="dropdown">
+	                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><asset:image src="profile.jpg" class="profile-pic" alt="Profile" /></a>
+	                                    <ul class="dropdown-menu arrow_box">
+	                                        <li class="selected"><a href="#" target="_blank">Profile</a></li>
+	                                        <li><a href="settings.html">Settings</a></li>
+	                                        <li><a href="index.html">Logout</a></li>
+	                                    </ul>
+	                                </div>
+	                            </li>
+                            </oauth:connected>
                         </ul>
                     </div>
                 </div>
@@ -113,7 +123,7 @@
                     <div class="secondary-inner">
                         <div class="col-md-6 profile-left-header">
                             <asset:image src="profile.jpg" alt="" class="profile-pic" />
-                            <h1 class="profile-page-title">Shweta Shidhore<span><a href="settings.html">Edit</a></span></h1>
+                            <h1 class="profile-page-title">${profile.name}<span><a href="settings.html">Edit</a></span></h1>
                         </div>
                         <div class="col-md-6">
                             <ul class="second-nav">
@@ -144,11 +154,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4 text-center">
-                            <p>Bespoke Bridal Makeup Services by Shruti Sharma Shruti's aim is to beautify women by making their skin look perfectly stunning and then subtly enhancing their features like eyes or lips. She understands the necessity of the bridal "glow" that everyone expects and the basis of her style is the idea that the bride should look naturally gorgeous ! Bespoke Bridal Makeup Services by Shruti Sharma Shruti's aim is to beautify women by making their skin look perfectly stunning and then subtly enhancing</p>
+                            <p>${profile.aboutYou}</p>
                         
                         <div class="row text-center about-list">
-                            <div class="col-md-4">Yes<span>To Travel</span></div>
-                            <div class="col-md-4">15<span>Years of Experience</span></div>
+                            <div class="col-md-4">${profile.isWillingToTravel}<span>To Travel</span></div>
+                            <div class="col-md-4">${profile.yearsOfExperience}<span>Years of Experience</span></div>
                             <div class="col-md-4"><asset:image src="heart-gray.png" alt="" class="heart-img" /><span>Favorite</span></div>
                         </div><!-- /.row -->
                             

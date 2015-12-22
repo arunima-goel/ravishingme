@@ -9,6 +9,7 @@ class UrlMappings {
 
         "/"(view:"/index")
 		"500"(view:'/error')
+		"/profile/$username?" (controller: "profile", action: "index")
 		name about: "/about"(view:"/about")
 		name faqs: "/faqs"(view:"/faqs")
 		name search: "/search"(view:"/search/index")

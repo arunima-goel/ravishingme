@@ -13,6 +13,8 @@ import org.scribe.model.Token
 import org.ravishingme.Profile
 
 class ProfileController {
+	
+	
 	def update() {
 		log.info("Updating profile: " + params);
 
@@ -84,7 +86,7 @@ class ProfileController {
 
 
 	}
-
+	
 	def checkMinContent(String name) {
 	}
 
