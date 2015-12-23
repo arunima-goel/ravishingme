@@ -66,7 +66,7 @@ $('.travel-filter ul.dropdown-menu li a').click(function(e) {
 $(function(){
       $(".home-city .dropdown-menu li, .sh-city .dropdown-menu li").click(function(){
           $(".dropdown-city-btn").text($(this).text());
-          $(".dropdown-city-btn").val($(this).text());
+          $(".dropdown-city-btn").val($(this).val());
           $(".home-city .dropdown-menu li a, .sh-city .dropdown-menu li a").removeClass("selected");
           $(this).addClass("selected");
       });
@@ -75,7 +75,7 @@ $(function(){
 $(function(){
       $(".home-city .dropdown-menu li").click(function(){
           $(".dropdown-city-btn").text($(this).text());
-          $(".dropdown-city-btn").val($(this).text());
+          $(".dropdown-city-btn").val($(this).val());
           $(".home-city .dropdown-menu li").removeClass("selected");
           $(this).addClass("selected");
       });
