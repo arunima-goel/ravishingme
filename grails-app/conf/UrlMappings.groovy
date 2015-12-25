@@ -8,7 +8,7 @@ class UrlMappings {
         }
 		
 
-        "/"(view:"/index")
+        "/"(controller: "user", action: "index")
 		"500"(view:'/error')
 		"/profile/$username?" (controller: "profile", action: "index")
 		name profileView: "/profile/$username" (controller:"profile", action:"index")

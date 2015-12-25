@@ -14,7 +14,9 @@ import org.ravishingme.Profile
 
 class ProfileController {
 	
-	
+	def oauthService
+	def facebookService
+
 	def update() {
 		log.info("Updating profile: " + params);
 
@@ -74,8 +76,8 @@ class ProfileController {
 			if (profile) {
 				// checkMinContent(username) // if logged in user is the same as the username,
 				// then check min content and display edit page
-				// def user = getLoggedInUser()
-				[profile:profile]
+				def loggedInUser = getLoggedInUser()
+				[profile:profile, loggedInUser: loggedInUser]
 			} else {
 				redirect(uri: "/")
 			}
@@ -95,10 +97,12 @@ class ProfileController {
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
 		try {
 			// Get user id and username from facebook
-			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me")
-			log.info("Got logged in user")
-			log.info("userId: " + userid + " name: " + name)
-			return User.findByUserid(userid)
+			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me");
+			SecUser loggedInUser = SecUser.findByUserid(userid);
+			Profile loggedInUserProfile = Profile.findById(loggedInUser.profile.id);
+			log.info("Got logged in user userId: " + userid + " name: " + name + " profile username: " + loggedInUser.profile.username)
+			loggedInUser.profile = loggedInUserProfile;
+			return loggedInUser;
 		} catch (CustomException ce) {
 			log.info("Error getting logged in user")
 			flash.error = "Exception during login"

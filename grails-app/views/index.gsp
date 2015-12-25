@@ -74,8 +74,8 @@
 	                                <div class="dropdown">
 	                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><asset:image src="profile.jpg" class="profile-pic" alt="Profile" /></a>
 	                                    <ul class="dropdown-menu arrow_box">
-	                                        <li><a href="profile.html" target="_blank">Profile</a></li>	
-	                                        <li><a href="settings.html">Settings</a></li>		
+	                                        <li><g:link mapping="profileView" params="[username: loggedInUser.profile.username]">Profile</g:link></li>
+											<li><a href="settings.html">Settings</a></li>		
 	                                        <li><a href="index.html">Logout</a></li>		
 	                                    </ul>		
 	                                </div>		

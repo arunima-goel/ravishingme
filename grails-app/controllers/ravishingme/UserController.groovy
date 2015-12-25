@@ -1,6 +1,8 @@
 package ravishingme
 
 import grails.converters.JSON
+
+import org.ravishingme.Profile;
 import org.ravishingme.SecRole
 import org.ravishingme.SecUser
 import org.scribe.model.Token
@@ -10,8 +12,32 @@ class UserController {
 	def userService
 	def facebookService
 
-	def index() {}
+	def index() {
+		log.info("Index in user controller");
+		SecUser loggedInUser = getLoggedInUser();
+		log.info("Got logged in user info: " + loggedInUser)
+		render(view:'/index', model: [loggedInUser: loggedInUser]);
+		
+	}
 
+	def getLoggedInUser() {
+		log.info("Getting logged in user")
+		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
+		try {
+			// Get user id and username from facebook
+			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me");
+			SecUser loggedInUser = SecUser.findByUserid(userid);
+			Profile loggedInUserProfile = Profile.findById(loggedInUser.profile.id);
+			log.info("Got logged in user userId: " + userid + " name: " + name + " profile username: " + loggedInUser.profile.username)
+			loggedInUser.profile = loggedInUserProfile;
+			return loggedInUser;
+		} catch (CustomException ce) {
+			log.info("Error getting logged in user")
+			flash.error = "Exception during login"
+		}
+		return null;
+	}
+	
 	def loginSuccess() {
 		log.info("Successful facebook login");
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
