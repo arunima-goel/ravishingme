@@ -6,7 +6,7 @@
          <div class="container-fluid nav-container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-               <g:link mapping="/" class="navbar-brand">
+               <g:link mapping="landingPage" class="navbar-brand">
                   <asset:image class="logo" src="logo.png" alt="Ravishing.me" />
                </g:link>
                <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -50,8 +50,8 @@
                                     <g:link mapping="profileView"
                                        params="[username: loggedInUser.profile.username]">Profile</g:link>
                                  </li>
-                                 <li><a href="settings.html">Settings</a></li>
-                                 <li><a href="index.html">Logout</a></li>
+                                 <li><g:link mapping="settings">Settings</g:link></li>
+                                 <li><g:link controller="user" action="logout" id="facebook">Logout</g:link></li>
                               </ul>
                            </div>
                         </li>

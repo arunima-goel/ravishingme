@@ -13,7 +13,7 @@ import org.scribe.model.Token
 import org.ravishingme.Profile
 
 class ProfileController {
-	
+
 	def oauthService
 	def facebookService
 
@@ -76,7 +76,7 @@ class ProfileController {
 			if (profile) {
 				// checkMinContent(username) // if logged in user is the same as the username,
 				// then check min content and display edit page
-				def loggedInUser = getLoggedInUser()
+				def loggedInUser = getLoggedInUser();
 				[profile:profile, loggedInUser: loggedInUser]
 			} else {
 				redirect(uri: "/")
@@ -88,7 +88,18 @@ class ProfileController {
 
 
 	}
-	
+
+	def settings() {
+		try {
+			// checkMinContent(username) // if logged in user is the same as the username,
+			// then check min content and display edit page
+			def loggedInUser = getLoggedInUser();
+			[loggedInUser: loggedInUser]
+		} catch (Exception e) {
+			flash.error = "Exception during profile index"
+		}
+	}
+
 	def checkMinContent(String name) {
 	}
 
