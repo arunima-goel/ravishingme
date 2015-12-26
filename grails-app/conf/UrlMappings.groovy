@@ -11,6 +11,7 @@ class UrlMappings {
         name landingPage: "/"(controller: "user", action: "index")
 		"500"(view:'/error')
 		"/profile/$username?" (controller: "profile", action: "index")
+		"/profile/update" (controller: "profile", action: "update")
 		name profileView: "/profile/$username" (controller:"profile", action:"index")
 		name about: "/about"(view:"/about")
 		name faqs: "/faqs"(view:"/faqs")
