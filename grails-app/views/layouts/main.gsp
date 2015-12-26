@@ -58,6 +58,7 @@
          google.maps.event.addDomListener(window, 'load', init_map);
       </script>
    </head>
+   <g:render template="/templates/flashMessages"/>
    <g:render template="/layouts/navbar" />
    <g:layoutBody />
    <g:render template="/layouts/footer" />

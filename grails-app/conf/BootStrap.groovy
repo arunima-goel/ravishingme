@@ -84,13 +84,13 @@ class BootStrap {
 		SecRole secRoleAdmin = SecRole.findByAuthority('ROLE_ADMIN') ?: new SecRole(authority: 'ROLE_ADMIN').save(failOnError: true)
 
 		createUser("test-username1", "testname1", secRoleUser, secRoleAdmin);
-		createUser("test-username2", "testname2", secRoleUser, secRoleAdmin);
-		createUser("test-username3", "testname3", secRoleUser, secRoleAdmin);
-		createUser("test-username4", "testname4", secRoleUser, secRoleAdmin);
-		createUser("test-username5", "testname5", secRoleUser, secRoleAdmin);
-		createUser("test-username6", "testname6", secRoleUser, secRoleAdmin);
-		createUser("test-username7", "testname7", secRoleUser, secRoleAdmin);
-		createUser("test-username8", "testname8", secRoleUser, secRoleAdmin);
+//		createUser("test-username2", "testname2", secRoleUser, secRoleAdmin);
+//		createUser("test-username3", "testname3", secRoleUser, secRoleAdmin);
+//		createUser("test-username4", "testname4", secRoleUser, secRoleAdmin);
+//		createUser("test-username5", "testname5", secRoleUser, secRoleAdmin);
+//		createUser("test-username6", "testname6", secRoleUser, secRoleAdmin);
+//		createUser("test-username7", "testname7", secRoleUser, secRoleAdmin);
+//		createUser("test-username8", "testname8", secRoleUser, secRoleAdmin);
 	}
 
 	def createUser = { username, name, secRoleUser, secRoleAdmin ->

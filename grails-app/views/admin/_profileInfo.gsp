@@ -1,4 +1,5 @@
 <h2>Profile Info</h2>
+<g:render template="/templates/flashMessages"/>
 <g:if test="${profile != null}">
    	<div id="accountBasics">
 		<g:render template="/admin/accountBasics" model="${profile}"/>
