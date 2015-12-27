@@ -934,12 +934,12 @@ ul.social-links li{
     color: white;
 }
 
-.sh-search ul.dropdown-menu li a:hover{
+.sh-search ul.dropdown-menu li:hover{
     background-color: #fff;
     color: #a0a0a2;;
 }
 
-.sh-search .dropdown-menu>li>a{
+.sh-search ul.dropdown-menu>li{
     padding-left: 25px;
 }
 

@@ -23,6 +23,13 @@ class SearchController {
 		[profiles: Profile.list(), loggedInUser: loggedInUser];
 	}
 
+	def search() {
+		log.info("Searching: " + params);
+		SecUser loggedInUser = getLoggedInUser();
+		log.info("Got logged in user info: " + loggedInUser)
+		render(template:'/search/searchResults', model: [profiles: Profile.list()])
+	}
+
 	def getLoggedInUser() {
 		log.info("Getting logged in user")
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]

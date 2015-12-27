@@ -60,7 +60,7 @@ class BootStrap {
 		// Populate countries, states and cities
 		Country country = new Country("India").save(failOnError: true);
 
-		def states = ["Delhi", "Karnataka", "Maharashtra"];
+		def states = ["Delhi", "Karnataka", "Maharashtra", "Test State"];
 		states.each { state ->
 			country.addToStates(new State(state));
 			country.save(flush:true);
@@ -70,6 +70,12 @@ class BootStrap {
 			[city: "Delhi", state: "Delhi"],
 			[city: "Mumbai", state: "Maharashtra"],
 			[city: "Mysore", state: "Karnataka"],
+			// TODO: remove below
+			[city: "test1", state: "Test State"],
+			[city: "test2", state: "Test State"],
+			[city: "test3", state: "Test State"],
+			[city: "test4", state: "Test State"],
+			// TODO: remove above 
 			[city: "Pune", state: "Maharashtra"]
 		]
 
