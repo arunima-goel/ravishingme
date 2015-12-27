@@ -155,11 +155,11 @@ $('.cosmetics-filter .dropdown-scroll').on('hide.bs.dropdown', function () {
 });
 
 $('.makeup-filter .dropdown-scroll').on('show.bs.dropdown', function () {
-    $(".makeup-filter a.filter-search-btn.fixed-btn").show();
+    $(".makeup-filter .filter-search-btn.fixed-btn").show();
 });
 
 $('.makeup-filter .dropdown-scroll').on('hide.bs.dropdown', function () {
-    $(".makeup-filter a.filter-search-btn.fixed-btn").hide();
+    $(".makeup-filter .filter-search-btn.fixed-btn").hide();
 });
 
 

@@ -1063,7 +1063,7 @@ ul.social-links li{
 }
 
 .travel-filter .second{
-    margin-bottom: 0px;
+    margin-bottom: -10px;
 }
 
 .travel-filter .dropdown-menu{
@@ -1189,6 +1189,16 @@ ul.social-links li{
 
 a.filter-search-btn.fixed-btn{
     margin-top: 0px;
+    margin-left: 25px;
+    position: absolute;
+    top: 240px;
+    width: 80%;
+    z-index: 9999;
+    display: none;
+}
+
+.makeup-filter .filter-search-btn.fixed-btn{
+    margin-top: 15px;
     margin-left: 25px;
     position: absolute;
     top: 240px;
