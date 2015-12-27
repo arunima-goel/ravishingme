@@ -59,6 +59,7 @@ $('.travel-filter ul.dropdown-menu li a').click(function(e) {
         // And make this active
         $(this).addClass("active");
     }
+    $(".travel-filter .filter-travel-input").val($(this).text());
 });
 
 
@@ -81,7 +82,6 @@ $(function(){
           $(".home-city .home-city-input").val($(this).val());
       });
 });
-
 
 $(function(){
       $(".settings-dropdown-city li").click(function(){
@@ -173,6 +173,13 @@ $('.makeup-filter ul.dropdown-menu li a').click(function(e) {
 		// And make this active
 		$(this).addClass("active");
 	}
+	$(".makeup-filter .filter-makeup-range-input").val($(this).data("range"));
+});
+
+$(function(){
+	$(".makeup-filter .dropdown-menu li").click(function(){
+		$(".makeup-filter .filter-makeup-range-input").val($(this).val());
+	});
 });
 
 /* Settings Menu */

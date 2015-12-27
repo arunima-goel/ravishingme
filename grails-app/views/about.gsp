@@ -8,54 +8,7 @@
       <div class="search-header">
          <asset:image src="search_bg.png" alt="search" />
          <div class="container">
-            <div class="row sh-inner">
-               <div class="col-md-5 col-md-offset-1 sh-search">
-                  <div class="button-group">
-                     <div class="drp-caret"></div>
-                     <button type="button" class="dropdown-search-btn" data-toggle="dropdown">Bridal Makeup</button>
-                     <ul class="search-header-checkboxes dropdown-menu outer-noscroll">
-                        <div class="inner-noscroll about">
-                           <li><input type="checkbox" name="cosmetics" value="Bridal Makeup" data-label="Bridal Makeup" checked/></li>
-                           <li><input type="checkbox" name="cosmetics" value="Engagement" data-label="Engagement"/></li>
-                           <li><input type="checkbox" name="cosmetics" value="Eye Makeup" data-label="Eye Makeup"/></li>
-                           <li><input type="checkbox" name="cosmetics" value="Fashion Shows" data-label="Fashion Shows"/></li>
-                           <li><input type="checkbox" name="cosmetics" value="Hairstyle" data-label="Hairstyle"/></li>
-                           <li><input type="checkbox" name="cosmetics" value="Light Makeup" data-label="Light Makeup"/></li>
-                           <li><input type="checkbox" name="cosmetics" value="Engagement" data-label="Engagement"/></li>
-                           <li><input type="checkbox" name="cosmetics" value="Eye Makeup" data-label="Eye Makeup"/></li>
-                        </div>
-                        <div class="scroll-opac"></div>
-                     </ul>
-                  </div>
-               </div>
-               <div class="col-md-5 sh-city">
-                  <div class="input-group">
-                     <div class="button-group">
-                        <div class="drp-caret"></div>
-                        <button type="button" class="dropdown-city-btn" data-toggle="dropdown">Delhi</button>
-                        <ul class="dropdown-menu outer-noscroll">
-                           <div class="inner-noscroll">
-                              <li><a>Ahemdabad</a></li>
-                              <li><a>Chennai</a></li>
-                              <li class="selected"><a>Delhi</a></li>
-                              <li><a>Goa</a></li>
-                              <li><a>Hyderabad</a></li>
-                              <li><a>Chennai</a></li>
-                              <li><a>Ahemdabad</a></li>
-                              <li><a>Chennai</a></li>
-                           </div>
-                           <div class="scroll-opac"></div>
-                        </ul>
-                     </div>
-                     <span class="input-group-btn">
-                     <button class="btn btn-default home-btn" type="button">Search</button>
-                     </span>
-                  </div>
-                  <!-- /input-group -->
-               </div>
-               <!-- /sh city row -->
-            </div>
-            <!-- /Search Bar Row -->
+            <g:render template="/search/searchForm"/>
          </div>
          <!-- /container -->
       </div>

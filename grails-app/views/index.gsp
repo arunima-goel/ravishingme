@@ -8,7 +8,7 @@
       <div id="home-wrapper">
          <asset:image class="home-bg" alt="home" src="home_bg.png" />
          <div class="container home-content">
-            <g:render template="/templates/searchFormLanding"/>
+            <g:render template="/search/searchFormLanding"/>
          </div>
          <!-- Home Content Container -->
       </div>

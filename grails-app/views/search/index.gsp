@@ -8,7 +8,7 @@
       <div class="search-header">
          <asset:image src="search_bg.png" alt="search" />
          <div class="container">
-            <g:render template="/templates/searchForm"/>
+            <g:render template="/search/searchForm"/>
          </div>
          <!-- /container -->
       </div>
