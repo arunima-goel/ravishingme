@@ -3,15 +3,13 @@
 		<div class="filter-wrapper">
 			<div class="col-md-4 travel-filter">
 				<div class="button-group">
-					<button type="button" class="dropdown-filter-btn"
-						data-toggle="dropdown">
-						Travel<span class="drp-caret"></span>
+					<button type="button" class="dropdown-filter-btn" data-toggle="dropdown">Travel<span class="drp-caret"></span>
 					</button>
 					<ul class="dropdown-menu">
 						<li><a href="#">Yes</a></li>
 						<li class="second"><a href="#">No</a></li>
-						<a href="#" class="filter-search-btn">Search</a>
-					</ul>
+						<g:submitToRemote class="btn btn-default filter-search-btn" url="[controller:'search', action:'search']" update="search-results" value="Search"/>
+          			</ul>
 				</div>
 				<!-- /.button group -->
 			</div>
@@ -20,7 +18,7 @@
 				<div class="button-group dropdown-scroll">
 					<button type="button" class="dropdown-filter-btn"
 						data-toggle="dropdown">
-						Bridal Makeup Range<span class="drp-caret"></span>
+						Bridal Makeup Range<span  class="drp-caret"></span>
 					</button>
 					<ul class="filter-header-checkboxes dropdown-menu scrollable-menu">
 						<li><input type="checkbox" name="makeup"
