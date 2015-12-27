@@ -143,6 +143,7 @@ $(function(){
           $(".dropdown-city-btn").val($(this).text());
           $(".sh-city .dropdown-menu.outer-noscroll li").removeClass("selected");
           $(this).addClass("selected");
+          $(".sh-city .home-city-input").val($(this).val());
       });
 });
 
