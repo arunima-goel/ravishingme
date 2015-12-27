@@ -147,11 +147,11 @@ $(function(){
 
 
 $('.cosmetics-filter .dropdown-scroll').on('show.bs.dropdown', function () {
-    $(".cosmetics-filter a.filter-search-btn.fixed-btn").show();
+    $(".cosmetics-filter .filter-search-btn.fixed-btn").show();
 });
 
 $('.cosmetics-filter .dropdown-scroll').on('hide.bs.dropdown', function () {
-    $(".cosmetics-filter a.filter-search-btn.fixed-btn").hide();
+    $(".cosmetics-filter .filter-search-btn.fixed-btn").hide();
 });
 
 $('.makeup-filter .dropdown-scroll').on('show.bs.dropdown', function () {
@@ -162,6 +162,17 @@ $('.makeup-filter .dropdown-scroll').on('hide.bs.dropdown', function () {
     $(".makeup-filter .filter-search-btn.fixed-btn").hide();
 });
 
+$('.makeup-filter ul.dropdown-menu li a').click(function(e) {
+	e.stopPropagation();
+
+	// If this isn't already active
+	if (!$(this).hasClass("active")) {
+		// Remove the class from anything that is active
+		$(".makeup-filter ul.dropdown-menu li a.active").removeClass("active");
+		// And make this active
+		$(this).addClass("active");
+	}
+});
 
 /* Settings Menu */
 $("input[name='artist']").change(function(){

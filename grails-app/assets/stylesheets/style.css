@@ -188,6 +188,8 @@ ul.filter-header-checkboxes li{
 
 ul.filter-header-checkboxes li label{
     font-weight: normal;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .scroll-opac{
@@ -478,10 +480,10 @@ ul.sub_menu{
 }
 
 .inner-noscroll li{
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 1px;
+    padding-bottom: 0px;
     color: #a0a0a2;
-    font-size: 14px;
+    font-size: 16px;
     padding-left: 50px;
     width: 106%;
 }
@@ -1062,6 +1064,11 @@ ul.social-links li{
     background-color: #fb4e41;
 }
 
+.makeup-filter ul.dropdown-menu li a.active{
+    color: #fff;
+    background-color: #fb4e41;
+}
+
 .travel-filter .second{
     margin-bottom: -10px;
 }
@@ -1127,13 +1134,13 @@ ul.social-links li{
     color: #fff;
 }
 
-.cosmetics-filter ul.filter-header-checkboxes li{
-    padding-left: 45px;
+.makeup-filter ul.dropdown-menu li a:hover, .makeup-filter ul.dropdown-menu li a.selected{
+	background-color: #fb4e41;
+	color: #fff;
 }
 
-.makeup-filter ul.dropdown-menu li a:hover, .cosmetics-filter ul.dropdown-menu li a:hover{
-    background-color: #fff;
-    color: #a0a0a2;
+.cosmetics-filter ul.filter-header-checkboxes li{
+    padding-left: 45px;
 }
 
 .filters span{
@@ -1207,6 +1214,16 @@ a.filter-search-btn.fixed-btn{
     display: none;
 }
 
+.cosmetics-filter .filter-search-btn.fixed-btn{
+    margin-top: 15px;
+    margin-left: 45px;
+    position: absolute;
+    top: 240px;
+    width: 75%;
+    z-index: 9999;
+    display: none;
+}
+
 @media screen {
 	
 }
@@ -1214,6 +1231,11 @@ a.filter-search-btn.fixed-btn{
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 /* IE10+ CSS styles go here */
     a.filter-search-btn.fixed-btn {
+		top: 240px; /* IE8 and IE9 */
+        left: 15px; /* IE8 and IE9 */
+	}
+	
+	.filter-search-btn.fixed-btn {
 		top: 240px; /* IE8 and IE9 */
         left: 15px; /* IE8 and IE9 */
 	}
