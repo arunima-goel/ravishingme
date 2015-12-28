@@ -28,5 +28,6 @@ class BusinessHours {
 		PM
 		
 		String getKey() { name() }
+		String getLowerCase() { name().toLowerCase() }
 	}
 }

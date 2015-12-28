@@ -54,7 +54,7 @@ class Profile implements Serializable {
 		name blank: false, nullable: false
 		username blank: false, nullable: false, editable: false
 		email email: true, nullable: true
-		aboutYou nullable:true, maxSize: 250 // TODO: check size
+		aboutYou nullable:true, maxSize: 1000 // TODO: check size
 		affiliations nullable: true
 		address nullable: true
 		awards nullable: true

@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <meta name="layout" content="main" />
+      <meta name="layout" content="profile" />
    </head>
    <body>
       <!-- Page Content -->
       <div id="profile-page-wrapper">
-         <asset:image src="http://placehold.it/1024x200" alt=""
-            class="profile-banner" />
+         <image src="http://placehold.it/1024x200" alt="" class="profile-banner" />
          <div class="container-fluid">
             <span class="anchor" id="about"></span>
             <section class="about">
                <div class="about-section">
                   <div class="section-header text-center">
                      <h2 class="profile-section-header">
-                        About <a href="settings.html">Edit</a>
+                        About
                      </h2>
                   </div>
                   <div class="row">
-                     <div class="col-md-4 col-md-offset-4 text-center">
+                     <div class="col-md-6 col-md-offset-3 text-center">
                         <p>
                            ${profile.aboutYou}
                         </p>
                         <div class="row text-center about-list">
                            <div class="col-md-4">
-                              ${profile.isWillingToTravel}<span>To Travel</span>
+                              <g:if test="${profile.isWillingToTravel == true}">Yes</g:if>
+							  <g:else>No</g:else>
+                              <span>To Travel</span>
                            </div>
                            <div class="col-md-4">
                               ${profile.yearsOfExperience}<span>Years of Experience</span>
@@ -52,18 +53,18 @@
                   </div>
                   <div class="row">
                      <div class="col-md-4 col-md-offset-2">
-                        <asset:image src="http://placehold.it/455x310" alt="" />
+                        <image src="http://placehold.it/455x310" alt="" />
                      </div>
                      <div class="col-md-4">
-                        <asset:image src="http://placehold.it/455x310" alt="" />
+                        <image src="http://placehold.it/455x310" alt="" />
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-md-4 col-md-offset-2">
-                        <asset:image src="http://placehold.it/455x310" alt="" />
+                        <image src="http://placehold.it/455x310" alt="" />
                      </div>
                      <div class="col-md-4">
-                        <asset:image src="http://placehold.it/455x310" alt="" />
+                        <image src="http://placehold.it/455x310" alt="" />
                      </div>
                   </div>
                </div>
@@ -74,58 +75,33 @@
                <div class="services-content">
                   <div class="section-header text-center">
                      <h2 class="profile-section-header">
-                        Services With Their Starting Prices <a href="settings.html">Edit</a>
+                        Services With Their Starting Prices
                      </h2>
-                     <a href="" class="sub-title disabled">Inquiry</a>
+                     <a href="#contact" class="sub-title">Inquiry</a>
                   </div>
-                  <div class="row services-list">
-                     <div class="col-md-2 col-md-offset-4">
-                        <h6>Trial</h6>
-                        <p>Complimentary</p>
-                        <p>Paid</p>
-                     </div>
-                     <div class="col-md-2 services-model">
-                        <br />
-                        <p>Yes</p>
-                        <p>Yes</p>
-                     </div>
-                  </div>
-                  <div class="row services-list">
-                     <div class="col-md-2 col-md-offset-4">
-                        <h6>Makeup</h6>
-                        <p>Light makeup</p>
-                        <p>Party makeup</p>
-                        <p>Base makeup</p>
-                        <p>Bridal makeup</p>
-                        <p>Enagagement makeup</p>
-                        <p>Receptiom makeup</p>
-                        <p>Eye makeup</p>
-                     </div>
-                     <div class="col-md-2 services-model">
-                        <br />
-                        <p>Rs. 3000</p>
-                        <p>Rs. 4000</p>
-                        <p>Rs. 2000</p>
-                        <p>Rs. 8000 and up</p>
-                        <p>Rs. 8000</p>
-                        <p>Rs. 2000</p>
-                        <p>Rs. 500</p>
-                     </div>
-                  </div>
-                  <div class="row services-list">
-                     <div class="col-md-2 col-md-offset-4">
-                        <h6>Hair</h6>
-                        <p>Haircut</p>
-                        <p>Hair Styling</p>
-                        <p>Blow drying</p>
-                     </div>
-                     <div class="col-md-2 services-model">
-                        <br />
-                        <p>Rs. 800</p>
-                        <p>Rs. 400</p>
-                        <p>Rs. 500</p>
-                     </div>
-                  </div>
+                  <div class="services-list">
+	                  <table class="col-md-offset-4" width="35%" margin-left="auto" margin-right="auto">
+							<tr>
+								<td width="50%"><p>Trial</p></td>
+								<td width="50%">
+									<g:if test="${profile.isComplimentaryTrial == true}">
+										Complimentary
+									</g:if>
+									<g:else>
+										Paid
+									</g:else>
+								</td>
+							</tr>
+							<g:each in="${profile?.servicesOffered}" var="serviceOffered" status="i">
+								<g:if test="${serviceOffered.isOffered == true}">
+									<tr>
+										<td width="50%"><p>${serviceOffered.service.name}</p></td>
+										<td width="50%">Rs. <g:formatNumber number="${serviceOffered.startingPrice}" format="0"/></td>
+									</tr>
+								</g:if>
+							</g:each>
+						</table>
+				  </div>
                </div>
             </section>
             <!-- Services Section -->
@@ -137,7 +113,7 @@
                </div>
                <div class="section-header text-center">
                   <h2 class="profile-section-header">
-                     Contact <a href="settings.html">Edit</a>
+                     Contact the artist
                   </h2>
                </div>
                <!-- Contact Form -->
@@ -156,7 +132,7 @@
                         <textarea name="InputMessage" id="InputMessage"
                            class="form-control" rows="5" required></textarea>
                         <input type="submit" name="submit" id="submit" value="Send"
-                           class="btn btn-info contact-btn pull-right">
+                           class="btn btn-info contact-btn pull-left">
                      </form>
                      <!-- /Contact Form -->
                   </div>
@@ -164,17 +140,25 @@
                      <h6>Whatsapp</h6>
                      <p>+91-123-234-2345</p>
                      <h6>Business Hours</h6>
-                     <p>10am - 6pm</p>
+                     <p>${profile.businessHours.startTime} ${profile.businessHours.startTimePeriod} - 
+                     ${profile.businessHours.endTime} ${profile.businessHours.endTimePeriod}</p>
+                     <h6>Meet the artist</h6>
                      <ul class="social-links">
-                        <a href="#">
-                           <li class="pt-icon"></li>
-                        </a>
-                        <a href="#">
-                           <li class="fb-icon"></li>
-                        </a>
-                        <a href="#">
-                           <li class="ig-icon"></li>
-                        </a>
+                     	<g:if test="${profile.socialNetworks.twitterUrl != null}">
+                     		<a href="http://${profile.socialNetworks.twitterUrl}" target="_blank"><li class="twitter-icon"></li></a>
+                     	</g:if>
+                        <g:if test="${profile.socialNetworks.facebookUrl != null}">
+                     		<a href="http://${profile.socialNetworks.facebookUrl}" target="_blank"><li class="facebook-icon"></li></a>
+                        </g:if>
+                        <g:if test="${profile.socialNetworks.instagramUrl != null}">
+                     		<a href="http://${profile.socialNetworks.instagramUrl}" target="_blank"><li class="instagram-icon"></li></a>
+                        </g:if>
+                        <g:if test="${profile.socialNetworks.youtubeUrl != null}">
+                     		<a href="http://${profile.socialNetworks.youtubeUrl}" target="_blank"><li class="youtube-icon"></li></a>
+                     	</g:if>
+                     	<g:if test="${profile.socialNetworks.personalWebsite != null}">
+                     		<a href="http://${profile.socialNetworks.personalWebsite}" target="_blank"><h6>${profile.socialNetworks.personalWebsite}</h6></li></a>
+                     	</g:if>
                      </ul>
                   </div>
                </div>

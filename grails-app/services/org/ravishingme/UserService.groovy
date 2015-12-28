@@ -40,6 +40,8 @@ class UserService {
 		socialNetworks.save(failOnError:true);
 		profile.setSocialNetworks(socialNetworks);
 		
+		profile.setYearsOfExperience(0);
+		
 //		profile.profilePic = new Image();
 //		profile.coverPic = new Image();
 //		

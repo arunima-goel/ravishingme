@@ -903,27 +903,40 @@ ul.social-links li{
     margin-right: 5px;
 }
 
-.pt-icon {
+.pinterest-icon {
     width: 20px;
     height: 20px;
-    background-image: url('../img/pt-icon.png');
+    background-image: url('../img/pinterest-icon.png');
     background-repeat: no-repeat;
 }
 
-.fb-icon {
+.twitter-icon {
     width: 20px;
     height: 20px;
-    background-image: url('../img/fb-icon.png');
+    background-image: url('../img/twitter-icon.png');
     background-repeat: no-repeat;
 }
 
-.ig-icon {
+.facebook-icon {
     width: 20px;
     height: 20px;
-    background-image: url('../img/ig-icon.png');
+    background-image: url('../img/facebook-icon.png');
     background-repeat: no-repeat;
 }
 
+.instagram-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/instagram-icon.png');
+    background-repeat: no-repeat;
+}
+
+.youtube-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/youtube-icon.png');
+    background-repeat: no-repeat;
+}
 
 /* Second Result Page 
 ---------------------------------*/
@@ -1447,7 +1460,7 @@ ul.portfolio-categories li a:hover{
 }
 
 .services-model{
-    padding-left: 100px;
+    padding-left: 400px;
 }
 
 .services-model p{
@@ -2021,6 +2034,11 @@ a.sub-title{
 
 .services-list{
     margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+.services-list table{
+	font-size: 12px;
 }
 
 .services-content h6{
@@ -2067,7 +2085,7 @@ a.sub-title{
 .profile-banner{
     width: 100%;
     margin-bottom: 20px;
-    margin-top: -37px;
+    margin-top: -55px;
 }
 
 .profile-left-header .profile-pic{
@@ -2096,7 +2114,7 @@ a.sub-title{
 
 .navbar.navbar-inverse.navbar-fixed-top{
     margin-bottom: 0px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
 }
 
 .about-section{
