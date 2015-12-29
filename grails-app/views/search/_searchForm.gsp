@@ -29,7 +29,7 @@
 	            </ul>
 	         </div>
 	         <span class="input-group-btn">
-	            <g:actionSubmit class="btn btn-default home-btn" action="index" value="Search" />
+	            <g:actionSubmit class="btn btn-default home-btn" action="searchLanding" value="Search" />
              </span>
 	      </div>
 	      <!-- /input-group -->
