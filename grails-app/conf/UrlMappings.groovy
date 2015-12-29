@@ -13,7 +13,7 @@ class UrlMappings {
 		"/profile/$username?" (controller: "profile", action: "index")
 		"/profile/update" (controller: "profile", action: "update")
 		name profileView: "/profile/$username" (controller:"profile", action:"index")
-		name about: "/about"(view:"/about")
+		name about: "/about"(controller:"base", action:"about")
 		name faqs: "/faqs"(view:"/faqs")
 		name search: "/search"(view:"/search/index")
 		name profile: "/profile"(view:"/profile/index")

@@ -938,6 +938,13 @@ ul.social-links li{
     background-repeat: no-repeat;
 }
 
+.wordpress-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/wordpress-icon.png');
+    background-repeat: no-repeat;
+}
+
 /* Second Result Page 
 ---------------------------------*/
 .sh-search .dropdown-menu{

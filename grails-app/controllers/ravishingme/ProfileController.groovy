@@ -48,7 +48,6 @@ class ProfileController {
 			if (profile) {
 				// checkMinContent(username) // if logged in user is the same as the username,
 				// then check min content and display edit page
-				log.info("Profile about you: " + profile.aboutYou);
 				def loggedInUser = getLoggedInUser();
 				[profile:profile, loggedInUser: loggedInUser]
 			} else {
