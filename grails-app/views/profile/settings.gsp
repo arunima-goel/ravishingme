@@ -39,40 +39,9 @@
                   <!-- /.display-pic tab -->
                   
                   <g:render template="/profile/socialNetworks"/>
-                  <!-- /.social netowrks -->
-                  <div id="awards-settings" class="tab-pane fade">
-                     <h2 class="settings-header">Add your social networks</h2>
-                     <div class="row">
-                        <div class="col-md-4 settings-label">
-                           <label>Awards</label>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-8 settings-input">
-                           <textarea rows="10" cols="66"></textarea>
-                        </div>
-                        <!-- /.col -->
-                     </div>
-                     <!-- /.row -->
-                     <div class="row">
-                        <div class="col-md-4 settings-label">
-                           <label>Afilliations</label>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-8 settings-input">
-                           <textarea rows="10" cols="66"></textarea>
-                        </div>
-                        <!-- /.col -->
-                     </div>
-                     <!-- /.row -->
-                     <!-- Settings Footer -->
-                     <div class="settings-footer">
-                        <div class="form-btns pull-right">
-                           <a href="" class="cancel-btn">Cancel</a>
-                           <button class="save-btn">Save</button>
-                        </div>
-                     </div>
-                     <!-- /.settings footer -->
-                  </div>
+                  <!-- /.social networks -->
+                  
+                  <g:render template="/profile/awardsAndAffiliations"/>
                   <!-- Awards Settings -->
                   <div id="favorites-settings" class="tab-pane fade">
                      <h2 class="settings-header">List your favorite artists</h2>
