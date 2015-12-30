@@ -54,77 +54,11 @@
                   <g:render template="/profile/userPreferences"/>
                   
                   <!-- User Favorites Tab -->
-                  <div id="user-favorites" class="tab-pane fade">
-                     <h2 class="settings-header">List of your favorite artists</h2>
-                     <div class="row favorites-content">
-                        <div class="col-md-6 fav-col">
-                           <a href="profile.html">
-                              <asset:image src="user-fav.png" class="img-circle" alt=""/>
-                           </a>
-                           <a href="profile.html#contact">Shweta Shidhore</a>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-6 fav-col right">
-                           <div class="fav-phone">123-345-7890</div>
-                           <div class="fav-inquiry"><a href="profile.html#contact">Inquiry</a></div>
-                           <asset:image src="heart-orange.png" alt="" class="fav-heart" />
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-6 fav-col">
-                           <a href="profile.html">
-                              <asset:image src="user-fav.png" class="img-circle" alt=""/>
-                           </a>
-                           <a href="profile.html#contact">Shweta Shidhore</a>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-6 fav-col right">
-                           <div class="fav-phone">123-345-7890</div>
-                           <div class="fav-inquiry"><a href="profile.html#contact">Inquiry</a></div>
-                           <asset:image src="heart-orange.png" alt="" class="fav-heart" />
-                        </div>
-                        <!-- /.col -->
-                     </div>
-                     <!-- /.row -->     
-                     <!-- Settings Footer -->
-                     <div class="settings-footer">
-                        <div class="form-btns pull-right">
-                           <a href="" class="cancel-btn">Cancel</a>
-                           <button class="save-btn">Save</button>
-                        </div>
-                     </div>
-                     <!-- /.settings footer -->
-                  </div>
-                  <!-- /.User Favorites tab -->
+                  <g:render template="/profile/favorites"/>
+                  
                   <!-- User Display Pic Tab -->
-                  <div id="user-display-pic" class="tab-pane fade">
-                     <h2 class="settings-header">Upload your ravishing profile picture</h2>
-                     <div class="row">
-                        <div class="col-md-12 user-profile-pic-content">
-                           <asset:image src="http://placehold.it/200x200" alt="Profile Picture" class="profile-photo" />
-                           <a href="#">Upload a profile picture / change picture</a>
-                        </div>
-                        <!-- /.col -->
-                     </div>
-                     <!-- /.row -->     
-                     <div class="row">
-                        <div class="col-md-4 settings-label">
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-8 settings-input">
-                        </div>
-                        <!-- /.col -->
-                     </div>
-                     <!-- /.row -->
-                     <!-- Settings Footer -->
-                     <div class="settings-footer">
-                        <div class="form-btns pull-right">
-                           <a href="" class="cancel-btn">Cancel</a>
-                           <button class="save-btn">Save</button>
-                        </div>
-                     </div>
-                     <!-- /.settings footer -->
-                  </div>
-                  <!-- /.User Display Pic tab -->
+                  <g:render template="/profile/pictures"/>
+                  
                   <!-- /User Tabs -->
                </div>
                <!-- /.tab content -->
