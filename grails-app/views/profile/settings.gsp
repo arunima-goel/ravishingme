@@ -35,98 +35,10 @@
                   <g:render template="/profile/artistProfile"/>
                   <!-- /.profile settings tab -->
                   
-                  <div id="display-pic" class="tab-pane fade">
-                     <h2 class="settings-header">Upload your ravishing profile picture and a cover photo</h2>
-                     <div class="row">
-                        <div class="col-md-12 profile-pic-content">
-                           <asset:image src="http://placehold.it/200x200" alt="Profile Picture" class="profile-photo" />
-                           <a href="#">Upload a profile picture/change picture</a>
-                           <asset:image src="http://placehold.it/350x200" alt="Cover Photo" class="cover-photo" />
-                           <a href="#">Upload a cover photo/change picture</a>
-                        </div>
-                        <!-- /.col -->
-                     </div>
-                     <!-- /.row --> 
-                     <!-- Settings Footer -->
-                     <div class="settings-footer">
-                        <div class="form-btns pull-right">
-                           <a href="" class="cancel-btn">Cancel</a>
-                           <button class="save-btn">Save</button>
-                        </div>
-                     </div>
-                     <!-- /.settings footer -->
-                  </div>
+                  <g:render template="/profile/pictures"/>
                   <!-- /.display-pic tab -->
-                  <div id="social-networks-settings" class="tab-pane fade">
-                     <h2 class="settings-header">Add your social networks</h2>
-                     <form class="settings-form" action="" method="post" data-toggle="validator">
-                        <div class="row">
-                           <div class="col-md-4 settings-label">
-                              <label for="facebook">Facebook</label>
-                           </div>
-                           <!-- /.col -->
-                           <div class="col-md-8 settings-input form-group">
-                              <input type="text" name="location" id="facebook-input"><br>
-                              <div class="help-block with-errors"></div>
-                           </div>
-                           <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                        <div class="row">
-                           <div class="col-md-4 settings-label">
-                              <label for="twitter">Twitter</label>
-                           </div>
-                           <!-- /.col -->
-                           <div class="col-md-8 settings-input form-group">
-                              <input type="text" name="twitter" id="twitter-input"><br>
-                           </div>
-                           <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                        <div class="row">
-                           <div class="col-md-4 settings-label">
-                              <label for="instagram">Instagram</label>
-                           </div>
-                           <!-- /.col -->
-                           <div class="col-md-8 settings-input form-group">
-                              <input type="text" name="instagram" id="instagram-input"><br>
-                           </div>
-                           <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                        <div class="row">
-                           <div class="col-md-4 settings-label">
-                              <label for="youtube">Youtube</label>
-                           </div>
-                           <!-- /.col -->
-                           <div class="col-md-8 settings-input form-group">
-                              <input type="text" name="youtube" id="youtube-input"><br>
-                           </div>
-                           <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                        <div class="row">
-                           <div class="col-md-4 settings-label">
-                              <label for="presonal-website">Personal Website</label>
-                           </div>
-                           <!-- /.col -->
-                           <div class="col-md-8 settings-input form-group">
-                              <input type="text" name="personal-website" id="personal-website-input"><br>
-                           </div>
-                           <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                        <!-- Settings Footer -->
-                        <div class="settings-footer">
-                           <div class="form-btns pull-right">
-                              <a href="" class="cancel-btn">Cancel</a>
-                              <button class="save-btn">Save</button>
-                           </div>
-                        </div>
-                        <!-- /.settings footer -->
-                     </form>
-                     <!-- /.form -->
-                  </div>
+                  
+                  <g:render template="/profile/socialNetworks"/>
                   <!-- /.social netowrks -->
                   <div id="awards-settings" class="tab-pane fade">
                      <h2 class="settings-header">Add your social networks</h2>
