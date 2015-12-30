@@ -367,6 +367,27 @@ function validateArtistProfileSettingsForm() {
     return isEverythingValid;
 }
 
+function validateUserPreferencesSettingsForm() {
+	var isEverythingValid = true;
+	
+	/** Cosmetics check boxes validation **/
+    var anyBoxesChecked = false;
+    $('.user-cos-checkbox').each(function() {
+        if ($(this).prop('checked')) {
+            anyBoxesChecked = true;
+        }
+    });
+ 
+    if (anyBoxesChecked == false) {
+      $(".cosmetics.help-block.with-errors").text("Please select at least one.");
+      event.preventDefault();  
+      isEverythingValid = false;
+    } 
+    
+   
+    return isEverythingValid;
+}
+
 /* Clear Radio Error */
 $(".clearfix.prettyradio.labelright.blue").click(function(){
     $(".has-radio .help-block.with-errors").text("");

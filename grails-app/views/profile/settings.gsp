@@ -29,108 +29,30 @@
                <div class="col-md-8 settings-content tab-content">
                   <!-- Artist Tabs -->
                   
+                  <!-- Account Basics tab -->
                   <g:render template="/profile/accountBasics"/>
-                  <!-- /.account basics tab content -->
                   
+                  <!-- Profile tab -->
                   <g:render template="/profile/artistProfile"/>
-                  <!-- /.profile settings tab -->
                   
+                  <!-- Pictures tab -->
                   <g:render template="/profile/pictures"/>
-                  <!-- /.display-pic tab -->
                   
+                  <!-- Social Networks -->
                   <g:render template="/profile/socialNetworks"/>
-                  <!-- /.social networks -->
                   
+                  <!-- Awards and Affiliations -->
                   <g:render template="/profile/awardsAndAffiliations"/>
-                  <!-- Awards Settings -->
-                  <div id="favorites-settings" class="tab-pane fade">
-                     <h2 class="settings-header">List your favorite artists</h2>
-                     <p class="fav-empty">Oops...your artist list is empty.</p>
-                     <!-- Settings Footer -->
-                     <div class="settings-footer">
-                        <div class="form-btns pull-right">
-                           <a href="#" class="cancel-btn">Cancel</a>
-                           <button class="save-btn">Save</button>
-                        </div>
-                     </div>
-                     <!-- /.settings footer -->
-                  </div>
-                  <!-- Favorites Settings -->
+                  
+                  <!-- Favorites -->
+                  <g:render template="/profile/favorites"/>
+                  
                   <!-- /Artist Tabs -->
+                 
                   <!-- User Tabs -->
                   <!--- User Preferences Tab -->
-                  <div id="user-preferences" class="tab-pane fade">
-                     <h2 class="settings-header">Select your preferences to get better results.</h2>
-                     <div class="row">
-                        <div class="col-md-4 settings-label">
-                           <label for="cosmetics">Cosmetics*</label>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-8 settings-input">
-                           <ul class="user-cosmetics">
-                              <li><input type="checkbox" name="cosmetics" data-label="Avon"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Blue Heaven"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Bobbi Brown"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Chamber"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Christian Dior"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Color Bar"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Elle 18"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Lakme"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Lancome"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="L'Oreal Paris"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="M.A.C."/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Maybelline"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Miss Claire"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Nars"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="O.P.I."/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Oriflame"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Revlon"/></li>
-                              <li><input type="checkbox" name="cosmetics" data-label="Vivianna"/></li>
-                           </ul>
-                        </div>
-                        <!-- /.col -->
-                     </div>
-                     <!-- /.row -->     
-                     <div class="row">
-                        <div class="col-md-4 settings-label">
-                           <label for="user-services">Services</label>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-8 settings-input">
-                           <ul class="user-services">
-                              <li><input type="checkbox" name="services" data-label="Avon"/></li>
-                              <li><input type="checkbox" name="services" data-label="Blue Heaven"/></li>
-                              <li><input type="checkbox" name="services" data-label="Bobbi Brown"/></li>
-                              <li><input type="checkbox" name="services" data-label="Chamber"/></li>
-                              <li><input type="checkbox" name="services" data-label="Christian Dior"/></li>
-                              <li><input type="checkbox" name="services" data-label="Color Bar"/></li>
-                              <li><input type="checkbox" name="services" data-label="Elle 18"/></li>
-                              <li><input type="checkbox" name="services" data-label="Lakme"/></li>
-                              <li><input type="checkbox" name="services" data-label="Lancome"/></li>
-                              <li><input type="checkbox" name="services" data-label="L'Oreal Paris"/></li>
-                              <li><input type="checkbox" name="services" data-label="M.A.C."/></li>
-                              <li><input type="checkbox" name="services" data-label="Maybelline"/></li>
-                              <li><input type="checkbox" name="services" data-label="Miss Claire"/></li>
-                              <li><input type="checkbox" name="services" data-label="Nars"/></li>
-                              <li><input type="checkbox" name="services" data-label="O.P.I."/></li>
-                              <li><input type="checkbox" name="services" data-label="Oriflame"/></li>
-                              <li><input type="checkbox" name="services" data-label="Revlon"/></li>
-                              <li><input type="checkbox" name="services" data-label="Vivianna"/></li>
-                           </ul>
-                        </div>
-                        <!-- /.col -->
-                     </div>
-                     <!-- /.row -->
-                     <!-- Settings Footer -->
-                     <div class="settings-footer">
-                        <div class="form-btns pull-right">
-                           <a href="" class="cancel-btn">Cancel</a>
-                           <button class="save-btn">Save</button>
-                        </div>
-                     </div>
-                     <!-- /.settings footer -->
-                  </div>
-                  <!-- /.User Preferences tab -->
+                  <g:render template="/profile/userPreferences"/>
+                  
                   <!-- User Favorites Tab -->
                   <div id="user-favorites" class="tab-pane fade">
                      <h2 class="settings-header">List of your favorite artists</h2>
