@@ -15,8 +15,8 @@ $(document).ready(function() {
 });
 
 /* Custom Checkboxes & Radio Buttons */
-$('.settings-input input[type="checkbox"]').each(function(){
-    $(this).prettyCheckable();
+$('.settings-input [type="checkbox"]').each(function(){
+	$(this).prettyCheckable();
  });
 
 $('.settings-input input[type="radio"]').each(function(){
@@ -105,9 +105,10 @@ $(function(){
 $(function(){
       $(".dropdown-menu.outer-noscroll.settings-dropdown-hours-am li").click(function(){
           $(".settings-dropdown-btn.am").text($(this).text());
-          $(".settings-dropdown-btn.am").val($(this).text());
+          $(".settings-dropdown-btn.am").val($(this).val());
           $(".dropdown-menu.outer-noscroll.settings-dropdown-hours-am li").removeClass("selected");
           $(this).addClass("selected");
+          $(".settings-business-hours-start-input").val($(this).data("value"));
       });
 });
 
@@ -117,6 +118,7 @@ $(function(){
           $(".settings-dropdown-btn.pm").val($(this).text());
           $(".dropdown-menu.outer-noscroll.settings-dropdown-hours-pm li").removeClass("selected");
           $(this).addClass("selected");
+          $(".settings-business-hours-end-input").val($(this).data("value"));
       });
 });
 
@@ -126,6 +128,7 @@ $(function(){
           $(".settings-dropdown-btn.hours-am").val($(this).text());
           $(".dropdown-menu.outer-noscroll.settings-dropdown-menu.hours-am1 li").removeClass("selected");
           $(this).addClass("selected");
+          $(".settings-business-hours-start-period-input").val($(this).data("value"));
       });
 });
 
@@ -135,6 +138,7 @@ $(function(){
           $(".settings-dropdown-btn.hours-pm").val($(this).text());
           $(".dropdown-menu.outer-noscroll.settings-dropdown-menu.hours-am li").removeClass("selected");
           $(this).addClass("selected");
+          $(".settings-business-hours-end-period-input").val($(this).data("value"));
       });
 });
 
@@ -245,10 +249,6 @@ $("ul.dropdown-menu.outer-noscroll.settings-dropdown-state li").click(function()
     
 }); 
 
-$(".save-btn-account-settings").click(function(event) {
-    validateAccountSettingsForm(); 
-});
-
 function validateAccountSettingsForm() {
 	var isEverythingValid = true;
 	
@@ -306,6 +306,67 @@ function validateAccountSettingsForm() {
     return isEverythingValid;
 }
 
+function validateArtistProfileSettingsForm() {
+	var isEverythingValid = true;
+	
+	/** About you name validation **/
+	if (!$("#settings-aboutyou")[0].checkValidity()) {
+		isEverythingValid = false;
+	}
+    
+	/** Travel radio button validation **/
+    if ($('#travel-yes').is(':checked') || $('#travel-no').is(':checked')) {  
+        $(".travel-container .help-block.with-errors").text("");
+    }else{
+        $(".has-radio .help-block.with-errors").text("Please make a selection.");
+        event.preventDefault();
+        isEverythingValid = false;
+    }
+    
+    /** Cosmetics check boxes validation **/
+    var anyBoxesChecked = false;
+    $('.cos-checkbox').each(function() {
+        if ($(this).prop('checked')) {
+            anyBoxesChecked = true;
+        }
+    });
+ 
+    if (anyBoxesChecked == false) {
+      $(".cosmetics.help-block.with-errors").text("Please select at least one.");
+      event.preventDefault();  
+      isEverythingValid = false;
+    } 
+    
+    /** Services check boxes validation **/
+    var anyBoxesChecked = false;
+    $('.service-checkbox').each(function() {
+        if ($(this).prop('checked')) {
+            anyBoxesChecked = true;
+        }
+    });
+ 
+    if (anyBoxesChecked == false) {
+      $(".services.help-block.with-errors").text("Please select at least one.");
+      event.preventDefault();  
+      isEverythingValid = false;
+    } 
+    
+    /** Complimentary trial radio button validation **/
+    if ($('#trial-comp').is(':checked') || $('#trial-paid').is(':checked')) {  
+        $(".trial-container .help-block.with-errors").text("");
+    }else{
+        $(".trial-container .help-block.with-errors").text("Please make a selection.");
+        event.preventDefault();
+        isEverythingValid = false;
+    }
+    
+    /** Years of experience name validation **/
+	if (!$("#settings-experience")[0].checkValidity()) {
+		isEverythingValid = false;
+	}
+    return isEverythingValid;
+}
+
 /* Clear Radio Error */
 $(".clearfix.prettyradio.labelright.blue").click(function(){
     $(".has-radio .help-block.with-errors").text("");
@@ -319,36 +380,6 @@ $(".clearfix.prettycheckbox.labelright.services-check.blue").click(function(){
     $(".services.help-block.with-errors").text("");
 });
 
-
-/* Check if checkboxes are checked */
-function checkChecked(formname) {
-    var anyBoxesChecked = false;
-    $('.cos-checkbox').each(function() {
-        if ($(this).prop('checked')) {
-            anyBoxesChecked = true;
-        }
-    });
- 
-    if (anyBoxesChecked == false) {
-      $(".cosmetics.help-block.with-errors").text("Please select at least one.");
-      event.preventDefault();  
-    } 
-}
-
-/* Check if checkboxes are checked */
-function checkCheckeda(formname) {
-    var anyBoxesChecked = false;
-    $('.service-checkbox').each(function() {
-        if ($(this).prop('checked')) {
-            anyBoxesChecked = true;
-        }
-    });
- 
-    if (anyBoxesChecked == false) {
-      $(".services.help-block.with-errors").text("Please select at least one.");
-      event.preventDefault();  
-    } 
-}
 
 
 

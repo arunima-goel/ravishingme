@@ -19,6 +19,6 @@ class ServiceWithPrice {
 	
 	static constraints = {
 		service blank: false, nullable: false
-		startingPrice blank: false, nullable: false
+		startingPrice blank: false, nullable: false, matches: [0-9]
 	}
 }

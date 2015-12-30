@@ -1,16 +1,22 @@
 <div id="profile-settings" class="tab-pane fade">
-	<g:hiddenField name="username" value="${loggedInUser?.profile?.username}" />
-	<g:hiddenField name="id" value="${loggedInUser?.profile?.id}" />
-	<h2 class="settings-header">Add some basic information to setup your profile</h2>
+	<h2 class="settings-header">Add some basic information to setup
+		your profile</h2>
 	<g:form class="settings-form" data-toggle="validator">
+		<g:hiddenField name="username"
+			value="${loggedInUser?.profile?.username}" />
+		<g:hiddenField name="id" value="${loggedInUser?.profile?.id}" />
 		<div class="row">
 			<div class="col-md-4 settings-label">
-				<label for="bio">Bio</label>
+				<label for="bio">Bio*</label>
 			</div>
 			<!-- /.col -->
 			<div class="col-md-8 settings-input form-group">
-				<textarea name="aboutYou" rows="10" cols="66" maxlength="1000"></textarea>
+				<textarea required name="aboutYou" id="settings-aboutyou" rows="10"
+					cols="66" maxlength="1000">
+					${loggedInUser?.profile?.aboutYou}
+				</textarea>
 				<div class="bio-msg">Maximum 1,000 characters</div>
+				<div class="help-block with-errors"></div>
 			</div>
 			<!-- /.col -->
 		</div>
@@ -21,10 +27,12 @@
 			</div>
 			<!-- /.col -->
 			<div class="col-md-8 settings-input has-radio travel-container">
-				<input type="radio" name="travel" id="travel-yes" value="Yes"><label
-					for="travel-yes" class="has-radio">Yes</label> <input type="radio"
-					name="travel" id="travel-no" value="No"><label
-					for="travel-no">No</label>
+				<g:radio name="isWillingToTravel" id="travel-yes" value="true"
+					checked="${loggedInUser?.profile?.isWillingToTravel.equals(true)}" />
+				<label for="travel-yes" class="has-radio">Yes</label>
+				<g:radio name="isWillingToTravel" id="travel-no" value="false"
+					checked="${loggedInUser?.profile?.isWillingToTravel.equals(false)}" />
+				<label for="travel-no">No</label>
 				<div class="help-block with-errors"></div>
 			</div>
 			<!-- /.col -->
@@ -37,45 +45,14 @@
 			<!-- /.col -->
 			<div class="col-md-8 settings-input form-group cosmetics-group">
 				<ul class="settings-checkboxes cosmetics">
-					<li><input type="checkbox" name="cosmetics" data-label="Avon"
-						data-customClass="cosmetics-check" class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="Blue Heaven" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="Bobbi Brown" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="Chamber" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="Christian Dior" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="Color Bar" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="Elle 18" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics" data-label="Lakme"
-						data-customClass="cosmetics-check" class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="Lancome" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="L'Oreal Paris" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="M.A.C." data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="Maybelline" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics"
-						data-label="Miss Claire" data-customClass="cosmetics-check"
-						class="cos-checkbox" /></li>
-					<li><input type="checkbox" name="cosmetics" data-label="Nars"
-						data-customClass="cosmetics-check" class="cos-checkbox" /></li>
+					<g:each
+						in="${org.ravishingme.CosmeticBrand.list(sort: 'id', order: 'asc')}"
+						var="cosmeticBrand" status="i">
+						<li><input type="checkbox" name="cosmeticBrands"
+							value="${cosmeticBrand.id}" data-label="${cosmeticBrand.name}"
+							data-customClass="cosmetics-check" class="cos-checkbox"
+							${loggedInUser?.profile?.cosmeticBrands.contains(cosmeticBrand)?'checked':''} /></li>
+					</g:each>
 				</ul>
 				<div class="help-block with-errors cosmetics"></div>
 				<div class="text-center settings-hint">
@@ -90,81 +67,55 @@
 		<!-- /.row -->
 		<div class="row">
 			<div class="col-md-4 settings-label">
-				<label for="cosmetics">Services*</label>
+				<label for="services">Services*</label>
 			</div>
 			<!-- /.col -->
 			<div class="col-md-8 settings-input">
 				<div class="row">
-					<div class="col-md-6">
-						<ul class="services-checkboxes">
-							<li class="services-header">Add Services</li>
-							<li><input type="checkbox" name="services" data-label="Avon"
-								data-customClass="services-check" class="service-checkbox" /></li>
-							<li><input type="checkbox" name="services"
-								data-label="Blue Heaven" data-customClass="services-check"
-								class="service-checkbox" /></li>
-							<li><input type="checkbox" name="services"
-								data-label="Bobbi Brown" data-customClass="services-check"
-								class="service-checkbox" /></li>
-							<li><input type="checkbox" name="services"
-								data-label="Chamber" data-customClass="services-check"
-								class="service-checkbox" /></li>
-							<li><input type="checkbox" name="services"
-								data-label="Christian Dior" data-customClass="services-check"
-								class="service-checkbox" /></li>
-							<li><input type="checkbox" name="services"
-								data-label="Color Bar" data-customClass="services-check"
-								class="service-checkbox" /></li>
-							<li><input type="checkbox" name="services"
-								data-label="Elle 18" data-customClass="services-check"
-								class="service-checkbox" /></li>
-							<li><input type="checkbox" name="services"
-								data-label="Lakme" data-customClass="services-check"
-								class="service-checkbox" /></li>
-							<li><input type="checkbox" name="services"
-								data-label="Lancome" data-customClass="services-check"
-								class="service-checkbox" /></li>
-						</ul>
-						<div class="help-block with-errors services"></div>
-					</div>
-					<!-- /.col -->
-					<div class="col-md-6">
-						<ul class="service-prices-list">
-							<li class="services-header price">Starting Price</li>
-							<li>Rs. <input type="text" name="price" placeholder="1234" /></li>
-							<li>Rs. <input type="text" name="price" placeholder="1234" /></li>
-							<li>Rs. <input type="text" name="price" placeholder="1234" /></li>
-							<li>Rs. <input type="text" name="price" placeholder="1234" /></li>
-							<li>Rs. <input type="text" name="price" placeholder="1234" /></li>
-							<li>Rs. <input type="text" name="price" placeholder="1234" /></li>
-							<li>Rs. <input type="text" name="price" placeholder="1234" /></li>
-							<li>Rs. <input type="text" name="price" placeholder="1234" /></li>
-							<li>Rs. <input type="text" name="price" placeholder="1234" /></li>
-						</ul>
-					</div>
-					<!-- //.col -->
+					<table width="100%" margin-left="auto" margin-right="auto">
+						<tr>
+							<td class="col-md-6 services-header" align="left">Add
+								Services</td>
+							<td class="col-md-6 services-header price" align="right">Starting
+								Price</td>
+						</tr>
+						<g:each in="${loggedInUser?.profile?.servicesOffered}"
+							var="serviceOffered" status="i">
+							<tr>
+								<g:hiddenField name='servicesOffered[${i}].id'
+									value='${serviceOffered.id}' />
+								<td class="col-md-6 align="left"><input type="checkbox"
+									name="servicesOffered[${i}].isOffered"
+									data-label="${serviceOffered.service.name}"
+									data-customClass="services-check" class="service-checkbox"
+									${serviceOffered.isOffered?'checked':''} value="yes" /> <input
+									type="hidden" name="servicesOffered[${i}].isOffered" value="no" />
+								</td>
+								<td class="col-md-6" align="right">Rs. <input type="text"
+									pattern="[0-9]" name="servicesOffered[${i}].startingPrice"
+									placeholder="1234"
+									value="<g:formatNumber number='${serviceOffered.startingPrice}' format='0'/>" /></td>
+							</tr>
+						</g:each>
+					</table>
+					<div class="help-block with-errors services"></div>
 				</div>
-				<!-- /.row -->
 			</div>
-			<!-- /.col -->
 		</div>
 		<!-- /.row -->
 		<div class="row">
 			<div class="col-md-4 settings-label">
-				<label for="trial">Trial</label>
+				<label for="trial">Trial*</label>
 			</div>
 			<!-- /.col -->
-			<div class="col-md-8 settings-input has-radio">
-				<div class="row">
-					<div class="col-md-6">
-						<input type="radio" name="travel" id="trial-comp"
-							data-label="Complimentary">
-					</div>
-					<div class="col-md-6 pm-col">
-						<input type="radio" name="travel" id="trial-paid"
-							data-label="Paid">
-					</div>
-				</div>
+			<div class="col-md-8 settings-input has-radio trial-container">
+				<g:radio name="isComplimentaryTrial" id="trial-comp" value="true"
+					checked="${loggedInUser?.profile?.isComplimentaryTrial.equals(true)}" />
+				<label for="trial-comp" class="has-radio">Complimentary</label>
+				<g:radio name="isComplimentaryTrial" id="trial-paid" value="false"
+					checked="${loggedInUser?.profile?.isComplimentaryTrial.equals(false)}" />
+				<label for="trial-paid">Paid</label>
+				<div class="help-block with-errors"></div>
 			</div>
 			<!-- /.col -->
 		</div>
@@ -175,9 +126,10 @@
 			</div>
 			<!-- /.col -->
 			<div class="col-md-8 settings-input form-group">
-				<input type="text" name="experience" id="experience"
-					data-error="Please enter your years of experience. Numbers only."
-					pattern="[0-9]{1,2}" required>
+				<input type="text" name="yearsOfExperience" id="settings-experience"
+					data-error="Please enter your years of experience (numbers only)."
+					pattern="[0-9]{1,2}" required
+					value="${loggedInUser?.profile?.yearsOfExperience}">
 				<div class="help-block with-errors"></div>
 			</div>
 			<!-- /.col -->
@@ -191,58 +143,84 @@
 			<div class="col-md-8 settings-input">
 				<div class="row">
 					<div class="button-group">
+						<g:hiddenField name="businessHours.startTime"
+							class="settings-business-hours-start-input"
+							value="${loggedInUser?.profile?.businessHours?.startTime?.key}" />
 						<button type="button" class="settings-dropdown-btn am"
-							data-toggle="dropdown">10:00</button>
+							data-toggle="dropdown">
+							${loggedInUser?.profile?.businessHours?.startTime?.value}
+						</button>
 						<ul
 							class="dropdown-menu outer-noscroll settings-dropdown-hours-am">
 							<div class="inner-noscroll">
-								<li class="selected"><a>10:00</a></li>
-								<li><a>10:30</a></li>
-								<li><a>11:00</a></li>
-								<li><a>11:30</a></li>
-								<li><a>12:00</a></li>
-								<li><a>12:30</a></li>
-								<li><a>1:00</a></li>
+								<g:each in="${org.ravishingme.BusinessHours.Time.values()}"
+									var="businessHoursStart">
+									<li data-value="${businessHoursStart?.key}"
+										class="${businessHoursStart?.key == loggedInUser?.profile?.businessHours?.startTime?.key ? 'selected' : ''}"><a>
+											${businessHoursStart?.value}
+									</a></li>
+								</g:each>
 							</div>
 							<div class="scroll-opac"></div>
 						</ul>
 					</div>
 					<div class="button-group">
+						<g:hiddenField name="businessHours.startTimePeriod"
+							class="settings-business-hours-start-period-input"
+							value="${loggedInUser?.profile?.businessHours?.startTimePeriod?.key}" />
 						<button type="button" class="settings-dropdown-btn hours-am"
-							data-toggle="dropdown">AM</button>
+							data-toggle="dropdown">${loggedInUser?.profile?.businessHours?.startTimePeriod?.key}</button>
 						<ul
 							class="dropdown-menu outer-noscroll settings-dropdown-menu hours-am1">
 							<div class="inner-noscroll">
-								<li class="selected"><a>AM</a></li>
-								<li><a>PM</a></li>
+								<g:each in="${org.ravishingme.BusinessHours.Period.values()}"
+									var="businessHoursStartTimePeriod">
+									<li data-value="${businessHoursStartTimePeriod?.key}"
+										class="${businessHoursStartTimePeriod?.key == loggedInUser?.profile?.businessHours?.startTimePeriod?.key ? 'selected' : ''}"><a>
+											${businessHoursStartTimePeriod?.key}
+									</a></li>
+								</g:each>
 							</div>
 						</ul>
 					</div>
 					<div class="button-group">
+						<g:hiddenField name="businessHours.endTime"
+							class="settings-business-hours-end-input"
+							value="${loggedInUser?.profile?.businessHours?.endTime?.key}" />
 						<button type="button" class="settings-dropdown-btn pm"
-							data-toggle="dropdown">10:00</button>
+							data-toggle="dropdown">
+							${loggedInUser?.profile?.businessHours?.endTime?.value}
+						</button>
 						<ul
 							class="dropdown-menu outer-noscroll settings-dropdown-hours-pm">
 							<div class="inner-noscroll">
-								<li class="selected"><a>10:00</a></li>
-								<li><a>10:30</a></li>
-								<li><a>11:00</a></li>
-								<li><a>11:30</a></li>
-								<li><a>12:00</a></li>
-								<li><a>12:30</a></li>
-								<li><a>1:00</a></li>
+								<g:each in="${org.ravishingme.BusinessHours.Time.values()}"
+									var="businessHoursEnd">
+									<li data-value="${businessHoursEnd?.key}"
+										class="${businessHoursEnd?.key == loggedInUser?.profile?.businessHours?.endTime?.key ? 'selected' : ''}"><a>
+											${businessHoursEnd?.value}
+									</a></li>
+								</g:each>
 							</div>
 							<div class="scroll-opac"></div>
 						</ul>
 					</div>
 					<div class="button-group">
-						<button type="button" class="settings-dropdown-btn hours-pm"
-							data-toggle="dropdown">AM</button>
+						<g:hiddenField name="businessHours.endTimePeriod"
+							class="settings-business-hours-end-period-input"
+							value="${loggedInUser?.profile?.businessHours?.endTimePeriod?.key}" />
+						<button type="button" class="settings-dropdown-btn hours-am"
+							data-toggle="dropdown">${loggedInUser?.profile?.businessHours?.endTimePeriod?.key}</button>
 						<ul
 							class="dropdown-menu outer-noscroll settings-dropdown-menu hours-am">
 							<div class="inner-noscroll">
-								<li class="selected"><a>AM</a></li>
-								<li><a>PM</a></li>
+								<g:each in="${org.ravishingme.BusinessHours.Period.values()}"
+									var="businessHoursEndTimePeriod">
+									<li data-value="${businessHoursEndTimePeriod?.key}"
+										class="${businessHoursEndTimePeriod?.key == loggedInUser?.profile?.businessHours?.endTimePeriod?.key ? 'selected' : ''}"><a>
+											${businessHoursEndTimePeriod?.key}
+									</a></li>
+								</g:each>
 							</div>
 						</ul>
 					</div>
@@ -256,7 +234,10 @@
 		<div class="settings-footer">
 			<div class="form-btns pull-right">
 				<a href="" class="cancel-btn">Cancel</a>
-				<button class="save-btn">Save</button>
+				<g:submitToRemote class="save-btn"
+					url="[controller:'profile', action:'update']" update="profileInfo"
+					value="Save"
+					before="if(!validateArtistProfileSettingsForm()) return false;" />
 			</div>
 		</div>
 		<!-- /.settings footer -->

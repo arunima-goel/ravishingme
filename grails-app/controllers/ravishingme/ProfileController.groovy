@@ -25,6 +25,7 @@ class ProfileController {
 		// ***deselected values don't get saved if we don't clear the values here
 		if (profileInstance.getIsArtist()) {
 			profileInstance.cosmeticBrands.clear();
+			profileInstance.servicesOffered.clear();
 		} else {
 			profileInstance.preferredCosmeticBrands.clear();
 			profileInstance.preferredServices.clear();

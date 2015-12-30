@@ -149,7 +149,7 @@
 			<div class="form-btns pull-right">
 				<a href="#" data-target="#warning-modal" data-toggle="modal"
 					class="cancel-btn">Cancel</a>
-				<g:submitToRemote class="save-btn save-btn-account-settings"
+				<g:submitToRemote class="save-btn"
 					url="[controller:'profile', action:'update']" update="profileInfo"
 					value="Save"
 					before="if(!validateAccountSettingsForm()) return false;" />

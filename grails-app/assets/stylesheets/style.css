@@ -1689,7 +1689,7 @@ ul.settings-menu li a:focus{
     min-height: auto;
     padding: 5px 20px;
     font-size: 14px;
-    width: 80%;
+    width: 60%;
 }
 
 .settings-input textarea{
@@ -1787,7 +1787,7 @@ ul.services-checkboxes{
 
 ul.services-checkboxes li{
     margin-bottom: 0px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
 }
 
 ul.service-prices-list li{
@@ -2234,11 +2234,11 @@ a.sub-title.enabled{
 .services-header{
     color: #464548;
     font-weight: bold;
-    padding-left: 35px;
+    padding-left: 50px;
 }
 
 .services-header.price{
-    padding-right: 3px;
+    padding-right: 35px;
 }
 
 .hours-row{
