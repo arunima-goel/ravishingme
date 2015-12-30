@@ -23,15 +23,12 @@ class SearchController {
 		[profiles: Profile.list(), loggedInUser: loggedInUser]
 	}
 	
-	def searchLanding() {
+	def searchLanding() { // TODO: change this to search
 		log.info("Searching: " + params);
-//		SecUser loggedInUser = getLoggedInUser();
-//		log.info("Got logged in user info: " + loggedInUser)
-//		[profiles: Profile.list(), loggedInUser: loggedInUser]
 		redirect (uri: "/search", mdoel: [params: params]);
 	}
 
-	def search() {
+	def search() { // TODO: change this to filter
 		log.info("Searching: " + params);
 		SecUser loggedInUser = getLoggedInUser();
 		log.info("Got logged in user info: " + loggedInUser)

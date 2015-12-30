@@ -1897,7 +1897,7 @@ img.fav-heart:hover{
     padding: 5px 20px;
     font-size: 14px;
     text-align: left;
-    width: 84%;
+    width: 80%;
     
 }
 
@@ -2122,6 +2122,11 @@ a.sub-title{
 .navbar.navbar-inverse.navbar-fixed-top{
     margin-bottom: 0px;
     padding-bottom: 10px;
+}
+
+.navbar.navbar-inverse.navbar-fixed-top.profile-navbar{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 .about-section{

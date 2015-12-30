@@ -63,6 +63,7 @@ class ProfileController {
 
 	def settings() {
 		try {
+			log.info("Settings");
 			// checkMinContent(username) // if logged in user is the same as the username,
 			// then check min content and display edit page
 			def loggedInUser = getLoggedInUser();

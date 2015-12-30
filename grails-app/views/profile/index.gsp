@@ -48,7 +48,7 @@
                <div class="portfolio-content">
                   <div class="section-header text-center">
                      <h2 class="profile-section-header">
-                        Portfolio <a href="about.html">Contact us</a>
+                        Portfolio
                      </h2>
                   </div>
                   <div class="row">

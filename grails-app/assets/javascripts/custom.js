@@ -89,6 +89,7 @@ $(function(){
           $(".settings-dropdown-btn.city").val($(this).text());
           $(".settings-dropdown-city li").removeClass("selected");
           $(this).addClass("selected");
+          $(".city-dropdown .settings-city-input").val($(this).val());
       });
 });
 
@@ -184,8 +185,8 @@ $(function(){
 });
 
 /* Settings Menu */
-$("input[name='artist']").change(function(){
-    if($(this).val() == 'Yes'){
+$("input[name='isArtist']").change(function(){
+    if($(this).val() == 'true'){
         $(".artist-menu-item").show();
         $(".user-menu-item").hide();
         $(".whatsapp-msg").show();
@@ -244,15 +245,44 @@ $("ul.dropdown-menu.outer-noscroll.settings-dropdown-state li").click(function()
     
 }); 
 
-$(".save-btn").click(function(event) {
+$(".save-btn-account-settings").click(function(event) {
+    validateAccountSettingsForm(); 
+});
+
+function validateAccountSettingsForm() {
+	var isEverythingValid = true;
+	
+	/** Artist radio button validation **/
+    if ($('#artist-yes').is(':checked') || $('#artist-no').is(':checked')) {  
+        $(".artist-container .help-block.with-errors").text("");
+    }else{
+        $(".has-radio .help-block.with-errors").text("Please make a selection.");
+        event.preventDefault();
+        isEverythingValid = false;
+    }
     
-    /** Location Validation **/
+	/** User full name validation **/
+	if (!$("#settings-name")[0].checkValidity()) {
+		isEverythingValid = false;
+	}
+	
+	/** Email validation **/
+	if (!$("#settings-email")[0].checkValidity()) {
+		isEverythingValid = false;
+	}
+		
+	/** Location Validation **/
+	if (!$("#settings-location")[0].checkValidity()) {
+		isEverythingValid = false;
+	}
+	
     var value = $(".settings-dropdown-btn.city").text();
     var isValid = (value !== 'City')
     
     if (!isValid) {
         $(".city-dropdown .help-block.with-errors").text("Please select your city");
         event.preventDefault();
+        isEverythingValid = false;
     } else {
         $(".city-dropdown .help-block.with-errors").text("");
     }
@@ -263,35 +293,18 @@ $(".save-btn").click(function(event) {
     if (!isValid) {
         $(".state-dropdown .help-block.with-errors").text("Please select your state");
         event.preventDefault();
+        isEverythingValid = false;
     } else {
         $(".state-dropdown .help-block.with-errors").text("");
     }
     
-    /** Radio Button Validation **/
-    if ($('#artist-yes').is(':checked') || $('#artist-no').is(':checked')) {  
-        $(".artist-container .help-block.with-errors").text("");
-    }else{
-        $(".has-radio .help-block.with-errors").text("Please make a selection.");
-        event.preventDefault();
-    }
+    /** Location Validation **/
+	if (!$("#settings-whatsapp")[0].checkValidity()) {
+		isEverythingValid = false;
+	}
     
-    /** Profile Validation **/
-    if ($('#travel-yes').is(':checked') || $('#travel-no').is(':checked')) {  
-        $(".travel-container .help-block.with-errors").text("");
-    }else{
-        $(".travel-container .help-block.with-errors").text("Please make a selection.");
-        event.preventDefault();
-    }
-    
-    checkChecked('.settings-form');
-    checkCheckeda('.settings-form');
-    
-    if(!$(".service-checkbox").prop('checked')){
-      $(".services.help-block.with-errors").text("Please select at least one.");
-      event.preventDefault();
-    }
-
-});
+    return isEverythingValid;
+}
 
 /* Clear Radio Error */
 $(".clearfix.prettyradio.labelright.blue").click(function(){

@@ -2,7 +2,7 @@
 <header id="header-wrapper">
    <div class="container-fluid">
       <!-- Navigation -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-inverse navbar-fixed-top profile-navbar" role="navigation">
 			<div class="container-fluid nav-container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -61,7 +61,7 @@
 								${profile.name}<span>
 								<oauth:connected provider="facebook">
 									<g:if test="${loggedInUser.profile.username == profile.username}">
-									   <a href="settings.html">Edit</a></span>
+									   <g:link mapping="settings">Edit</g:link>
 									</g:if>
 								</oauth:connected>
 							</h1>
