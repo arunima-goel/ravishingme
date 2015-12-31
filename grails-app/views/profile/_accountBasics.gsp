@@ -115,7 +115,7 @@
 			</div>
 			<!-- /.col -->
 			<div class="col-md-8 settings-input form-group">
-				<input type="text" name="phone" id="phone"
+				<input type="text" name="phoneNumber" id="phone"
 					value="${loggedInUser?.profile?.phoneNumber}"
 					data-error="Please enter a valid phone number."
 					placeholder="1234567890" pattern="[0-9]{0,13}">
@@ -130,7 +130,7 @@
 			</div>
 			<!-- /.col -->
 			<div class="col-md-8 settings-input form-group">
-				<input type="text" name="whatsapp" id="settings-whatsapp"
+				<input type="text" name="whatsAppNumber" id="settings-whatsapp"
 					value="${loggedInUser?.profile?.phoneNumber}" required
 					placeholder="1234567890"
 					data-error="Please enter a valid Whatsapp number."

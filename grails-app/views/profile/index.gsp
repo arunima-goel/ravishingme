@@ -29,7 +29,7 @@
 								<div class="col-md-4">
 									${profile.yearsOfExperience}<span>Years of Experience</span>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-4" id="favorite-icon">
 									<g:render template="/profile/favoriteIcon" model="[profile:profile, loggedInUser:loggedInUser]"/>
 								</div>
 							</div>

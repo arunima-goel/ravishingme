@@ -1855,7 +1855,7 @@ ul.user-services{
     height: 35px;
 }
 
-.fav-inquiry, .fav-phone{
+.fav-inquiry, .fav-phone, .fav-favorite{
     display: inline-block;
     padding-right: 20px;
     height: 35px;
@@ -1871,12 +1871,25 @@ ul.user-services{
     color: #fb4e41;
 }
 
-.fav-col img.fav-heart{
+.fav-col .fav-heart{
     height: auto;
 }
 
-img.fav-heart:hover{
+.fav-col .fav-heart:hover{
     cursor: pointer;
+}
+
+.fav-col .favorite-icon-orange{
+	height: 15px;
+	width: 15px;
+    border: none;
+    background: url('../img/heart-orange.png') no-repeat;
+    background-size: contain;
+}
+
+.testform{
+	height: 15px;
+	width: 15px;
 }
 
 .settings-input .has-radio label, #profile-settings .settings-input .has-radio label{

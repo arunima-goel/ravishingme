@@ -118,4 +118,17 @@ class ProfileController {
 		profileInstance.save(flush: true)
 		render(template:'/profile/favoriteIcon', model: [profile:favoriteProfileInstance, loggedInUser: getLoggedInUser()])
 	}
+	
+	def removeFavoriteFromSettings() {
+		log.info("Removing favorite")
+		log.info("\nFavorite Id: " + params.favoriteId + "\nId: " + params.id)
+		def favoriteProfileInstance = Profile.findById(params.favoriteId)
+
+		def loggedInUser = getLoggedInUser();
+		def profileInstance = loggedInUser.profile;
+		profileInstance.removeFromFavorites(favoriteProfileInstance)
+		profileInstance.save(flush: true)
+		render(template:'/profile/favoritesSettings', model: [profile:favoriteProfileInstance, loggedInUser: getLoggedInUser()])
+	//	render(template:'/profile/favorites', model: [loggedInUser: getLoggedInUser()])
+	}
 }
