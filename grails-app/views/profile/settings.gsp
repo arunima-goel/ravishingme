@@ -88,6 +88,7 @@
             </div>
          </div>
       </div>
+      
       <!-- jQuery -->
       <asset:javascript src="jquery.js"/>
     

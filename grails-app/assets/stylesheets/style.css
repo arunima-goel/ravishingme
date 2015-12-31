@@ -1953,6 +1953,12 @@ img.fav-heart:hover{
     margin-top: 20px;
 }
 
+
+#favorite-modal .modal-body{
+    padding-top: 0px;
+    padding-bottom: 25px;
+}
+
 a.leave-btn, a.stay-btn{
     color: #fff;
     padding: 10px 30px;

@@ -80,23 +80,25 @@ class ProfileController {
 	def getLoggedInUser() {
 		log.info("Getting logged in user")
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
-		try {
-			// Get user id and username from facebook
-			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me");
-			SecUser loggedInUser = SecUser.findByUserid(userid);
-			Profile loggedInUserProfile = Profile.findById(loggedInUser.profile.id);
-			log.info("Got logged in user userId: " + userid + " name: " + name + " profile username: " + loggedInUser.profile.username)
-			loggedInUser.profile = loggedInUserProfile;
-			return loggedInUser;
-		} catch (CustomException ce) {
-			log.info("Error getting logged in user")
-			flash.error = "Exception during login"
+		if (facebookAccessToken != null) {
+			try {
+				// Get user id and username from facebook
+				def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me");
+				SecUser loggedInUser = SecUser.findByUserid(userid);
+				Profile loggedInUserProfile = Profile.read(loggedInUser.profile.id);
+				log.info("Got logged in user userId: " + userid + " name: " + name + " profile username: " + loggedInUser.profile.username)
+				loggedInUser.profile = loggedInUserProfile;
+				return loggedInUser;
+			} catch (CustomException ce) {
+				log.info("Error getting logged in user")
+				flash.error = "Exception during login"
+			}
 		}
 	}
 
 	def addFavorite() {
 		log.info("Adding favorite")
-		def favoriteProfileInstance = Profile.get(params.id)
+		def favoriteProfileInstance = Profile.get(params.favoriteId)
 
 		def loggedInUser = getLoggedInUser();
 		def profileInstance = loggedInUser.profile;

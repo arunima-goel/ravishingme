@@ -201,24 +201,6 @@ $("input[name='isArtist']").change(function(){
     }
 });
 
-/* Change Heart Image on Favorites Settings */
-$('img.fav-heart').on({
-    'click': function(){
-        var src = ($(this).attr('src') === 'img/heart-orange.png')
-            ? 'img/heart-gray.png'
-            : 'img/heart-orange.png';
-         $(this).attr('src', src);
-    }
-});
-
-$('img.heart-img').on({
-    'click': function(){
-        var src = ($(this).attr('src') === 'img/heart-orange.png')
-            ? 'img/heart-gray.png'
-            : 'img/heart-orange.png';
-         $(this).attr('src', src);
-    }
-});
 
 
 /* Custom Form Validation */

@@ -30,7 +30,7 @@
 									${profile.yearsOfExperience}<span>Years of Experience</span>
 								</div>
 								<div class="col-md-4">
-									<g:render template="/profile/favoriteIcon"/>
+									<g:render template="/profile/favoriteIcon" model="[profile:profile, loggedInUser:loggedInUser]"/>
 								</div>
 							</div>
 							<!-- /.row -->
@@ -107,6 +107,23 @@
 		</div>
 	</div>
 	<!-- /Page Content Wrapper -->
+	
+	<!-- Favorite Modal -->
+      <div id="favorite-modal" class="modal fade" role="dialog">
+         <div class="modal-dialog">
+            <button class="modal-close" data-dismiss="modal"></button>
+            <!-- Modal content-->
+            <div class="modal-content text-center">
+               <div class="modal-header">
+                  <h4 class="modal-title">Do you want to save favorites? Please sign in.</h4>
+               </div>
+               <div class="modal-body">
+               </div>
+            </div>
+         </div>
+      </div>
+      
+     
 	<!-- jQuery -->
 	<asset:javascript src="jquery.js" />
 
