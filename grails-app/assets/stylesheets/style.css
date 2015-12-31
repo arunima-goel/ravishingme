@@ -2089,6 +2089,22 @@ a.sub-title{
     cursor: pointer;
 }
 
+.favorite-icon-gray{
+	height: 15px;
+	width: 15px;
+    border: none;
+    background: url('../img/heart-gray.png') no-repeat;
+    background-size: contain;
+}
+
+.favorite-icon-orange{
+	height: 15px;
+	width: 15px;
+    border: none;
+    background: url('../img/heart-orange.png') no-repeat;
+    background-size: contain;
+}
+
 .profile-banner{
     width: 100%;
     margin-bottom: 20px;

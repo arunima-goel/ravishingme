@@ -37,7 +37,7 @@ class ProfileController {
 		profileInstance.address.country = profileInstance.address.city.state.country;
 		profileInstance.address.save(flush:true);
 		profileInstance.save(flush:true);
-		
+
 		flash.info = "Successful profile update";
 		render(template:'/admin/profileInfo', model: [profile: Profile.findByUsername(params.username)])
 	}
@@ -92,5 +92,28 @@ class ProfileController {
 			log.info("Error getting logged in user")
 			flash.error = "Exception during login"
 		}
+	}
+
+	def addFavorite() {
+		log.info("Adding favorite")
+		def favoriteProfileInstance = Profile.get(params.id)
+
+		def loggedInUser = getLoggedInUser();
+		def profileInstance = loggedInUser.profile;
+		profileInstance.addToFavorites(favoriteProfileInstance)
+		profileInstance.save(flush: true)
+		render(template:'/profile/favoriteIcon', model: [profile:favoriteProfileInstance, loggedInUser: getLoggedInUser()])
+	}
+
+	def removeFavorite() {
+		log.info("Removing favorite")
+		log.info("\nFavorite Id: " + params.favoriteId + "\nId: " + params.id)
+		def favoriteProfileInstance = Profile.findById(params.favoriteId)
+
+		def loggedInUser = getLoggedInUser();
+		def profileInstance = loggedInUser.profile;
+		profileInstance.removeFromFavorites(favoriteProfileInstance)
+		profileInstance.save(flush: true)
+		render(template:'/profile/favoriteIcon', model: [profile:favoriteProfileInstance, loggedInUser: getLoggedInUser()])
 	}
 }
