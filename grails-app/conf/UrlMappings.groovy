@@ -11,6 +11,7 @@ class UrlMappings {
 		"500"(view:'/error')
 		"/profile/$username?" (controller: "profile", action: "index")
 		"/profile/update" (controller: "profile", action: "update")
+		"/profile/updateSettings" (controller: "profile", action: "updateSettings")
 		"/profile/addFavorite" (controller: "profile", action: "addFavorite")
 		"/profile/removeFavorite" (controller: "profile", action: "removeFavorite")
 		"/profile/removeFavoriteFromSettings" (controller: "profile", action: "removeFavoriteFromSettings")

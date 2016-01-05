@@ -1,4 +1,3 @@
-
 <h2 class="settings-header">List of your favorite artists</h2>
 <div class="row favorites-content">
 	<g:each in="${loggedInUser?.profile?.favorites}" var="favorite">

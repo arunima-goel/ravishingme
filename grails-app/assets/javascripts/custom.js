@@ -220,6 +220,18 @@ $("ul.dropdown-menu.outer-noscroll.settings-dropdown-city li").click(function() 
     
 });  
 
+$(".stay-btn").click(function() {
+	$("#warning-modal").modal("hide");
+});
+
+function displaySuccessMessage() {
+	$("#success-modal").modal("show");
+}
+
+function displayFailureMessage() {
+	$("#failure-modal").modal("show");
+}
+
 $("ul.dropdown-menu.outer-noscroll.settings-dropdown-state li").click(function() {
     var value = $(this).text();
     

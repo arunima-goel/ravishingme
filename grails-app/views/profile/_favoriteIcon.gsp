@@ -1,4 +1,3 @@
-
 <oauth:connected provider="facebook">
 	<g:form>
 		<g:hiddenField name="id" value="${loggedInUser?.profile?.id}" />

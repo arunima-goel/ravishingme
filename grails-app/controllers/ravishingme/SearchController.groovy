@@ -25,7 +25,10 @@ class SearchController {
 	
 	def searchLanding() { // TODO: change this to search
 		log.info("Searching: " + params);
-		redirect (uri: "/search", mdoel: [params: params]);
+		
+		
+		
+		redirect (uri: "/search", model: [params: params]);
 	}
 
 	def search() { // TODO: change this to filter

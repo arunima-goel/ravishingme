@@ -4,6 +4,61 @@
 <meta name="layout" content="main" />
 </head>
 <body class="settings-body">
+	<!-- Warning Modal -->
+	<div id="warning-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<button class="modal-close" data-dismiss="modal"></button>
+			<!-- Modal content-->
+			<div class="modal-content text-center">
+				<div class="modal-header">
+					<h4 class="modal-title">Are you sure you want to leave the
+						page?</h4>
+				</div>
+				<div class="modal-body">
+					<p>Hey there! It looks like you're in the middle of completing
+						your profile and you haven't saved all your content.</p>
+					<p class="save-before">Save before you go!</p>
+				</div>
+				<div class="modal-footer">
+					<g:link mapping="profileView" class="leave-btn"
+						params="[username: loggedInUser.profile.username]">
+						Leave
+					</g:link>
+					<a href="#" class="stay-btn">Stay</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Success Modal -->
+	<div id="success-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<button class="modal-close" data-dismiss="modal"></button>
+			<!-- Modal content-->
+			<div class="modal-content text-center">
+				<div class="modal-header">
+					<h4 class="modal-title">Your profile information was saved
+						successfully.</h4>
+				</div>
+				<div class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+	<!-- Failure Modal -->
+	<div id="failure-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<button class="modal-close" data-dismiss="modal"></button>
+			<!-- Modal content-->
+			<div class="modal-content text-center">
+				<div class="modal-header">
+					<h4 class="modal-title">Your profile information was not saved
+						successfully. Please contact ravme.</h4>
+				</div>
+				<div class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+
+
 	<!-- Settings -->
 	<div id="settings">
 		<div class="container">
@@ -40,38 +95,7 @@
 				</div>
 				<!-- /.col -->
 				<div class="col-md-8 settings-content tab-content">
-					<!-- Artist Tabs -->
-
-					<!-- Account Basics tab -->
-					<g:render template="/profile/accountBasics" />
-
-					<!-- Profile tab -->
-					<g:render template="/profile/artistProfile" />
-
-					<!-- Pictures tab -->
-					<g:render template="/profile/pictures" />
-
-					<!-- Social Networks -->
-					<g:render template="/profile/socialNetworks" />
-
-					<!-- Awards and Affiliations -->
-					<g:render template="/profile/awardsAndAffiliations" />
-
-					<!-- /Artist Tabs -->
-
-					<!-- User Tabs -->
-					<!--- User Preferences Tab -->
-					<g:render template="/profile/userPreferences" />
-
-					<!-- User Favorites Tab -->
-					<div id="favorites-settings" class="tab-pane fade">
-						<g:render template="/profile/favoritesSettings" />
-					</div>
-
-					<!-- User Display Pic Tab -->
-					<g:render template="/profile/pictures" />
-
-					<!-- /User Tabs -->
+					<g:render template="/profile/settingsTabContent" />
 				</div>
 				<!-- /.tab content -->
 			</div>
@@ -80,28 +104,6 @@
 		<!-- /.container -->
 	</div>
 	<!-- /.settings -->
-	<!-- Warning Modal -->
-	<div id="warning-modal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<button class="modal-close" data-dismiss="modal"></button>
-			<!-- Modal content-->
-			<div class="modal-content text-center">
-				<div class="modal-header">
-					<h4 class="modal-title">Are you sure you want to leave the
-						page?</h4>
-				</div>
-				<div class="modal-body">
-					<p>Hey there! It looks like you're in the middle of completing
-						your profile and you haven't saved all your content.</p>
-					<p class="save-before">Save before you go!</p>
-				</div>
-				<div class="modal-footer">
-					<a href="#" class="leave-btn">Leave</a> <a href="#"
-						class="stay-btn">Stay</a>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<!-- jQuery -->
 	<asset:javascript src="jquery.js" />

@@ -1,5 +1,7 @@
 package ravishingme
 
+import javax.servlet.http.HttpServletResponse;
+
 import grails.converters.JSON
 
 import org.ravishingme.Address;
@@ -40,6 +42,31 @@ class ProfileController {
 
 		flash.info = "Successful profile update";
 		render(template:'/admin/profileInfo', model: [profile: Profile.findByUsername(params.username)])
+	}
+
+	def updateSettings() {
+		// TODO: get logged in user and compare the ID here - do not update if there is no
+		log.info("Updating profile: " + params);
+
+		def profileInstance = Profile.get(params.id);
+
+		// ***deselected values don't get saved if we don't clear the values here
+		if (profileInstance.getIsArtist()) {
+			profileInstance.cosmeticBrands.clear();
+		} else {
+			profileInstance.preferredCosmeticBrands.clear();
+			profileInstance.preferredServices.clear();
+		}
+
+		bindData profileInstance, params;
+
+		profileInstance.address.state = profileInstance.address.city.state;
+		profileInstance.address.country = profileInstance.address.city.state.country;
+		profileInstance.address.save(flush:true);
+		profileInstance.save(flush:true);
+
+		flash.info = "Successful profile update";
+		render status:HttpServletResponse.SC_NO_CONTENT 
 	}
 
 	def index(String username) {
@@ -118,7 +145,7 @@ class ProfileController {
 		profileInstance.save(flush: true)
 		render(template:'/profile/favoriteIcon', model: [profile:favoriteProfileInstance, loggedInUser: getLoggedInUser()])
 	}
-	
+
 	def removeFavoriteFromSettings() {
 		log.info("Removing favorite")
 		log.info("\nFavorite Id: " + params.favoriteId + "\nId: " + params.id)
@@ -129,6 +156,6 @@ class ProfileController {
 		profileInstance.removeFromFavorites(favoriteProfileInstance)
 		profileInstance.save(flush: true)
 		render(template:'/profile/favoritesSettings', model: [profile:favoriteProfileInstance, loggedInUser: getLoggedInUser()])
-	//	render(template:'/profile/favorites', model: [loggedInUser: getLoggedInUser()])
+		//	render(template:'/profile/favorites', model: [loggedInUser: getLoggedInUser()])
 	}
 }
