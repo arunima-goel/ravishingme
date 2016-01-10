@@ -12,9 +12,7 @@
 		<!-- /.col -->
 		<div class="col-md-8 settings-input form-group">
 			<textarea required name="aboutYou" id="settings-aboutyou" rows="10"
-				cols="66" maxlength="1000">
-					${loggedInUser?.profile?.aboutYou}
-				</textarea>
+				cols="66" maxlength="1000">${loggedInUser?.profile?.aboutYou}</textarea>
 			<div class="bio-msg">Maximum 1,000 characters</div>
 			<div class="help-block with-errors"></div>
 		</div>

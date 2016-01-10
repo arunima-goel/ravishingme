@@ -9,9 +9,7 @@
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input">
-			<textarea name="awards" rows="10" cols="66">
-					${loggedInUser?.profile?.awards}
-				</textarea>
+			<textarea name="awards" rows="10" cols="66">${loggedInUser?.profile?.awards}</textarea>
 		</div>
 		<!-- /.col -->
 	</div>
@@ -22,9 +20,7 @@
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input">
-			<textarea name="affiliations" rows="10" cols="66">
-					${loggedInUser?.profile?.affiliations}
-				</textarea>
+			<textarea name="affiliations" rows="10" cols="66">${loggedInUser?.profile?.affiliations}</textarea>
 		</div>
 		<!-- /.col -->
 	</div>
