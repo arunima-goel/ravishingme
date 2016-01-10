@@ -35,7 +35,7 @@ $('.settings-input input[type="radio"]').each(function(){
 $(".search-header-checkboxes input[type='checkbox']").each(function(){
 	var prev_services_search = $('.dropdown-search-btn').data('prev-services-search');
 	if (prev_services_search) {
-		if ($.inArray($(this).val(), prev_services_search.split(",")) > -1) {
+		if ($.inArray($(this).val(), String(prev_services_search).split(",")) > -1) {
 			$(this).prop('checked', true)
 		}
 	}

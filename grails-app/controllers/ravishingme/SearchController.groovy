@@ -30,10 +30,12 @@ class SearchController {
 		def searchParams = [:];
 		searchParams["city"] = params.city;
 		if (params.services) {
-			searchParams["services"] = params.services.join(",");
+			searchParams["services"] = servicesList.join(",");
 		}
 
 		def result = performSearch(params.city, servicesList, null, null, null)
+		log.info(searchParams);
+		
 		[profiles: result, searchParams: searchParams, loggedInUser: loggedInUser]
 	}
 
@@ -44,10 +46,10 @@ class SearchController {
 			ArrayList<Long> cosmeticsList) {
 
 		log.info("Performing search for City: " + cityId
-			+ " Services: " + servicesList
-			+ " isWillingToTravel: " + isWillingToTravel
-			+ " bridalMakeupRange: " + bridalMakeupRange
-			+ " cosmeticsList: " + cosmeticsList);
+				+ " Services: " + servicesList
+				+ " isWillingToTravel: " + isWillingToTravel
+				+ " bridalMakeupRange: " + bridalMakeupRange
+				+ " cosmeticsList: " + cosmeticsList);
 		def profileCriteria = Profile.createCriteria()
 		def result = profileCriteria.listDistinct{
 			and {
