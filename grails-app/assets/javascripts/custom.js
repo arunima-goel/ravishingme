@@ -12,6 +12,15 @@ $(document).ready(function() {
             scrollTop: $( $.attr(this, 'href') ).offset().top}, 500);
     })
 
+    // Populate checkbox values on page load
+    var checkedValues = $('.search-header-checkboxes input:checkbox:checked').map(function() {
+        return $(this).data("label");
+    }).get();
+    
+    
+    console.log("Checked: " + checkedValues.join(', '));
+    
+    $(".sh-search .dropdown-search-btn, .home-content .dropdown-search-btn").text(checkedValues.join(', '));
 });
 
 /* Custom Checkboxes & Radio Buttons */
@@ -24,7 +33,14 @@ $('.settings-input input[type="radio"]').each(function(){
  });
 
 $(".search-header-checkboxes input[type='checkbox']").each(function(){
-    $(this).prettyCheckable();
+	var prev_services_search = $('.dropdown-search-btn').data('prev-services-search');
+	if (prev_services_search) {
+		if ($.inArray($(this).val(), prev_services_search.split(",")) > -1) {
+			$(this).prop('checked', true)
+		}
+	}
+
+	$(this).prettyCheckable();
 });
 
 $(".filter-header-checkboxes input[type='checkbox']").each(function(){
@@ -46,6 +62,7 @@ $('.search-header-checkboxes label, .search-header-checkboxes').click(function(e
     console.log("Checked: " + checkedValues.join(', '));
     
     $(".sh-search .dropdown-search-btn, .home-content .dropdown-search-btn").text(checkedValues.join(', '));
+   
 });
 
 
@@ -64,6 +81,11 @@ $('.travel-filter ul.dropdown-menu li a').click(function(e) {
 
 
 /* Change Dropdown Buttons Text */
+$(function() {
+	$('.dropdown-city-btn-search-form').text($('.dropdown-city-menu li.selected').text());
+	$('.dropdown-city-btn-search-form').val($('.dropdown-city-menu li.selected').text());
+});
+
 $(function(){
       $(".home-city .dropdown-menu li, .sh-city .dropdown-menu li").click(function(){
           $(".dropdown-city-btn").text($(this).text());
@@ -394,8 +416,6 @@ $(".clearfix.prettycheckbox.labelright.cosmetics-check.blue").click(function(){
 $(".clearfix.prettycheckbox.labelright.services-check.blue").click(function(){
     $(".services.help-block.with-errors").text("");
 });
-
-
 
 
 

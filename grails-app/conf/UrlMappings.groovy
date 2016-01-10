@@ -16,7 +16,7 @@ class UrlMappings {
 		"/profile/removeFavorite" (controller: "profile", action: "removeFavorite")
 		"/profile/removeFavoriteFromSettings" (controller: "profile", action: "removeFavoriteFromSettings")
 		name about: "/about"(controller:"base", action:"about")
-		"/search"(controller:"search", action:"/index")
+		"/search"(controller:"search", action:"index")
 		"/admin"(controller:"admin", action:"/index")
 		name settings: "/profile/settings"(controller:"profile", action: "settings")
 		name landingPage: "/"(controller: "user", action: "index")

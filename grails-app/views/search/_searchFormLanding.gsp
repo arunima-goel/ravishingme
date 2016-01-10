@@ -18,19 +18,19 @@
          <div class="input-group">
             <div class="drp-caret"></div>
             <div class="button-group">
-               <g:hiddenField name="city" class="home-city-input" />
+               <g:hiddenField name="city" class="home-city-input" value="1" />
 			   <button type="button" class="dropdown-city-btn" data-toggle="dropdown">Delhi</button>
                <ul class="dropdown-menu outer-noscroll">
                   <div class="inner-noscroll">
                      <g:each in="${org.ravishingme.City.list()}" var="city" >
-                        <li value="${city.id}"><a>${city.name}</a></li>
+                        <li value="${city.id}" class=${city.id == 1 ?'selected':''}><a>${city.name}</a></li>
                      </g:each>
                   </div>
                   <div class="scroll-opac"></div>
                </ul>
             </div>
             <span class="input-group-btn">
-               <g:actionSubmit class="btn btn-default home-btn" action="searchLanding" value="Search" />
+               <g:actionSubmit class="btn btn-default home-btn" action="index" value="Search" />
             </span>
          </div>
          <!-- /input-group -->

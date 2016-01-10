@@ -2,6 +2,7 @@ package ravishingme
 
 import grails.converters.JSON
 
+import org.apache.commons.lang.StringUtils;
 import org.ravishingme.Address;
 import org.ravishingme.BusinessHours;
 import org.ravishingme.City;
@@ -17,25 +18,125 @@ class SearchController {
 	def facebookService
 
 	def index() {
-		log.info("Searching: " + params);
+		log.info("Index Searching: " + params);
 		SecUser loggedInUser = getLoggedInUser();
 		log.info("Got logged in user info: " + loggedInUser)
-		[profiles: Profile.list(), loggedInUser: loggedInUser]
+
+		List<Long> servicesList = null;
+		if (params.services != null) {
+			servicesList = getLongListFromStringList(params.services)
+		}
+
+		def searchParams = [:];
+		searchParams["city"] = params.city;
+		if (params.services) {
+			searchParams["services"] = params.services.join(",");
+		}
+
+		def result = performSearch(params.city, servicesList, null, null, null)
+		[profiles: result, searchParams: searchParams, loggedInUser: loggedInUser]
 	}
-	
-	def searchLanding() { // TODO: change this to search
-		log.info("Searching: " + params);
-		
-		
-		
-		redirect (uri: "/search", model: [params: params]);
+
+	private performSearch(String cityId,
+			ArrayList<Long> servicesList,
+			Boolean isWillingToTravel,
+			Double bridalMakeupRange,
+			ArrayList<Long> cosmeticsList) {
+
+		log.info("Performing search for City: " + cityId
+			+ " Services: " + servicesList
+			+ " isWillingToTravel: " + isWillingToTravel
+			+ " bridalMakeupRange: " + bridalMakeupRange
+			+ " cosmeticsList: " + cosmeticsList);
+		def profileCriteria = Profile.createCriteria()
+		def result = profileCriteria.listDistinct{
+			and {
+				if (StringUtils.isNotEmpty(cityId)) {
+					address {
+						city {
+							eq ('id', Long.valueOf(cityId))
+						}
+					}
+				}
+				if (servicesList != null && servicesList.size() > 0) {
+					servicesOffered {
+						and {
+							service {
+								'in' ('id', servicesList)
+							}
+							eq('isOffered', true)
+						}
+					}
+				}
+				if (isWillingToTravel != null) {
+					eq('isWillingToTravel', isWillingToTravel)
+				}
+				if (bridalMakeupRange != null) {
+					servicesOffered {
+						and {
+							service {
+								eq('id', Long.valueOf(2)) // bridal make up id = 2
+							}
+							lt('startingPrice', bridalMakeupRange)
+							eq('isOffered', true)
+						}
+					}
+				}
+				if (cosmeticsList != null && cosmeticsList.size() > 0) {
+					cosmeticBrands {
+						'in' ('id', cosmeticsList)
+					}
+				}
+			}
+			order("id", "asc")
+		}
+
+
+		log.info("Result: ");
+		log.info(result);
+		return result;
+	}
+
+	def getLongListFromStringList(stringList) {
+		List<Long> longList = null;
+		longList = stringList.collect { Long.valueOf(it) }
+		log.info("Long list: " + longList)
+		return longList;
 	}
 
 	def search() { // TODO: change this to filter
-		log.info("Searching: " + params);
+		log.info("Search Searching: " + params);
 		SecUser loggedInUser = getLoggedInUser();
 		log.info("Got logged in user info: " + loggedInUser)
-		render(template:'/search/searchResults', model: [profiles: Profile.list()])
+
+		String city = null;
+		if (params.city) {
+			city = params.city;
+		}
+
+		ArrayList<Long> servicesList = null;
+		if (params.services) {
+			servicesList = Arrays.asList(params.services.split("\\s*,\\s*")).collect { Long.valueOf(it) };
+		}
+
+		Boolean isWillingToTravel = null;
+		if (params.travel) {
+			isWillingToTravel = (params.travel == "No") ? false : true;
+		}
+
+		Double bridalMakeupRange = null;
+		if (params.makeupRange) {
+			bridalMakeupRange = Double.valueOf(params.makeupRange);
+		}
+
+		List<Long> cosmeticsList = null;
+		if (params.cosmeticBrands != null) {
+			cosmeticsList = getLongListFromStringList(params.cosmeticBrands)
+		}
+
+		def result = performSearch(city, servicesList, isWillingToTravel, bridalMakeupRange, cosmeticsList);
+
+		render(template:'/search/searchResults', model: [profiles: result])
 	}
 
 	def getLoggedInUser() {

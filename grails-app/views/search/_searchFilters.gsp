@@ -1,4 +1,6 @@
 <g:form controller="search">
+	<g:hiddenField name="city" value="${searchParams.city}"/>
+	<g:hiddenField name="services" value="${searchParams.services}"/>
 	<div id="search-filters" class="container">
 		<div class="row filters">
 			<div class="filter-wrapper">

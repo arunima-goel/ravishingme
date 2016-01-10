@@ -8,6 +8,7 @@ import org.ravishingme.SecRole
 import org.ravishingme.SecUser
 import org.ravishingme.SecUserSecRole
 import org.ravishingme.Service
+import org.ravishingme.ServiceWithPrice;
 import org.ravishingme.SocialNetworks
 import org.ravishingme.State
 
@@ -141,6 +142,10 @@ class BootStrap {
 		profile.setIsWillingToTravel(true);
 		profile.setYearsOfExperience(10);
 
+		for (Service service : Service.list()) {
+			profile.addToServicesOffered(new ServiceWithPrice(service, 0.0, false));
+		}
+		
 		SecUser secUser = new SecUser(username, name, profile);
 		secUser.save(failOnError: true);
 		SecUserSecRole secUserSecRole = new SecUserSecRole(secUser, secRoleUser);
