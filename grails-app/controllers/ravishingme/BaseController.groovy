@@ -18,8 +18,19 @@ class BaseController {
 	def facebookService
 
 	def about() {
+		log.info("Params: " + params);
 		def loggedInUser = getLoggedInUser();
-		render(view:'/about', model: [profile:buildRavMeProfile(), loggedInUser: loggedInUser])
+		def searchParams = [:];
+		searchParams["city"] = "1";
+		render(view:'/about', model: [profile:buildRavMeProfile(), loggedInUser: loggedInUser, searchParams: searchParams])
+	}
+	
+	def faqs() {
+		log.info("Params: " + params);
+		def loggedInUser = getLoggedInUser();
+		def searchParams = [:];
+		searchParams["city"] = "1"; 
+		render(view:'/faqs', model: [loggedInUser: loggedInUser, searchParams: searchParams])
 	}
 	
 	def getLoggedInUser() {
