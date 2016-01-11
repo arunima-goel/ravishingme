@@ -6,6 +6,8 @@
          <div class="container-fluid nav-container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+               <g:render template="/layouts/flashMessages"/>
+   
                <g:link mapping="landingPage" class="navbar-brand">
                   <asset:image class="logo" src="logo.png" alt="Ravishing.me" />
                </g:link>

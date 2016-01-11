@@ -9,7 +9,17 @@ import org.scribe.model.Token
 class UserService {
 
 	def counterService
-
+	
+	def findUserByUserId(String userid) {
+		SecUser loggedInUser = SecUser.findByUserid(userid);
+		if (loggedInUser != null) {
+			Profile loggedInUserProfile = Profile.findById(loggedInUser.profile.id);
+			log.info("Got logged in user userId: " + userid + " profile username: " + loggedInUser.profile.username)
+			loggedInUser.profile = loggedInUserProfile;
+			return loggedInUser;
+		}
+		return null;
+	}
 	def createUser(String name, String userId) {
 		def username = counterService.getNextUsernameInSequence(name.split(" ").join("-"))
 		def role = SecRole.findByAuthority("ROLE_USER") ?: new SecRole(authority: "ROLE_USER").save(failOnError: true)

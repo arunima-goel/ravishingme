@@ -1,5 +1,4 @@
 <h2>Social Networks</h2>
-<g:render template="/templates/flashMessages"/>
 <g:form>
 	<g:hiddenField name="username" value="${profile?.username}" />
 	<g:hiddenField name="id" value="${profile?.id}" />

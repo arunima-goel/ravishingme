@@ -2345,13 +2345,17 @@ a.sub-title.enabled{
 
 .error-msg{
     color: #fff;
-    background: #d91906;
+    background: #fb4e41;
     position: relative;
     left: -50%;
     padding: 10px 15px;
     z-index: 99999999999;
     max-width: 550px;
 
+}
+
+.error-msg.yellow{
+    background: #F48F10;
 }
 
 .error-msg.yellow{

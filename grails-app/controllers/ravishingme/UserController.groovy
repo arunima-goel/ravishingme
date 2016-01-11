@@ -17,7 +17,6 @@ class UserController {
 		SecUser loggedInUser = getLoggedInUser();
 		log.info("Got logged in user info: " + loggedInUser)
 		render(view:'/index', model: [loggedInUser: loggedInUser]);
-		
 	}
 
 	def getLoggedInUser() {
@@ -26,13 +25,7 @@ class UserController {
 		try {
 			// Get user id and username from facebook
 			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me");
-			SecUser loggedInUser = SecUser.findByUserid(userid);
-			if (loggedInUser != null) {
-				Profile loggedInUserProfile = Profile.findById(loggedInUser.profile.id);
-				log.info("Got logged in user userId: " + userid + " name: " + name + " profile username: " + loggedInUser.profile.username)
-				loggedInUser.profile = loggedInUserProfile;
-				return loggedInUser;
-			}
+			return userService.findUserByUserId(userid);
 		} catch (CustomException ce) {
 			log.info("Error getting logged in user")
 			flash.error = "Exception during login"
