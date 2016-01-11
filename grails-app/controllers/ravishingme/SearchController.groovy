@@ -17,40 +17,47 @@ class SearchController {
 	def oauthService
 	def facebookService
 
+	/**
+	 * Endpoint to search for users without filters
+	 * @return results
+	 */
 	def index() {
-		log.info("Index Searching: " + params);
-		SecUser loggedInUser = getLoggedInUser();
-		log.info("Got logged in user info: " + loggedInUser)
-
-		List<Long> servicesList = null;
-		if (params.services != null) {
-			servicesList = getLongListFromStringList(params.services)
-		}
+		log.info("index() - begin - params [" + params + "]");
 
 		def searchParams = [:];
 		searchParams["city"] = params.city;
+		
+		List<Long> servicesList = null;
 		if (params.services) {
+			servicesList = getLongListFromStringList(params.services)
 			searchParams["services"] = servicesList.join(",");
 		}
 
 		def result = performSearch(params.city, servicesList, null, null, null)
-		log.info(searchParams);
-
-		[profiles: result, searchParams: searchParams, loggedInUser: loggedInUser]
+		log.info("index() - end - searchParams[" + searchParams + "]");
+		[profiles: result, searchParams: searchParams, loggedInUser: getLoggedInUser()];
 	}
 
 
-
+	/**
+	 * Helper method to get a list of Long variables from a list of String variables
+	 * @param stringList List of String variables
+	 * @return List of Long variables
+	 */
 	def getLongListFromStringList(stringList) {
-		List<Long> longList = null;
-		longList = stringList.collect { Long.valueOf(it) }
-		log.info("Long list: " + longList)
+		log.info("getLongListFromStringList() - begin - stringList [" + stringList + "]");
+		List<Long> longList = stringList.collect { Long.valueOf(it) }
+		log.info("getLongListFromStringList() - end - longList [" + longList + "]");
 		return longList;
 	}
 
+	/**
+	 * Endpoint to search for users along with filters
+	 * @return Search results
+	 */
 	def search() { // TODO: change this to filter
 		log.info("search() - begin - params [" + params + "]");
-		
+
 		String city = null;
 		if (params.city) { // TODO: rename city to cityId?
 			city = params.city;
@@ -82,7 +89,6 @@ class SearchController {
 
 		render(template:'/search/searchResults', model: [profiles: result])
 		log.info("search() - end");
-		
 	}
 
 	/**
