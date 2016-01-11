@@ -9,25 +9,24 @@ import org.scribe.model.Token
 
 class UserController {
 	def oauthService
-	def userService
 	def facebookService
-	def commonService
+	def userService
 
 	/**
 	 * Landing page
 	 */
 	def index() {
+		log.info("index() - begin - params [" + params + "]");
 		SecUser loggedInUser = getLoggedInUser();
-		commonService.logEndpointCallEntry("UserController: index()", loggedInUser, null);
 		render(view:'/index', model: [loggedInUser: loggedInUser]);
-		commonService.logEndpointCallExit("UserController: index()", loggedInUser);
+		log.info("index() - end - Logged in user [" + loggedInUser + "]");
 	}
 
 	/**
 	 * Helper method to get logged in user
 	 */
 	def getLoggedInUser() {
-		log.info("Getting logged in user");
+		log.info("getLoggedInUser() - begin");
 		SecUser loggedInUser = null;
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')];
 		try {
@@ -37,6 +36,7 @@ class UserController {
 		} catch (CustomException ce) {
 			log.info("Error getting logged in user: " + ce.getErrorMessage());
 		}
+		log.info("getLoggedInUser() - end - Logged in user [" + loggedInUser + "]");
 		return loggedInUser;
 	}
 
@@ -44,7 +44,7 @@ class UserController {
 	 * Callback from facebook when login is successful
 	 */
 	def loginSuccess() {
-		log.info("Facebook login was successful - begin");
+		log.info("loginSuccess() - begin - params [" + params + "]");
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
 		try {
 			// Get user id and username from facebook
@@ -63,26 +63,31 @@ class UserController {
 			flash.error = "An exception occurred during facebook login. Please try again.";
 			logout();
 		}
-		log.info("Facebook login was successful - end");
+		log.info("loginSuccess() - end");
 	}
 
-
+	/**
+	 * Callback from facebook when login is not successful
+	 */
 	def loginError() {
-		flash.error = "Error."
-		render view: '/index'
+		log.info("loginError() - begin - params [" + params + "]");
+		flash.error = "Facebook login was unsuccessful. Please try again.";
+		logout();
+		log.info("loginError() - end");
 	}
 
+	/**
+	 * Endpoint to logout the currently logged in user
+	 */
 	def logout() {
-		log.info("logging out")
+		log.info("logout() - begin params [" + params + "]");
 		if (session[oauthService.findSessionKeyForAccessToken('facebook')]) {
 			session[oauthService.findSessionKeyForAccessToken('facebook')] = null;
 			flash.message = "Token revoked successfully.";
 			log.info("token revoked successfully");
 		}
 		redirect (uri: "/");
+		log.info("logout() - end")	;	
 	}
 
-	def error() {
-		render params
-	}
 }
