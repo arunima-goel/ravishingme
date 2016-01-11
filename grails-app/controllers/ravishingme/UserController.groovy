@@ -11,35 +11,44 @@ class UserController {
 	def oauthService
 	def userService
 	def facebookService
+	def commonService
 
+	/**
+	 * Landing page
+	 */
 	def index() {
-		log.info("Index in user controller");
 		SecUser loggedInUser = getLoggedInUser();
-		log.info("Got logged in user info: " + loggedInUser)
+		commonService.logEndpointCallEntry("UserController: index()", loggedInUser, null);
 		render(view:'/index', model: [loggedInUser: loggedInUser]);
+		commonService.logEndpointCallExit("UserController: index()", loggedInUser);
 	}
 
+	/**
+	 * Helper method to get logged in user
+	 */
 	def getLoggedInUser() {
-		log.info("Getting logged in user")
-		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
+		log.info("Getting logged in user");
+		SecUser loggedInUser = null;
+		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')];
 		try {
 			// Get user id and username from facebook
 			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me");
-			return userService.findUserByUserId(userid);
+			loggedInUser = userService.findUserByUserId(userid);
 		} catch (CustomException ce) {
-			log.info("Error getting logged in user")
-			flash.error = "Exception during login"
+			log.info("Error getting logged in user: " + ce.getErrorMessage());
 		}
-		return null;
+		return loggedInUser;
 	}
-	
+
+	/**
+	 * Callback from facebook when login is successful
+	 */
 	def loginSuccess() {
-		log.info("Successful facebook login");
+		log.info("Facebook login was successful - begin");
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
 		try {
 			// Get user id and username from facebook
 			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me")
-			log.info("userId: " + userid + " name: " + name)
 
 			// Create the user in our database
 			if (!SecUser.findByUserid(userid)) {
@@ -50,12 +59,13 @@ class UserController {
 			SecUser user = SecUser.findByUserid(userid)
 			redirect(controller: "profile", action: "index", params:[username: user.profile.getUsername()])
 		} catch (Exception e) {
-			log.error(e.getMessage())
-			flash.error = "Exception during login"
+			log.error("An exception occurred after successful facebook login" + e.getMessage());
+			flash.error = "An exception occurred during facebook login. Please try again.";
+			logout();
 		}
-
+		log.info("Facebook login was successful - end");
 	}
-	
+
 
 	def loginError() {
 		flash.error = "Error."
@@ -64,12 +74,12 @@ class UserController {
 
 	def logout() {
 		log.info("logging out")
-		if (params.id && session[oauthService.findSessionKeyForAccessToken(params.id)]) {
-			session[oauthService.findSessionKeyForAccessToken(params.id)] = null
-			flash.message = "Token revoked successfully."
-			log.info("token revoked successfully")
+		if (session[oauthService.findSessionKeyForAccessToken('facebook')]) {
+			session[oauthService.findSessionKeyForAccessToken('facebook')] = null;
+			flash.message = "Token revoked successfully.";
+			log.info("token revoked successfully");
 		}
-		redirect(uri: "/")
+		redirect (uri: "/");
 	}
 
 	def error() {

@@ -30,6 +30,9 @@ class FacebookService {
 		return [fbProfilePicUrl, facebookResponse]
 	}
 
+	/**
+	 * Helper method to get the user id and name from a facebook access token
+	 */
 	def getUserIdAndName(Token facebookAccessToken, String userId) {
 		if (!facebookAccessToken) {
 			throw new CustomException('Token not found.')
@@ -42,7 +45,7 @@ class FacebookService {
 		String url = "https://graph.facebook.com/${userId}"
 		def facebookResource = oauthService.getFacebookResource(facebookAccessToken, url)
 		def facebookResponse = JSON.parse(facebookResource?.getBody())
-		log.info("userId: " + facebookResponse.id + " name: " + facebookResponse.name)
+		log.info("Found user with userId [" + facebookResponse.id + "] name [" + facebookResponse.name + "]");
 		return [facebookResponse.id, facebookResponse.name]
 	}
 
