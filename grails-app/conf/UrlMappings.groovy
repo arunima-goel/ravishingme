@@ -8,7 +8,6 @@ class UrlMappings {
 		}
 
 
-		"500"(view:'/error')
 		"/profile/$username?" (controller: "profile", action: "index")
 		"/profile/update" (controller: "profile", action: "update")
 		"/profile/updateSettings" (controller: "profile", action: "updateSettings")
@@ -22,6 +21,6 @@ class UrlMappings {
 		name settings: "/profile/settings"(controller:"profile", action: "settings")
 		name landingPage: "/"(controller: "user", action: "index")
 		name profileView: "/profile/$username" (controller:"profile", action:"index")
-		
+		"404"(controller: "error", action: "error404")
 	}
 }
