@@ -4,6 +4,7 @@ import grails.converters.JSON
 import grails.transaction.Transactional
 
 import org.scribe.model.Token
+import ravishingme.CustomException
 
 @Transactional
 class UserService {
@@ -20,10 +21,20 @@ class UserService {
 		}
 		return null;
 	}
+	
+	/** 
+	 * Helper method to create a new stub user
+	 * @param name Name of the user
+	 * @param userId User Id of the user
+	 */
 	def createUser(String name, String userId) {
+		// Generate the user name
 		def username = counterService.getNextUsernameInSequence(name.split(" ").join("-"))
+		
+		// Assign user role
 		def role = SecRole.findByAuthority("ROLE_USER") ?: new SecRole(authority: "ROLE_USER").save(failOnError: true)
 		
+		// Create a new profile
 		def profile = new Profile(username, name);
 		for (Service service : Service.list()) {
 			profile.addToServicesOffered(new ServiceWithPrice(service, 0.0, false));
