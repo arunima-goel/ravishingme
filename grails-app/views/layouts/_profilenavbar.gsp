@@ -1,13 +1,24 @@
 <!--Header_section-->
+<script type="text/javascript">
+ 	window.onload = function() {
+ 		var x = location.pathname;
+ 	    var facebookLinks = document.getElementsByClassName("facebookLogin")
+ 	    Array.prototype.forEach.call(facebookLinks, function(facebookLink) {
+ 		    var hrefAttr = facebookLink.getAttribute("href");
+ 	        facebookLink.setAttribute("href", hrefAttr + x)
+ 	    });   	    
+ }
+ </script>
 <header id="header-wrapper">
-   <div class="container-fluid">
-      <!-- Navigation -->
-      <nav class="navbar navbar-inverse navbar-fixed-top profile-navbar" role="navigation">
+	<div class="container-fluid">
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top profile-navbar"
+			role="navigation">
 			<div class="container-fluid nav-container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<g:render template="/layouts/flashMessages"/>
-   
+					<g:render template="/layouts/flashMessages" />
+
 					<g:link mapping="landingPage" class="navbar-brand">
 						<asset:image class="logo" src="logo.png" alt="Ravishing.me" />
 					</g:link>
@@ -26,10 +37,10 @@
 							<li><g:link mapping="about">About</g:link></li>
 							<li><g:link mapping="faqs">FAQs</g:link></li>
 							<oauth:disconnected provider="facebook">
-								<li><oauth:connect provider="facebook"
+								<li><oauth:connect provider="facebook" class="facebookLogin"
 										id="facebook-connect-link">Sign in</oauth:connect></li>
 								<li><oauth:connect provider="facebook"
-										id="facebook-connect-link" class="signup-highlight" href="#"
+										id="facebook-connect-link" class="signup-highlight facebookLogin" href="#"
 										data-toggle="modal" data-target="#signup">Sign up</oauth:connect>
 								</li>
 							</oauth:disconnected>
@@ -60,12 +71,12 @@
 						<div class="col-md-6 profile-left-header">
 							<asset:image src="profile.jpg" alt="" class="profile-pic" />
 							<h1 class="profile-page-title">
-								${profile.name}<span>
-								<oauth:connected provider="facebook">
-									<g:if test="${loggedInUser.profile.username == profile.username}">
-									   <g:link mapping="settings">Edit</g:link>
-									</g:if>
-								</oauth:connected>
+								${profile.name}<span> <oauth:connected provider="facebook">
+										<g:if
+											test="${loggedInUser.profile.username == profile.username}">
+											<g:link mapping="settings">Edit</g:link>
+										</g:if>
+									</oauth:connected>
 							</h1>
 						</div>
 						<div class="col-md-6">
@@ -81,10 +92,11 @@
 				</div>
 				<!-- Secondary Inner -->
 			</div>
-			<!-- Seconardy Header Row --></div>
-         <!-- /.container -->
-      </nav>
-   </div>
-   <!--- Header Container -->
+			<!-- Seconardy Header Row -->
+	</div>
+	<!-- /.container -->
+	</nav>
+	</div>
+	<!--- Header Container -->
 </header>
 <!--Header_section-->
