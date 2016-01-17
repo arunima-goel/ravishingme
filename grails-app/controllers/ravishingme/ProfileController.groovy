@@ -108,13 +108,23 @@ class ProfileController {
 		try {
 			// TODO: checkMinContent(username) // if logged in user is the same as the username,
 			// then check min content and display edit page
-			log.info("settings() - end");
-			[loggedInUser: getLoggedInUser()]
+
+			SecUser loggedInUser = getLoggedInUser();
+			if (loggedInUser) {
+				log.info("settings() - end");
+				[loggedInUser: loggedInUser];
+			} else {
+				flash.error = "Please login to view settings.";
+				redirect(uri: "/")
+				log.info("settings() - end");
+			}
 		} catch (Exception e) {
 			flash.error = "There was an error while fetching your settings. Please contact ravishing@ravishingme.com.";
 			redirect(uri: "/")
 			log.info("settings() - end");
 		}
+
+
 	}
 
 	/**
@@ -132,7 +142,7 @@ class ProfileController {
 		log.info("getLoggedInUser() - begin");
 		SecUser loggedInUser = null;
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')];
-		if (facebookAccessToken) { // **we need this check here otherwise we run into an exception on profile page load 
+		if (facebookAccessToken) { // **we need this check here otherwise we run into an exception on profile page load
 			try {
 				// Get user id and username from facebook
 				def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me");
