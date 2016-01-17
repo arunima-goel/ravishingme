@@ -74,22 +74,28 @@ class ProfileController {
 	 */
 	def index(String username) {
 		log.info("index() - begin - params [" + params + "] - username [" + username + "]");
-		try {
-			def profile = Profile.findByUsername(username)
-			if (profile) {
-				// TODO:  checkMinContent(username) // if logged in user is the same as the username,
-				// then check min content and display edit page
-				log.info("index() - end");
-				[profile:profile, loggedInUser: getLoggedInUser()]
-			} else {
+		if (params.redirectUri != null && params.redirectUri != "") {
+			log.info("Redirecting to URI [" + params.redirectUri + "]");
+			redirect(uri: params.redirectUri);
+		} else {
+
+			try {
+				def profile = Profile.findByUsername(username)
+				if (profile) {
+					// TODO:  checkMinContent(username) // if logged in user is the same as the username,
+					// then check min content and display edit page
+					log.info("index() - end");
+					[profile:profile, loggedInUser: getLoggedInUser()]
+				} else {
+					redirect(uri: "/")
+					log.info("index() - end");
+				}
+			} catch (Exception e) {
+				log.error("There was an error while fetching profile for user " + username + " " + e.getMessage());
+				flash.error = "There was an error while fetching profile for user " + username;
 				redirect(uri: "/")
 				log.info("index() - end");
 			}
-		} catch (Exception e) {
-			log.error("There was an error while fetching profile for user " + username + " " + e.getMessage());
-			flash.error = "There was an error while fetching profile for user " + username;
-			redirect(uri: "/")
-			log.info("index() - end");
 		}
 	}
 
@@ -126,12 +132,16 @@ class ProfileController {
 		log.info("getLoggedInUser() - begin");
 		SecUser loggedInUser = null;
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')];
-		try {
-			// Get user id and username from facebook
-			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me");
-			loggedInUser = userService.findUserByUserId(userid);
-		} catch (CustomException ce) {
-			log.info("Error getting logged in user: " + ce.getErrorMessage());
+		if (facebookAccessToken) { // **we need this check here otherwise we run into an exception on profile page load 
+			try {
+				// Get user id and username from facebook
+				def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me");
+				loggedInUser = userService.findUserByUserId(userid);
+			} catch (CustomException ce) {
+				log.info("Error getting logged in user: " + ce.getErrorMessage());
+			}
+		} else {
+			log.info("Error getting logged in user: Token not found");
 		}
 		log.info("getLoggedInUser() - end - Logged in user [" + loggedInUser + "]");
 		return loggedInUser;
