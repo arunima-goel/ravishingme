@@ -40,7 +40,7 @@
 								<li><oauth:connect provider="facebook"  class="facebookLogin"
 										id="facebook-connect-link">Sign in</oauth:connect></li>
 								<li><oauth:connect provider="facebook"
-										id="facebook-connect-link" class="signup-highlight facebookLogin" href="#"
+										id="facebook-connect-link" class="signup-highlight" href="#"
 										data-toggle="modal" data-target="#signup">Sign up</oauth:connect>
 								</li>
 							</oauth:disconnected>
@@ -56,7 +56,7 @@
 													params="[username: loggedInUser.profile.username]">Profile</g:link>
 											</li>
 											<li><g:link mapping="settings">Settings</g:link></li>
-											<li><g:link controller="user" action="logout"
+											<li><g:link controller="user" action="logout" class="facebookLogin" params="[redirectUri: '']"
 													id="facebook">Logout</g:link></li>
 										</ul>
 									</div>
@@ -73,3 +73,37 @@
 	<!--- Header Container -->
 </header>
 <!--Header_section-->
+<!-- Signup Modal -->
+<div id="signup" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<button class="modal-close" data-dismiss="modal"></button>
+		<!-- Modal content-->
+		<div class="modal-content text-center">
+			<div class="modal-header">
+				<h4 class="modal-title">Create your ravishing account.</h4>
+				<h4>
+					It's <span>Free</span>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<oauth:connect provider="facebook" id="facebook-connect-link"
+					class="btn btn-block btn-social btn-facebook facebookLogin">
+					<span class="fa fa-5x fa-facebook"></span>Sign up with Facebook</oauth:connect>
+				<p>We will not post anything without your permission</p>
+			</div>
+			<div class="signup-terms">
+				<p>By clicking "sign up", you confirm that you accept</p>
+				<p>
+					our <a href="#">Terms of service</a> and <a href="#">Privacy
+						Policy</a>.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<h4>
+					Already a member?
+					<oauth:connect provider="facebook" id="facebook-connect-link"
+						class="facebookLogin">Login</oauth:connect>
+			</div>
+		</div>
+	</div>
+</div>

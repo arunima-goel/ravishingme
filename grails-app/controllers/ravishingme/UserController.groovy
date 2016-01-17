@@ -86,8 +86,13 @@ class UserController {
 			flash.message = "Token revoked successfully.";
 			log.info("token revoked successfully");
 		}
-		redirect (uri: "/");
-		log.info("logout() - end")	;	
+		if (params.redirectUri != null && params.redirectUri != "") {
+			log.info("Redirecting to URI [" + params.redirectUri + "]");
+			redirect(uri: params.redirectUri);
+		} else {
+			redirect (uri: "/");
+		}
+		log.info("logout() - end")	;
 	}
 
 }
