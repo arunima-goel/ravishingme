@@ -74,28 +74,24 @@ class ProfileController {
 	 */
 	def index(String username) {
 		log.info("index() - begin - params [" + params + "] - username [" + username + "]");
-		if (params.redirectUri != null && params.redirectUri != "") {
-			log.info("Redirecting to URI [" + params.redirectUri + "]");
-			redirect(uri: params.redirectUri);
-		} else {
-
-			try {
-				def profile = Profile.findByUsername(username)
-				if (profile) {
-					// TODO:  checkMinContent(username) // if logged in user is the same as the username,
-					// then check min content and display edit page
-					log.info("index() - end");
-					[profile:profile, loggedInUser: getLoggedInUser()]
-				} else {
-					redirect(uri: "/")
-					log.info("index() - end");
-				}
-			} catch (Exception e) {
-				log.error("There was an error while fetching profile for user " + username + " " + e.getMessage());
-				flash.error = "There was an error while fetching profile for user " + username;
+		
+		try {
+			Profile profile = Profile.findByUsername(username)
+			if (profile && profile.isArtist == true) {
+				// TODO:  checkMinContent(username) // if logged in user is the same as the username,
+				// then check min content and display edit page
+				log.info("index() - end");
+				[profile:profile, loggedInUser: getLoggedInUser()]
+			} else {
 				redirect(uri: "/")
+				flash.info = "The artist you are looking for was not found in our system.";
 				log.info("index() - end");
 			}
+		} catch (Exception e) {
+			log.error("There was an error while fetching profile for user " + username + " " + e.getMessage());
+			flash.error = "There was an error while fetching profile for user " + username;
+			redirect(uri: "/")
+			log.info("index() - end");
 		}
 	}
 

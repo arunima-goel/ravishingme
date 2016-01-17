@@ -16,7 +16,8 @@ import org.ravishingme.Profile
 class SearchController {
 	def oauthService
 	def facebookService
-
+	def userService
+	
 	/**
 	 * Endpoint to search for users without filters
 	 * @return results

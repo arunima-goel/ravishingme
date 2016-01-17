@@ -57,7 +57,7 @@ class UserController {
 
 			// Get the user and redirect to the profile of the user
 			SecUser user = SecUser.findByUserid(userid)
-			redirect(controller: "profile", action: "index", params:[username: user.profile.getUsername(), redirectUri: params.redirectUri])
+			redirect(uri: params.redirectUri)
 		} catch (Exception e) {
 			log.error("An exception occurred after successful facebook login " + e.getMessage());
 			flash.error = "An exception occurred during facebook login. Please try again.";

@@ -109,7 +109,7 @@ log4j.main = {
 	//}
 	
 	appenders {
-		console name:'stdout', layout: pattern(conversionPattern: '%c{2} %X{sessionId} %m%n')
+		console name:'stdout', layout: pattern(conversionPattern: '%X{sessionId} %c{2} %m%n')
 		rollingFile name: "ravmeAppender", file: "${logDirectory}/ravme.log", maxFileSize:"1MB", maxBackupIndex: 10
 	}
 
