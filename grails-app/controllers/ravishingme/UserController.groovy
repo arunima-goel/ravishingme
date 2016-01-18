@@ -1,5 +1,7 @@
 package ravishingme
 
+import javax.servlet.http.HttpServletResponse;
+
 import grails.converters.JSON
 
 import org.ravishingme.Profile;
@@ -92,7 +94,30 @@ class UserController {
 		} else {
 			redirect (uri: "/");
 		}
-		log.info("logout() - end")	;
+		log.info("logout() - end");
+	}
+
+	/**
+	 * Endpoint to send an email
+	 * Adding this here to avoid creating another controller with the getLoggedInUser method
+	 */
+	def sendEmail() {
+		log.info("sendEmail() - begin params [" + params + "]");
+		try {
+			sendMail {
+				to params.toEmailAddress
+				cc "ravishingdotme@gmail.com", params.fromEmailAddress
+				subject "You have received a new inquiry from " + params.fromEmailName + "!"
+				body params.emailMessage
+			}
+		} catch (Exception e) {
+			e.printStackTrace()
+			log.error("An error occurred while sending the an email with params [" + params + "]");
+			render status: HttpServletResponse.SC_INTERNAL_SERVER_ERROR 
+
+		}
+		render status:HttpServletResponse.SC_NO_CONTENT
+		log.info("sendEmail() - end");
 	}
 
 }

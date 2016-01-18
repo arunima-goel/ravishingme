@@ -250,8 +250,16 @@ function displaySuccessMessage() {
 	$("#success-modal").modal("show");
 }
 
+function displayEmailSuccessMessage() {
+	$("#email-confirmation-modal").modal("show");
+}
+
 function displayFailureMessage() {
 	$("#failure-modal").modal("show");
+}
+
+function displayEmailFailureMessage() {
+	$("#email-failure-modal").modal("show");
 }
 
 $("ul.dropdown-menu.outer-noscroll.settings-dropdown-state li").click(function() {
@@ -264,6 +272,27 @@ $("ul.dropdown-menu.outer-noscroll.settings-dropdown-state li").click(function()
     }
     
 }); 
+
+function validateContactForm() {
+	var isEverythingValid = true;
+	
+	/** Name validation **/
+	if (!$("#fromEmailName")[0].checkValidity()) {
+		isEverythingValid = false;
+	}
+	
+	/** Email address validation **/
+	if (!$("#fromEmailAddress")[0].checkValidity()) {
+		isEverythingValid = false;
+	}
+	
+	/** Message validation **/
+	if (!$("#emailMessage")[0].checkValidity()) {
+		isEverythingValid = false;
+	}
+	
+	return isEverythingValid;	
+}
 
 function validateAccountSettingsForm() {
 	var isEverythingValid = true;

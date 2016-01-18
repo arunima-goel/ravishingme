@@ -84,6 +84,8 @@ class BaseController {
 		socialNetworks.facebookUrl = "www.facebook.com/Ravishingme-1621934231391175";
 		socialNetworks.save(failOnError:true);
 		profile.setSocialNetworks(socialNetworks);
+		
+		profile.email = "ravishingdotme@gmail.com";
 
 		profile.setYearsOfExperience(0);
 		log.info("buildRavMeProfile() - end");
