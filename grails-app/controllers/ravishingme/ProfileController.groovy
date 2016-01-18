@@ -204,7 +204,7 @@ class ProfileController {
 		def profileInstance = loggedInUser.profile;
 		profileInstance.removeFromFavorites(favoriteProfileInstance)
 		profileInstance.save(flush: true)
-		render(template:'/profile/favoritesSettings', model: [profile:favoriteProfileInstance, loggedInUser: getLoggedInUser()])
+		render(template:'/admin/profileInfo', model: [profile:Profile.findByUsername(params.username)])
 		log.info("removeFavoriteFromSettings() - end");
 	}
 }

@@ -13,7 +13,7 @@ class UrlMappings {
 		"/profile/updateSettings" (controller: "profile", action: "updateSettings")
 		"/profile/addFavorite" (controller: "profile", action: "addFavorite")
 		"/profile/removeFavorite" (controller: "profile", action: "removeFavorite")
-		"/profile/removeFavoriteFromSettings" (controller: "profile", action: "removeFavoriteFromSettings")
+		name removeFavoriteFromSettings: "/profile/removeFavoriteFromSettings" (controller: "profile", action: "removeFavoriteFromSettings")
 		name settings: "/profile/settings"(controller:"profile", action: "settings")
 		name profileView: "/profile/$username" (controller:"profile", action:"index")
 		
