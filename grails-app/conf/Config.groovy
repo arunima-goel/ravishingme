@@ -91,12 +91,40 @@ environments {
 		grails.app.context = "/"
 		grails.serverURL = "http://localhost:8080"
 		logDirectory = "logs"
+		
+		oauth {
+			providers {
+				facebook {
+					api = org.scribe.builder.api.FacebookApi
+					key = '1674436499467057'
+					secret = 'e39418757e388a90986b18f868bb6833'
+					successUri = '/user/loginSuccess'
+					failureUri = '/user/loginError'
+					callback = "http://localhost:8080/oauth/facebook/callback"
+					callbackParams = ""
+				}
+			}
+		}
 	}
 	production {
 		grails.logging.jul.usebridge = false
 		grails.app.context = "/"
 		grails.serverURL = "http://www.ravishing.me"
 		logDirectory = "logs"
+		
+		oauth {
+			providers {
+				facebook {
+					api = org.scribe.builder.api.FacebookApi
+					key = '1674436499467057'
+					secret = 'e39418757e388a90986b18f868bb6833'
+					successUri = '/user/loginSuccess'
+					failureUri = '/user/loginError'
+					callback = "http://ravishing.me/oauth/facebook/callback"
+					callbackParams = ""
+				}
+			}
+		}
 	}
 }
 
@@ -130,19 +158,7 @@ log4j.main = {
 			'net.sf.ehcache.hibernate'
 }
 
-oauth {
-	providers {
-		facebook {
-			api = org.scribe.builder.api.FacebookApi
-			key = '1674436499467057'
-			secret = 'e39418757e388a90986b18f868bb6833'
-			successUri = '/user/loginSuccess'
-			failureUri = '/user/loginError'
-			callback = "http://localhost:8080/oauth/facebook/callback"
-			callbackParams = ""
-		}
-	}
-}
+
 
 grails {
 	mail {

@@ -112,7 +112,7 @@ class ProfileController {
 	def settings() {
 		log.info("settings() - begin - params [" + params + "]");
 		try {
-			// TODO: checkMinContent(username) // if logged in user is the same as the username,
+			// TODO: checkMinContent(username)
 			// then check min content and display edit page
 
 			SecUser loggedInUser = getLoggedInUser();
