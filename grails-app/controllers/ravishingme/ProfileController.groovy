@@ -3,7 +3,9 @@ package ravishingme
 import javax.servlet.http.HttpServletResponse
 
 import org.ravishingme.Profile
+import org.ravishingme.SecRole;
 import org.ravishingme.SecUser
+import org.ravishingme.SecUserSecRole;
 import org.scribe.model.Token
 
 class ProfileController {
@@ -20,23 +22,29 @@ class ProfileController {
 
 		def profileInstance = Profile.get(params.id);
 
-		// ***deselected values don't get saved if we don't clear the values here
-		if (profileInstance.getIsArtist()) {
-			profileInstance.cosmeticBrands.clear();
-		} else {
-			profileInstance.preferredCosmeticBrands.clear();
-			profileInstance.preferredServices.clear();
+		SecUser loggedInUser = getLoggedInUser();
+		SecRole role = SecRole.findByAuthority("ROLE_ADMIN");
+		if(SecUserSecRole.exists(loggedInUser.id, role.id)) {
+			log.info("Saving profile");
+			// ***deselected values don't get saved if we don't clear the values here
+			if (profileInstance.getIsArtist()) {
+				profileInstance.cosmeticBrands.clear();
+			} else {
+				profileInstance.preferredCosmeticBrands.clear();
+				profileInstance.preferredServices.clear();
+			}
+
+			bindData profileInstance, params;
+
+			profileInstance.address.state = profileInstance.address.city.state;
+			profileInstance.address.country = profileInstance.address.city.state.country;
+			profileInstance.address.save(flush:true);
+			profileInstance.save(flush:true);
+
 		}
-
-		bindData profileInstance, params;
-
-		profileInstance.address.state = profileInstance.address.city.state;
-		profileInstance.address.country = profileInstance.address.city.state.country;
-		profileInstance.address.save(flush:true);
-		profileInstance.save(flush:true);
-
 		render(template:'/admin/profileInfo', model: [profile: Profile.findByUsername(params.username)])
 		log.info("update() - end");
+
 	}
 
 	/**
@@ -74,14 +82,16 @@ class ProfileController {
 	 */
 	def index(String username) {
 		log.info("index() - begin - params [" + params + "] - username [" + username + "]");
-		
+
 		try {
+			SecUser loggedInUser = getLoggedInUser();
 			Profile profile = Profile.findByUsername(username)
-			if (profile && profile.isArtist == true) {
+			// Fetch the profile information only if its an artist or if the user is trying to load his/her own profile
+			if (profile && (profile.isArtist == true || profile.username == loggedInUser.profile.username)) {
 				// TODO:  checkMinContent(username) // if logged in user is the same as the username,
 				// then check min content and display edit page
 				log.info("index() - end");
-				[profile:profile, loggedInUser: getLoggedInUser()]
+				[profile:profile, loggedInUser: loggedInUser]
 			} else {
 				redirect(uri: "/")
 				flash.info = "The artist you are looking for was not found in our system.";
