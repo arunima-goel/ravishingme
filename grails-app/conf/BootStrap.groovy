@@ -8,6 +8,7 @@ import org.ravishingme.SecRole
 import org.ravishingme.SecUser
 import org.ravishingme.SecUserSecRole
 import org.ravishingme.Service
+import org.ravishingme.ServiceWithPrice;
 import org.ravishingme.SocialNetworks
 import org.ravishingme.State
 
@@ -34,33 +35,33 @@ class BootStrap {
 			"Oriflame",
 			"Revlon",
 			"Viviana"]
-		
+
 		cosmeticBrands.each { cosmeticBrand ->
 			new CosmeticBrand(cosmeticBrand).save(failOnError:true);
 		}
 
 		def services = [
 			"Base Makeup",
-//			"Bridal Makeup",
-//			"Editorial Makeup",
-//			"Engagement Makeup",
-//			"Eye Makeup",
-//			"Ramp Shows",
-//			"Haircut",
-//			"Hair styling",
-//			"Light Makeup",
-//			"Party Makeup",
-//			"Reception Makeup",
-			"Airbrush"]		
-		
+			"Bridal Makeup",
+			"Editorial Makeup",
+			"Engagement Makeup",
+			"Eye Makeup",
+			"Ramp Shows",
+			"Haircut",
+			"Hair styling",
+			"Light Makeup",
+			"Party Makeup",
+			"Reception Makeup",
+			"Airbrush"]
+
 		services.each { service ->
 			new Service(service).save(failOnError:true);
 		}
-		
+
 		// Populate countries, states and cities
 		Country country = new Country("India").save(failOnError: true);
 
-		def states = ["Delhi", "Karnataka", "Maharashtra"];
+		def states = ["Delhi", "Karnataka", "Maharashtra", "Test State"];
 		states.each { state ->
 			country.addToStates(new State(state));
 			country.save(flush:true);
@@ -70,6 +71,12 @@ class BootStrap {
 			[city: "Delhi", state: "Delhi"],
 			[city: "Mumbai", state: "Maharashtra"],
 			[city: "Mysore", state: "Karnataka"],
+			// TODO: remove below
+			[city: "test1", state: "Test State"],
+			[city: "test2", state: "Test State"],
+			[city: "test3", state: "Test State"],
+			[city: "test4", state: "Test State"],
+			// TODO: remove above 
 			[city: "Pune", state: "Maharashtra"]
 		]
 
@@ -83,7 +90,18 @@ class BootStrap {
 		SecRole secRoleUser = SecRole.findByAuthority('ROLE_USER') ?: new SecRole(authority: 'ROLE_USER').save(failOnError: true)
 		SecRole secRoleAdmin = SecRole.findByAuthority('ROLE_ADMIN') ?: new SecRole(authority: 'ROLE_ADMIN').save(failOnError: true)
 
-		Profile profile = new Profile("test-user-name", "test-name");
+		createUser("test-username1", "testname1", secRoleUser, secRoleAdmin);
+		createUser("test-username2", "testname2", secRoleUser, secRoleAdmin);
+		createUser("test-username3", "testname3", secRoleUser, secRoleAdmin);
+		createUser("test-username4", "testname4", secRoleUser, secRoleAdmin);
+		createUser("test-username5", "testname5", secRoleUser, secRoleAdmin);
+		createUser("test-username6", "testname6", secRoleUser, secRoleAdmin);
+		createUser("test-username7", "testname7", secRoleUser, secRoleAdmin);
+		createUser("test-username8", "testname8", secRoleUser, secRoleAdmin);
+	}
+
+	def createUser = { username, name, secRoleUser, secRoleAdmin ->
+		Profile profile = new Profile(username, name);
 		profile.setAboutYou("Test about you");
 
 		Address address = new Address();
@@ -91,13 +109,13 @@ class BootStrap {
 		address.setCity(city);
 		address.setState(city.state);
 		address.setCountry(city.state.country);
-		address.setStreetAddress("Test street address");
+		address.setStreetAddress(username + ": Test street address");
 		address.save(failOnError:true);
 
 		profile.setAddress(address);
 
-		profile.setAffiliations("Test affiliations");
-		profile.setAwards("Test awards");
+		profile.setAffiliations(username + ":Test affiliations");
+		profile.setAwards(username + ":Test awards");
 
 		BusinessHours businessHours = new BusinessHours();
 		businessHours.setStartTime(BusinessHours.Time.TEN);
@@ -108,7 +126,7 @@ class BootStrap {
 		profile.setBusinessHours(businessHours);
 
 		profile.setIsComplimentaryTrial(true);
-		profile.setEmail("agoel@test.com");
+		profile.setEmail(username + "@test.com");
 		profile.setPhoneNumber("123456");
 
 		SocialNetworks socialNetworks = new SocialNetworks();
@@ -124,26 +142,11 @@ class BootStrap {
 		profile.setIsWillingToTravel(true);
 		profile.setYearsOfExperience(10);
 
-//		Service service = new Service();
-//		service.setName("Test service name 1");
-//		service.setStartingPrice(1000);
-//		service.save(failOnError:true);
-//		Service service2 = new Service();
-//		service2.setName("Test service name 1");
-//		service2.setStartingPrice(2000);
-//		service2.save(failOnError:true);
-//		Service service3 = new Service();
-//		service3.setName("Test service name 1");
-//		service3.setStartingPrice(3000);
-//		service3.save(failOnError:true);
-//		Service service4 = new Service();
-//		service4.setName("Test service name 1");
-//		service4.setStartingPrice(4000);
-//		service4.save(failOnError:true);
-//		profile.addToServices(service);
-//		profile.addToPreferredServices(service);
-
-		SecUser secUser = new SecUser("testId", "testName", profile);
+		for (Service service : Service.list()) {
+			profile.addToServicesOffered(new ServiceWithPrice(service, 0.0, false));
+		}
+		
+		SecUser secUser = new SecUser(username, name, profile);
 		secUser.save(failOnError: true);
 		SecUserSecRole secUserSecRole = new SecUserSecRole(secUser, secRoleUser);
 		secUserSecRole.save(failOnError: true);

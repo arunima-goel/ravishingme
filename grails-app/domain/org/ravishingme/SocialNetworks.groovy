@@ -8,6 +8,7 @@ class SocialNetworks {
 	String twitterUrl
 	String instagramUrl
 	String youtubeUrl
+	String wordpressUrl
 	String personalWebsite
 	Date lastUpdated
 	Date dateCreated
@@ -17,6 +18,7 @@ class SocialNetworks {
 		twitterUrl nullable:true
 		instagramUrl nullable:true
 		youtubeUrl nullable:true
+		wordpressUrl nullable:true
 		personalWebsite nullable:true
 	}
 }

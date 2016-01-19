@@ -1,7 +1,5 @@
 package org.ravishingme
 
-import java.util.Date;
-import java.util.List;
 
 class Profile implements Serializable {
 
@@ -28,6 +26,7 @@ class Profile implements Serializable {
 	SocialNetworks socialNetworks 
 	String awards
 	String affiliations
+	
 	List servicesOffered = new ArrayList()
 	
 	static belongsTo = [user: SecUser]
@@ -43,18 +42,13 @@ class Profile implements Serializable {
 		println("Service offered: " + servicesOffered)
 		return servicesOffered;
 	}
-	
-//	static searchable = {
-//		except = ['profilePic', 'coverPic', 'user', 'specialities', 'services']
-//		cosmeticBrands reference:true
-//	}
 
 	static constraints = { // TODO: check constraints
 		isArtist blank: false, nullable: false
 		name blank: false, nullable: false
 		username blank: false, nullable: false, editable: false
 		email email: true, nullable: true
-		aboutYou nullable:true, maxSize: 250 // TODO: check size
+		aboutYou nullable:true, maxSize: 1000 // TODO: check size
 		affiliations nullable: true
 		address nullable: true
 		awards nullable: true
