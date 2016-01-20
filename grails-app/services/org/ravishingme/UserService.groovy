@@ -27,7 +27,7 @@ class UserService {
 	 * @param name Name of the user
 	 * @param userId User Id of the user
 	 */
-	def createUser(String name, String userId) {
+	def createUser(String name, String userId, String email) {
 		// Generate the user name
 		def username = counterService.getNextUsernameInSequence(name.split(" ").join("-"))
 		
@@ -62,6 +62,7 @@ class UserService {
 		profile.setSocialNetworks(socialNetworks);
 		
 		profile.setYearsOfExperience(0);
+		profile.setEmail(email);
 		
 //		profile.profilePic = new Image();
 //		profile.coverPic = new Image();

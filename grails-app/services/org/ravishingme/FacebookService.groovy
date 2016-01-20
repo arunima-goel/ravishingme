@@ -44,9 +44,10 @@ class FacebookService {
 
 		String url = "https://graph.facebook.com/${userId}"
 		def facebookResource = oauthService.getFacebookResource(facebookAccessToken, url)
+		log.info("Response body: " + facebookResource?.getBody());
 		def facebookResponse = JSON.parse(facebookResource?.getBody())
 		log.info("Found user with userId [" + facebookResponse.id + "] name [" + facebookResponse.name + "]");
-		return [facebookResponse.id, facebookResponse.name]
+		return [facebookResponse.id, facebookResponse.name, facebookResponse.email]
 	}
 
 }

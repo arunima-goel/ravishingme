@@ -50,11 +50,11 @@ class UserController {
 		Token facebookAccessToken = (Token) session[oauthService.findSessionKeyForAccessToken('facebook')]
 		try {
 			// Get user id and username from facebook
-			def (userid, name) = facebookService.getUserIdAndName(facebookAccessToken, "me")
+			def (userid, name, email) = facebookService.getUserIdAndName(facebookAccessToken, "me?fields=email,name")
 
 			// Create the user in our database
 			if (!SecUser.findByUserid(userid)) {
-				userService.createUser(name, userid)
+				userService.createUser(name, userid, email)
 			}
 
 			// Get the user and redirect to the profile of the user
