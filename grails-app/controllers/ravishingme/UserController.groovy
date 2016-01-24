@@ -60,8 +60,8 @@ class UserController {
 				def profilePicPath = "profile/" + user.username + "/profilePicture/";
 				def coverPicPath = "profile/" + user.username + "/coverPicture/";
 				
-				def (squareProfilePicUrl) = facebookService.getProfileImage(facebookAccessToken, userid, "square")
-				def uploadedFile = new URL(squareProfilePicUrl).openStream().s3upload("profile-square.jpeg") {
+				def (largeProfilePicUrl) = facebookService.getProfileImage(facebookAccessToken, userid, "large")
+				def uploadedFile = new URL(largeProfilePicUrl).openStream().s3upload("profile-large.jpeg") {
 					path profilePicPath
 				}
 				

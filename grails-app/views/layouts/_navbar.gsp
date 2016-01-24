@@ -49,7 +49,7 @@
 									<div class="dropdown">
 										<a href="#" data-toggle="dropdown" class="dropdown-toggle">
 											<img class="profile-pic" alt="Profile" onError="this.onerror=null;this.src='/assets/profile.jpg';" 
-											src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/profilePicture/profile-square.jpeg"/>
+											src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/profilePicture/profile-large.jpeg"/>
 											
 										</a>
 										<ul class="dropdown-menu arrow_box">

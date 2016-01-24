@@ -9,7 +9,7 @@
 		<img class="profile-banner" alt=""
 			onError="this.onerror=null;this.src='http://placehold.it/1024x200';"
 			src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/coverPicture/cover.jpeg" />
-
+	
 		<div class="container-fluid">
 			<span class="anchor" id="about"></span>
 			<section class="about">
