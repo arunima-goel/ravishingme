@@ -6,8 +6,10 @@
 <body>
 	<!-- Page Content -->
 	<div id="profile-page-wrapper">
-		<image src="http://placehold.it/1024x200" alt=""
-			class="profile-banner" />
+		<img class="profile-banner" alt=""
+			onError="this.onerror=null;this.src='http://placehold.it/1024x200';"
+			src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/coverPicture/cover.jpeg" />
+
 		<div class="container-fluid">
 			<span class="anchor" id="about"></span>
 			<section class="about">
@@ -30,7 +32,8 @@
 									${profile.yearsOfExperience}<span>Years of Experience</span>
 								</div>
 								<div class="col-md-4" id="favorite-icon">
-									<g:render template="/profile/favoriteIcon" model="[profile:profile, loggedInUser:loggedInUser]"/>
+									<g:render template="/profile/favoriteIcon"
+										model="[profile:profile, loggedInUser:loggedInUser]" />
 								</div>
 							</div>
 							<!-- /.row -->

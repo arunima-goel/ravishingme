@@ -25,8 +25,8 @@ class AWSS3Tools {
 		s3Service.deleteObject(new S3Bucket(onTarget), objectKey)
 	}
 
-	// copy file in one request
-	void copy(String sourceName, String destinationName, String path) {
+	// rename file 
+	void rename(String sourceName, String destinationName, String path) {
 		validateTarget()
 		def sourceObjectKey = buildObjectKey(sourceName, path)
 		def destinationObjectKey = buildObjectKey(destinationName, path)
@@ -44,8 +44,6 @@ class AWSS3Tools {
 			log.error('deleteMultipleObjects had errors: ' + result.getErrorResults())
 		}
 	}
-
-
 
 	// list all files
 	S3File[] list() {

@@ -54,7 +54,21 @@ class UserController {
 
 			// Create the user in our database
 			if (!SecUser.findByUserid(userid)) {
-				userService.createUser(name, userid, email)
+				def user = userService.createUser(name, userid, email)
+				
+				// Fetch facebook profile and cover pics
+				def profilePicPath = "profile/" + user.username + "/profilePicture/";
+				def coverPicPath = "profile/" + user.username + "/coverPicture/";
+				
+				def (squareProfilePicUrl) = facebookService.getProfileImage(facebookAccessToken, userid, "square")
+				def uploadedFile = new URL(squareProfilePicUrl).openStream().s3upload("profile-square.jpeg") {
+					path profilePicPath
+				}
+				
+				def (coverPicUrl) = facebookService.getCoverImage(facebookAccessToken, userid)
+				uploadedFile = new URL(coverPicUrl).openStream().s3upload("cover.jpeg") {
+					path coverPicPath
+				}
 			}
 
 			// Get the user and redirect to the profile of the user

@@ -2,11 +2,12 @@ package ravishingme
 
 import javax.servlet.http.HttpServletResponse
 
-import org.ravishingme.Profile
+import org.ravishingme.Profile;
 import org.ravishingme.SecRole;
-import org.ravishingme.SecUser
+import org.ravishingme.SecUser;
 import org.ravishingme.SecUserSecRole;
-import org.scribe.model.Token
+import org.scribe.model.Token;
+import java.sql.Timestamp;
 
 class ProfileController {
 
@@ -14,8 +15,8 @@ class ProfileController {
 	def facebookService
 	def userService
 	def aws
-	
-	
+
+
 	/**
 	 * Endpoint to update settings of a profile
 	 */
@@ -207,9 +208,9 @@ class ProfileController {
 		profileInstance.removeFromFavorites(favoriteProfileInstance)
 		profileInstance.save(flush: true)
 		render(template:'/profile/favoritesSettings', model: [profile:favoriteProfileInstance, loggedInUser: getLoggedInUser()])
- 		log.info("removeFavoriteFromSettings() - end");
+		log.info("removeFavoriteFromSettings() - end");
 	}
-	
+
 	/**
 	 * Endpoint to remove a favorite
 	 */
@@ -235,11 +236,20 @@ class ProfileController {
 		}
 		log.info("Uploading photo [" + params + "] end");
 	}
+
+	def copyPhoto() {
+		log.info("Copying photo [" + params + "]");
+		aws.s3().on("ravishingme").copy("coffee.jpeg", "coffee2.jpeg", "testpath/testpath2/");
+		log.info("Copying photo [" + params + "]");
+	}
 	
 	def deletePhoto() {
-		log.info("Deleting photo [" + params + "]");
-		//aws.s3().on("ravishingme").deleteAll();
-		aws.s3().on("ravishingme").delete("coffee.jpeg", "testpath/testpath2/");
-		log.info("Deleting photo [" + params + "] end");
+//		log.info("Deleting photo [" + params + "]");
+//		//aws.s3().on("ravishingme").deleteAll();
+//		aws.s3().on("ravishingme").delete("coffee.jpeg", "testpath/testpath2/");
+//		log.info("Deleting photo [" + params + "] end");
+		log.info("Copying photo [" + params + "]");
+		aws.s3().on("ravishingme").copy("coffee2.jpeg", "coffee" + new Timestamp(new Date().getTime()) + ".jpeg", "testpath/testpath2/");
+		log.info("Copying photo [" + params + "]");
 	}
 }
