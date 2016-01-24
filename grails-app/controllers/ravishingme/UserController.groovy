@@ -111,8 +111,7 @@ class UserController {
 				body params.emailMessage
 			}
 		} catch (Exception e) {
-			e.printStackTrace()
-			log.error("An error occurred while sending the an email with params [" + params + "]");
+			log.error("An error occurred while sending the an email with params [" + params + "] with exception [" + e + "]");
 			render status: HttpServletResponse.SC_INTERNAL_SERVER_ERROR 
 
 		}

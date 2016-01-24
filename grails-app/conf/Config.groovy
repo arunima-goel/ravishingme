@@ -96,8 +96,8 @@ environments {
 			providers {
 				facebook {
 					api = org.scribe.builder.api.FacebookApi
-					key = '1674436499467057'
-					secret = 'e39418757e388a90986b18f868bb6833'
+					key = '1672109019699805'
+					secret = '8a9c57e53f3e37a96427dbabb2fe3bed'
 					successUri = '/user/loginSuccess'
 					failureUri = '/user/loginError'
 					callback = "http://localhost:8080/oauth/facebook/callback"
@@ -109,7 +109,7 @@ environments {
 	production {
 		grails.logging.jul.usebridge = false
 		grails.app.context = "/"
-		grails.serverURL = "http://www.ravishing.me"
+		grails.serverURL = "http://www.makeupartistsindia.com" // TODO: fix this
 		logDirectory = "logs"
 		
 		oauth {
@@ -120,7 +120,7 @@ environments {
 					secret = 'e39418757e388a90986b18f868bb6833'
 					successUri = '/user/loginSuccess'
 					failureUri = '/user/loginError'
-					callback = "http://ravishing.me/oauth/facebook/callback"
+					callback = "http://www.makeupartistsindia.com/oauth/facebook/callback/" // TODO: change this
 					callbackParams = ""
 				}
 			}
@@ -169,7 +169,9 @@ grails {
 		props = ["mail.smtps.auth":"true",
 			"mail.smtp.socketFactory.port":"465",
 			"mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-			"mail.smtp.socketFactory.fallback":"false"]
+			"mail.smtp.socketFactory.fallback":"false",
+			"mail.smtp.tls":"true",
+			"mail.smtp.enable_starttls_auto":"true"]
 	}
 }
 

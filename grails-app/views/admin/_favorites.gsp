@@ -5,7 +5,7 @@
 				<g:hiddenField name="id" value="${profile?.id}" />
 				<g:hiddenField name="favoriteId" value="${favorite.id}" />
 				<g:submitToRemote
-					url="[controller:'profile', action:'removeFavoriteFromSettings']"
+					url="[controller:'profile', action:'removeFavoriteFromAdmin']"
 					update="profileInfo" value="Remove favorite ${favorite.username}" />
 			</g:form>
 </g:each>
