@@ -13,7 +13,9 @@ class ProfileController {
 	def oauthService
 	def facebookService
 	def userService
-
+	def aws
+	
+	
 	/**
 	 * Endpoint to update settings of a profile
 	 */
@@ -221,5 +223,23 @@ class ProfileController {
 		profileInstance.save(flush: true)
 		render(template:'/admin/profileInfo', model: [profile:Profile.findByUsername(params.username)])
 		log.info("removeFavoriteFromAdmin() - end");
+	}
+
+	def uploadFromInputStream() {
+		log.info("Uploading photo [" + params + "]");
+		def file = request.getFile('photo')
+		def uploadedFile = file.inputStream.s3upload(file.originalFilename) {
+			bucket "ravishingme"
+			path "testpath/testpath2/"
+
+		}
+		log.info("Uploading photo [" + params + "] end");
+	}
+	
+	def deletePhoto() {
+		log.info("Deleting photo [" + params + "]");
+		//aws.s3().on("ravishingme").deleteAll();
+		aws.s3().on("ravishingme").delete("coffee.jpeg", "testpath/testpath2/");
+		log.info("Deleting photo [" + params + "] end");
 	}
 }

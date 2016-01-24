@@ -104,7 +104,7 @@ class UserController {
 	def sendEmail() {
 		log.info("sendEmail() - begin params [" + params + "]");
 		try {
-			sendMail {
+			sesMail {
 				to params.toEmailAddress
 				cc "ravishingdotme@gmail.com", params.fromEmailAddress
 				subject "You have received a new inquiry from " + params.fromEmailName + "!"

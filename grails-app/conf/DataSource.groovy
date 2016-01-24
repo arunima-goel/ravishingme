@@ -33,7 +33,7 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop" // TODO: change this to update
             url = "jdbc:postgresql://localhost:5432/ravishingme"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
