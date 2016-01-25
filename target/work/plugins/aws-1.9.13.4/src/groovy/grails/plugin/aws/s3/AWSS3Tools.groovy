@@ -1,11 +1,16 @@
 package grails.plugin.aws.s3
 
+import java.lang.reflect.Array;
+
 import grails.plugin.aws.GrailsAWSException
 
 import org.jets3t.service.impl.rest.httpclient.RestS3Service
 import org.jets3t.service.model.MultipleDeleteResult
 import org.jets3t.service.model.S3Bucket
 import org.jets3t.service.model.S3Object
+
+import com.amazonaws.services.s3.model.ListObjectsRequest
+import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 class AWSS3Tools {
 
@@ -25,13 +30,23 @@ class AWSS3Tools {
 		s3Service.deleteObject(new S3Bucket(onTarget), objectKey)
 	}
 
-	// rename file 
+	// rename file
 	void rename(String sourceName, String destinationName, String path) {
 		validateTarget()
 		def sourceObjectKey = buildObjectKey(sourceName, path)
 		def destinationObjectKey = buildObjectKey(destinationName, path)
 		def s3Service = new RestS3Service(credentialsHolder.buildJetS3tCredentials())
 		s3Service.renameObject(onTarget, sourceObjectKey, new S3Object(destinationObjectKey))
+	}
+
+	List<String> getByCriteria_Prefix(String prefix) {
+		def s3Service = new RestS3Service(credentialsHolder.buildJetS3tCredentials())
+		List<S3Object> objectListings = s3Service.listObjects(onTarget, prefix, null, 20);
+		List<String> objectKeys = new ArrayList<String>();
+		for (S3Object objectListing : objectListings) {
+			objectKeys.add("https://s3.amazonaws.com/" + onTarget + "/" + objectListing.getKey());
+		}
+		return objectKeys;
 	}
 
 	//delete multiple files in one request

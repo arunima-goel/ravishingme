@@ -165,7 +165,6 @@ grails {
 			s3 {
 				bucket = "ravishingme"
 				acl = "public"
-				rrs = true
 			}
 
 			credentials {

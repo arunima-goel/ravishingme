@@ -93,6 +93,7 @@ class ProfileController {
 			if (profile && (profile.isArtist == true || profile.username == loggedInUser.profile.username)) {
 				// TODO:  checkMinContent(username) // if logged in user is the same as the username,
 				// then check min content and display edit page
+
 				log.info("index() - end");
 				[profile:profile, loggedInUser: loggedInUser]
 			} else {
@@ -226,30 +227,31 @@ class ProfileController {
 		log.info("removeFavoriteFromAdmin() - end");
 	}
 
-	def uploadFromInputStream() {
-		log.info("Uploading photo [" + params + "]");
-		def file = request.getFile('photo')
-		def uploadedFile = file.inputStream.s3upload(file.originalFilename) {
-			bucket "ravishingme"
-			path "testpath/testpath2/"
+	def uploadPicturesFromSettings() {
+		log.info("uploadPicturesFromSettings() - begin - params [" + params + "]");
 
+		def loggedInUser = getLoggedInUser();
+
+		def profilePicture = request.getFile('profilePicture')
+		log.info("Profile picture size: " + profilePicture.size)
+		if (profilePicture) {
+			if (profilePicture.size > 500000) {
+				flash.error = "The file is too big, please upload a picture with size less than 5MB";
+			} else if (profilePicture.size == 0) {
+				flash.error = "Please select a valid file for upload";
+			} else {
+				aws.s3().on("ravishingme").rename(
+						"profile-large.jpeg",
+						"profile-large-" + new Timestamp(new Date().getTime()) + ".jpeg",
+						"profile/" + loggedInUser.username + "/profilePicture/")
+				def uploadedFile = profilePicture.inputStream.s3upload("profile-large.jpeg") {
+					bucket "ravishingme"
+					path "profile/" + loggedInUser.username + "/profilePicture/"
+				}
+			}
+
+			redirect(uri: "/profile/settings");
+			log.info("uploadPicturesFromSettings() - end [" + params + "] end");
 		}
-		log.info("Uploading photo [" + params + "] end");
-	}
-
-	def copyPhoto() {
-		log.info("Copying photo [" + params + "]");
-		aws.s3().on("ravishingme").copy("coffee.jpeg", "coffee2.jpeg", "testpath/testpath2/");
-		log.info("Copying photo [" + params + "]");
-	}
-	
-	def deletePhoto() {
-//		log.info("Deleting photo [" + params + "]");
-//		//aws.s3().on("ravishingme").deleteAll();
-//		aws.s3().on("ravishingme").delete("coffee.jpeg", "testpath/testpath2/");
-//		log.info("Deleting photo [" + params + "] end");
-		log.info("Copying photo [" + params + "]");
-		aws.s3().on("ravishingme").copy("coffee2.jpeg", "coffee" + new Timestamp(new Date().getTime()) + ".jpeg", "testpath/testpath2/");
-		log.info("Copying photo [" + params + "]");
 	}
 }

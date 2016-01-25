@@ -10,6 +10,7 @@
 
 /* Reset
 ---------------------------------*/
+
 ul {
     list-style: none;
 }
@@ -978,10 +979,15 @@ ul.social-links li{
     margin-top: 200px;
 }
 
+
 .result{
     margin-bottom: 50px;
 }
 
+.portfolioImage{
+	width: 50%;
+    height: 310px;
+}
 .result-info{
     border: 2px solid #f4f4f4;
     padding: 0px;
@@ -2410,4 +2416,9 @@ a.sub-title.enabled{
     min-width: 16%;
     margin-top: -10px;
     margin-left: 107px;
+}
+
+.profile-photo {
+	max-height: 200px;
+	max-width: 200px;
 }
