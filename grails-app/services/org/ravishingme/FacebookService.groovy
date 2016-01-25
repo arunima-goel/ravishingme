@@ -8,7 +8,7 @@ import grails.converters.JSON
 class FacebookService {
 	def oauthService
 
-	def getProfileImage(Token facebookAccessToken, String userId) {
+	def getProfileImage(Token facebookAccessToken, String userId, String type) {
 		if (!facebookAccessToken) {
 			throw new CustomException('Token not found.')
 		}
@@ -16,8 +16,8 @@ class FacebookService {
 		if (!userId) {
 			throw new CustomException("UserId not found.")
 		}
-
-		String url = "https://graph.facebook.com/${userId}/picture?type=large&redirect=false"
+		
+		String url = "https://graph.facebook.com/${userId}/picture?type=" + type + "&redirect=false"
 		def facebookResource = oauthService.getFacebookResource(facebookAccessToken, url)
 		def facebookResponse = JSON.parse(facebookResource?.getBody())
 		String fbProfilePicUrl = facebookResponse.data?.url
@@ -28,6 +28,28 @@ class FacebookService {
 		}
 
 		return [fbProfilePicUrl, facebookResponse]
+	}
+	
+	def getCoverImage(Token facebookAccessToken, String userId) {
+		if (!facebookAccessToken) {
+			throw new CustomException('Token not found.')
+		}
+
+		if (!userId) {
+			throw new CustomException("UserId not found.")
+		}
+		
+		String url = "https://graph.facebook.com/${userId}?width=1000&height=1000&fields=cover"
+		def facebookResource = oauthService.getFacebookResource(facebookAccessToken, url)
+		def facebookResponse = JSON.parse(facebookResource?.getBody())
+		String fbCoverPicUrl = facebookResponse.cover?.source
+
+		if (!fbCoverPicUrl) {
+			log.info("FB Cover Image - ${facebookResource}")
+			throw new CustomException("Cover image not found.")
+		}
+
+		return [fbCoverPicUrl, facebookResponse]
 	}
 
 	/**

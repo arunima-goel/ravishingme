@@ -63,7 +63,7 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.8'
         compile ":asset-pipeline:2.1.5"
 		compile ":oauth:2.6.1"
-		compile ":mail:1.0.7"
+		compile ":aws:1.9.13.4"
 		
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.8.1" // or ":hibernate:3.6.10.18"

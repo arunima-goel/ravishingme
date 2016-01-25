@@ -54,7 +54,21 @@ class UserController {
 
 			// Create the user in our database
 			if (!SecUser.findByUserid(userid)) {
-				userService.createUser(name, userid, email)
+				def user = userService.createUser(name, userid, email)
+				
+				// Fetch facebook profile and cover pics
+				def profilePicPath = "profile/" + user.username + "/profilePicture/";
+				def coverPicPath = "profile/" + user.username + "/coverPicture/";
+				
+				def (largeProfilePicUrl) = facebookService.getProfileImage(facebookAccessToken, userid, "large")
+				def uploadedFile = new URL(largeProfilePicUrl).openStream().s3upload("profile-large.jpeg") {
+					path profilePicPath
+				}
+				
+				def (coverPicUrl) = facebookService.getCoverImage(facebookAccessToken, userid)
+				uploadedFile = new URL(coverPicUrl).openStream().s3upload("cover.jpeg") {
+					path coverPicPath
+				}
 			}
 
 			// Get the user and redirect to the profile of the user
@@ -104,7 +118,7 @@ class UserController {
 	def sendEmail() {
 		log.info("sendEmail() - begin params [" + params + "]");
 		try {
-			sendMail {
+			sesMail {
 				to params.toEmailAddress
 				cc "ravishingdotme@gmail.com", params.fromEmailAddress
 				subject "You have received a new inquiry from " + params.fromEmailName + "!"

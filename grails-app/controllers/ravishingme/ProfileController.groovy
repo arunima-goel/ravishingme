@@ -2,17 +2,20 @@ package ravishingme
 
 import javax.servlet.http.HttpServletResponse
 
-import org.ravishingme.Profile
+import org.ravishingme.Profile;
 import org.ravishingme.SecRole;
-import org.ravishingme.SecUser
+import org.ravishingme.SecUser;
 import org.ravishingme.SecUserSecRole;
-import org.scribe.model.Token
+import org.scribe.model.Token;
+import java.sql.Timestamp;
 
 class ProfileController {
 
 	def oauthService
 	def facebookService
 	def userService
+	def aws
+
 
 	/**
 	 * Endpoint to update settings of a profile
@@ -90,6 +93,7 @@ class ProfileController {
 			if (profile && (profile.isArtist == true || profile.username == loggedInUser.profile.username)) {
 				// TODO:  checkMinContent(username) // if logged in user is the same as the username,
 				// then check min content and display edit page
+
 				log.info("index() - end");
 				[profile:profile, loggedInUser: loggedInUser]
 			} else {
@@ -205,9 +209,9 @@ class ProfileController {
 		profileInstance.removeFromFavorites(favoriteProfileInstance)
 		profileInstance.save(flush: true)
 		render(template:'/profile/favoritesSettings', model: [profile:favoriteProfileInstance, loggedInUser: getLoggedInUser()])
- 		log.info("removeFavoriteFromSettings() - end");
+		log.info("removeFavoriteFromSettings() - end");
 	}
-	
+
 	/**
 	 * Endpoint to remove a favorite
 	 */
@@ -221,5 +225,33 @@ class ProfileController {
 		profileInstance.save(flush: true)
 		render(template:'/admin/profileInfo', model: [profile:Profile.findByUsername(params.username)])
 		log.info("removeFavoriteFromAdmin() - end");
+	}
+
+	def uploadPicturesFromSettings() {
+		log.info("uploadPicturesFromSettings() - begin - params [" + params + "]");
+
+		def loggedInUser = getLoggedInUser();
+
+		def profilePicture = request.getFile('profilePicture')
+		log.info("Profile picture size: " + profilePicture.size)
+		if (profilePicture) {
+			if (profilePicture.size > 500000) {
+				flash.error = "The file is too big, please upload a picture with size less than 5MB";
+			} else if (profilePicture.size == 0) {
+				flash.error = "Please select a valid file for upload";
+			} else {
+				aws.s3().on("ravishingme").rename(
+						"profile-large.jpeg",
+						"profile-large-" + new Timestamp(new Date().getTime()) + ".jpeg",
+						"profile/" + loggedInUser.username + "/profilePicture/")
+				def uploadedFile = profilePicture.inputStream.s3upload("profile-large.jpeg") {
+					bucket "ravishingme"
+					path "profile/" + loggedInUser.username + "/profilePicture/"
+				}
+			}
+
+			redirect(uri: "/profile/settings");
+			log.info("uploadPicturesFromSettings() - end [" + params + "] end");
+		}
 	}
 }

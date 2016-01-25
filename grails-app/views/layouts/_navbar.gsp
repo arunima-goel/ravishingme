@@ -48,8 +48,9 @@
 								<li>
 									<div class="dropdown">
 										<a href="#" data-toggle="dropdown" class="dropdown-toggle">
-											<asset:image src="profile.jpg" class="profile-pic"
-												alt="Profile" />
+											<img class="profile-pic" alt="Profile" onError="this.onerror=null;this.src='/assets/profile.jpg';" 
+											src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/profilePicture/profile-large.jpeg"/>
+											
 										</a>
 										<ul class="dropdown-menu arrow_box">
 											<li><g:link mapping="profileView"

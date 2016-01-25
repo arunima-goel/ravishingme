@@ -29,6 +29,7 @@ class Profile implements Serializable {
 	
 	List servicesOffered = new ArrayList()
 	
+	static transients = [ 'portfolioImages' ]
 	static belongsTo = [user: SecUser]
 	static hasOne = [profilePic: Image, coverPic: Image]
 	static hasMany = [servicesOffered: ServiceWithPrice, favorites: Profile, cosmeticBrands: CosmeticBrand,
@@ -41,6 +42,11 @@ class Profile implements Serializable {
 	def getServicesOfferedList() {
 		println("Service offered: " + servicesOffered)
 		return servicesOffered;
+	}
+	
+	def aws
+	def getPortfolioImages() {
+		return aws.s3().on("ravishingme").getByCriteria_Prefix("profile/" + username + "/portfolioPictures/p-");
 	}
 
 	static constraints = { // TODO: check constraints

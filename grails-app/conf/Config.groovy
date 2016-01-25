@@ -159,21 +159,40 @@ log4j.main = {
 }
 
 
-
 grails {
-	mail {
-		host = "smtp.gmail.com"
-		port = 587
-		username = "ravishingdotme@gmail.com"
-		password = "ravdotme"
-		props = ["mail.smtps.auth":"true",
-			"mail.smtp.socketFactory.port":"465",
-			"mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-			"mail.smtp.socketFactory.fallback":"false",
-			"mail.smtp.tls":"true",
-			"mail.smtp.enable_starttls_auto":"true"]
+	plugin {
+		aws {
+			s3 {
+				bucket = "ravishingme"
+				acl = "public"
+			}
+
+			credentials {
+				accessKey = "AKIAJAJB2YKTJTRW2IXA"
+				secretKey = "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"
+			}
+
+			ses {
+				enabled = true
+				from = "ravishingdotme@gmail.com"
+			}
+		}
 	}
 }
+//
+//grails {
+//	mail {
+//		host = "smtp.gmail.com"
+//		port = 587
+//		username = "ravishingdotme@gmail.com"
+//		password = "ravdotme"
+//		props = [
+//			'mail.transport.protocol': 'aws', 
+//            'mail.aws.class': 'com.amazonaws.services.simpleemail.AWSJavaMailTransport',
+//            'mail.aws.user': '<your aws access key>',
+//            'mail.aws.password': '<your aws secret key>']
+//	}
+//}
 
 
 

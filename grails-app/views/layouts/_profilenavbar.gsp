@@ -48,8 +48,8 @@
 								<li>
 									<div class="dropdown">
 										<a href="#" data-toggle="dropdown" class="dropdown-toggle">
-											<asset:image src="profile.jpg" class="profile-pic"
-												alt="Profile" />
+											<img class="profile-pic" alt="Profile" onError="this.onerror=null;this.src='/assets/profile.jpg';" 
+											src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/profilePicture/profile-large.jpeg"/>
 										</a>
 										<ul class="dropdown-menu arrow_box">
 											<li><g:link mapping="profileView"
@@ -69,7 +69,9 @@
 				<div class="secondary-header row">
 					<div class="secondary-inner">
 						<div class="col-md-6 profile-left-header">
-							<asset:image src="profile.jpg" alt="" class="profile-pic" />
+							<img class="profile-pic" alt="Profile"
+								onError="this.onerror=null;this.src='/assets/profile.jpg';"
+								src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/profilePicture/profile-large.jpeg" />
 							<h1 class="profile-page-title">
 								${profile.name}<span> <oauth:connected provider="facebook">
 										<g:if

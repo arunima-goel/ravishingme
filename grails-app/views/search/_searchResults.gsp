@@ -5,11 +5,15 @@
 				<div class="col-md-4 result">
 					<g:link mapping="profileView"
 							params="[username: profile.username]">
-						<image src="http://placehold.it/350x200" alt="" class="result-img" />
+						<img class="result-img" alt=""
+							onError="this.onerror=null;this.src='http://placehold.it/350x200';"
+							src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/coverPicture/cover.jpeg" />
 					</g:link>
 					<div class="row result-info">
 						<g:link mapping="profileView" params="[username: profile.username]">
-							<asset:image src="search-circle.png" alt="" class="result-circle-img" />
+							<img class="result-circle-img" alt=""
+							onError="this.onerror=null;this.src='/assets/search-circle.png';"
+							src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/profilePicture/profile-large.jpeg" />
 						</g:link>
 						<h3>
 							<g:link mapping="profileView" params="[username: profile.username]">
