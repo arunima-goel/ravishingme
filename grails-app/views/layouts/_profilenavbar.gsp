@@ -49,11 +49,11 @@
 									<div class="dropdown">
 										<a href="#" data-toggle="dropdown" class="dropdown-toggle">
 											<img class="profile-pic" alt="Profile" onError="this.onerror=null;this.src='/assets/profile.jpg';" 
-											src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/profilePicture/profile-large.jpeg"/>
+											src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser?.username}/profilePicture/profile-large.jpeg"/>
 										</a>
 										<ul class="dropdown-menu arrow_box">
 											<li><g:link mapping="profileView"
-													params="[username: loggedInUser.profile.username]">Profile</g:link>
+													params="[username: loggedInUser?.profile?.username]">Profile</g:link>
 											</li>
 											<li><g:link mapping="settings">Settings</g:link></li>
 											<li><g:link controller="user" action="logout"  class="facebookLogin" params="[redirectUri: '']"
@@ -71,11 +71,11 @@
 						<div class="col-md-6 profile-left-header">
 							<img class="profile-pic" alt="Profile"
 								onError="this.onerror=null;this.src='/assets/profile.jpg';"
-								src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/profilePicture/profile-large.jpeg" />
+								src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser?.username}/profilePicture/profile-large.jpeg" />
 							<h1 class="profile-page-title">
 								${profile.name}<span> <oauth:connected provider="facebook">
 										<g:if
-											test="${loggedInUser.profile.username == profile.username}">
+											test="${loggedInUser?.profile?.username == profile.username}">
 											<g:link mapping="settings">Edit</g:link>
 										</g:if>
 									</oauth:connected>
