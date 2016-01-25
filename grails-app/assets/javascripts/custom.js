@@ -19,8 +19,14 @@ $(document).ready(function() {
     
     
     console.log("Checked: " + checkedValues.join(', '));
+    var displayText = checkedValues.join(', ');
+    if (displayText.length > 50) {
+    	displayText = displayText.substr(0, 50) + "...";
+    } else if (displayText.length == 0) {
+    	displayText = "All Services";
+    }
     
-    $(".sh-search .dropdown-search-btn, .home-content .dropdown-search-btn").text(checkedValues.join(', '));
+    $(".sh-search .dropdown-search-btn, .home-content .dropdown-search-btn").text(displayText);
 });
 
 /* Custom Checkboxes & Radio Buttons */
@@ -61,7 +67,14 @@ $('.search-header-checkboxes label, .search-header-checkboxes').click(function(e
     
     console.log("Checked: " + checkedValues.join(', '));
     
-    $(".sh-search .dropdown-search-btn, .home-content .dropdown-search-btn").text(checkedValues.join(', '));
+    var displayText = checkedValues.join(', ');
+    if (displayText.length > 50) {
+    	displayText = displayText.substr(0, 50) + "...";
+    } else if (displayText.length == 0) {
+    	displayText = "All Services";
+    }
+    
+    $(".sh-search .dropdown-search-btn, .home-content .dropdown-search-btn").text(displayText);
    
 });
 

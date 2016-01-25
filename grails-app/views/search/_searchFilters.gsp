@@ -12,7 +12,7 @@
 			   			<ul class="dropdown-menu">
 							<li><a href="#">Yes</a></li>
 							<li class="second"><a href="#">No</a></li>
-							<g:submitToRemote class="btn btn-default filter-search-btn" url="[controller:'search', action:'search']" update="search-results" value="Search"/>
+							<g:submitToRemote class="btn btn-default filter-search-btn" url="[controller:'search', action:'search']" update="search-results" value="Filter"/>
 	          			</ul>
 					</div>
 					<!-- /.button group -->
@@ -32,7 +32,7 @@
 	                       <li><a href="#" data-range="35000">Upto Rs. 35,000</a></li>
 	                       <li class="second"><a href="#" data-range="40000">Upto Rs. 40,000</a></li>
 	                    </ul>
-						<g:submitToRemote class="btn btn-default filter-search-btn fixed-btn" url="[controller:'search', action:'search']" update="search-results" value="Search"/>
+						<g:submitToRemote class="btn btn-default filter-search-btn fixed-btn" url="[controller:'search', action:'search']" update="search-results" value="Filter"/>
 	        		</div>
 					<!-- /.button group -->
 				</div>
@@ -45,7 +45,7 @@
 	                          <li><input type="checkbox" name="cosmeticBrands" value="${cosmeticBrand.id}" data-label="${cosmeticBrand.name}"/></li>
 	                       </g:each>
 	                    </ul>
-						<g:submitToRemote class="btn btn-default filter-search-btn fixed-btn" url="[controller:'search', action:'search']" update="search-results" value="Search"/>
+						<g:submitToRemote class="btn btn-default filter-search-btn fixed-btn" url="[controller:'search', action:'search']" update="search-results" value="Filter"/>
 	        		</div>
 					<!-- /.button group -->
 				</div>

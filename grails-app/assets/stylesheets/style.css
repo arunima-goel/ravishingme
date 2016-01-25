@@ -431,7 +431,7 @@ img.home-bg {
     color: #231f20;
 }
 
-.dropdown-search-btn{padding-left: 55px;}
+.dropdown-search-btn{padding-left: 55px; padding-right: 40px}
 
 .dropdown-city-btn{
     background: url(../img/city-icon.png) no-repeat scroll 15px 10px;
@@ -1215,7 +1215,7 @@ ul.social-links li{
     background-color: #fb4e41;
     color: #fff;
     text-align: center;
-    padding: 10px 58px;
+    padding: 10px 62px;
     border-radius: 0px;
 }
 
