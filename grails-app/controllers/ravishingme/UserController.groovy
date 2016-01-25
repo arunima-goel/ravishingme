@@ -55,20 +55,8 @@ class UserController {
 			// Create the user in our database
 			if (!SecUser.findByUserid(userid)) {
 				def user = userService.createUser(name, userid, email)
+				fetchAndSaveProfileAndCoverPics(user.username, userid);
 				
-				// Fetch facebook profile and cover pics
-				def profilePicPath = "profile/" + user.username + "/profilePicture/";
-				def coverPicPath = "profile/" + user.username + "/coverPicture/";
-				
-				def (largeProfilePicUrl) = facebookService.getProfileImage(facebookAccessToken, userid, "large")
-				def uploadedFile = new URL(largeProfilePicUrl).openStream().s3upload("profile-large.jpeg") {
-					path profilePicPath
-				}
-				
-				def (coverPicUrl) = facebookService.getCoverImage(facebookAccessToken, userid)
-				uploadedFile = new URL(coverPicUrl).openStream().s3upload("cover.jpeg") {
-					path coverPicPath
-				}
 			}
 
 			// Get the user and redirect to the profile of the user
@@ -82,6 +70,28 @@ class UserController {
 		log.info("loginSuccess() - end");
 	}
 
+	/**
+	 * Fetch profile and cover pics from facebook and save them in S3
+	 */
+	def fetchAndSaveProfileAndCoverPics(String username, String userid) {
+		try {
+			// Fetch facebook profile and cover pics
+			def profilePicPath = "profile/" + username + "/profilePicture/";
+			def coverPicPath = "profile/" + username + "/coverPicture/";
+
+			def (largeProfilePicUrl) = facebookService.getProfileImage(facebookAccessToken, userid, "large")
+			def uploadedFile = new URL(largeProfilePicUrl).openStream().s3upload("profile-large.jpeg") {
+				path profilePicPath
+			}
+
+			def (coverPicUrl) = facebookService.getCoverImage(facebookAccessToken, userid)
+			uploadedFile = new URL(coverPicUrl).openStream().s3upload("cover.jpeg") {
+				path coverPicPath
+			}
+		} catch(Exception e) {
+			log.error("Could not fetch profile and cover pictures from facebook: " + e.getMessage());
+		}
+	}
 	/**
 	 * Callback from facebook when login is not successful
 	 */
