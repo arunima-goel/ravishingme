@@ -89,8 +89,8 @@ class ProfileController {
 		try {
 			SecUser loggedInUser = getLoggedInUser();
 			Profile profile = Profile.findByUsername(username)
-			// Fetch the profile information only if its an artist or if the user is trying to load his/her own profile
-			if (profile && (profile.isArtist == true || profile.username == loggedInUser.profile.username)) {
+			// Fetch the profile information only if its an artist 
+			if (profile && (profile.isArtist == true)) {
 				// TODO:  checkMinContent(username) // if logged in user is the same as the username,
 				// then check min content and display edit page
 
@@ -235,8 +235,8 @@ class ProfileController {
 		def profilePicture = request.getFile('profilePicture')
 		log.info("Profile picture size: " + profilePicture.size)
 		if (profilePicture) {
-			if (profilePicture.size > 500000) {
-				flash.error = "The file is too big, please upload a picture with size less than 5MB";
+			if (profilePicture.size > 3000000) {
+				flash.error = "The file is too big, please upload a picture with size less than 3MB";
 			} else if (profilePicture.size == 0) {
 				flash.error = "Please select a valid file for upload";
 			} else {

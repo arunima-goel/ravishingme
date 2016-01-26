@@ -52,7 +52,7 @@
 											src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser?.username}/profilePicture/profile-large.jpeg"/>
 										</a>
 										<ul class="dropdown-menu arrow_box">
-											<li><g:link mapping="profileView"
+											<li id="profileLink" class="${loggedInUser?.profile?.isArtist ? '' : 'disabled'}"><g:link mapping="profileView" 
 													params="[username: loggedInUser?.profile?.username]">Profile</g:link>
 											</li>
 											<li><g:link mapping="settings">Settings</g:link></li>
@@ -71,7 +71,7 @@
 						<div class="col-md-6 profile-left-header">
 							<img class="profile-pic" alt="Profile"
 								onError="this.onerror=null;this.src='/assets/profile.jpg';"
-								src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser?.username}/profilePicture/profile-large.jpeg" />
+								src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/profilePicture/profile-large.jpeg" />
 							<h1 class="profile-page-title">
 								${profile.name}<span> <oauth:connected provider="facebook">
 										<g:if

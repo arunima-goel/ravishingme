@@ -20,8 +20,8 @@ $(document).ready(function() {
     
     console.log("Checked: " + checkedValues.join(', '));
     var displayText = checkedValues.join(', ');
-    if (displayText.length > 50) {
-    	displayText = displayText.substr(0, 50) + "...";
+    if (displayText.length > 47) {
+    	displayText = displayText.substr(0, 47) + "...";
     } else if (displayText.length == 0) {
     	displayText = "All Services";
     }
@@ -68,8 +68,8 @@ $('.search-header-checkboxes label, .search-header-checkboxes').click(function(e
     console.log("Checked: " + checkedValues.join(', '));
     
     var displayText = checkedValues.join(', ');
-    if (displayText.length > 50) {
-    	displayText = displayText.substr(0, 50) + "...";
+    if (displayText.length > 47) {
+    	displayText = displayText.substr(0, 47) + "...";
     } else if (displayText.length == 0) {
     	displayText = "All Services";
     }
@@ -261,6 +261,12 @@ $(".stay-btn").click(function() {
 
 function displaySuccessMessage() {
 	$("#success-modal").modal("show");
+
+	if ($('#artist-yes').is(':checked')) {
+		$("#profileLink").removeClass("disabled");
+	} else {
+		$("#profileLink").addClass("disabled");
+	}
 }
 
 function displayEmailSuccessMessage() {

@@ -90,7 +90,7 @@
 						<li class="user-menu-item" style="display:${displayTypeUser}"><a
 							data-toggle="pill" href="#favorites-settings">Favorites</a></li>
 						<li class="user-menu-item" style="display:${displayTypeUser}"><a
-							data-toggle="pill" href="#user-display-pic">Display Pic</a></li>
+							data-toggle="pill" href="#display-pic">Display Pic</a></li>
 					</ul>
 				</div>
 				<!-- /.col -->

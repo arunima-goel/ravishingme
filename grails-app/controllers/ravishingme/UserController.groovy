@@ -55,7 +55,7 @@ class UserController {
 			// Create the user in our database
 			if (!SecUser.findByUserid(userid)) {
 				def user = userService.createUser(name, userid, email)
-				fetchAndSaveProfileAndCoverPics(user.username, userid);
+				fetchAndSaveProfileAndCoverPics(user.username, userid, facebookAccessToken);
 				
 			}
 
@@ -73,7 +73,7 @@ class UserController {
 	/**
 	 * Fetch profile and cover pics from facebook and save them in S3
 	 */
-	def fetchAndSaveProfileAndCoverPics(String username, String userid) {
+	def fetchAndSaveProfileAndCoverPics(String username, String userid, Token facebookAccessToken) {
 		try {
 			// Fetch facebook profile and cover pics
 			def profilePicPath = "profile/" + username + "/profilePicture/";

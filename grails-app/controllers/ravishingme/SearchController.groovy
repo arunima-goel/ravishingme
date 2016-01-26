@@ -151,6 +151,7 @@ class SearchController {
 						'in' ('id', cosmeticsList)
 					}
 				}
+				eq('isArtist', true)
 			}
 			order("id", "asc")
 		}

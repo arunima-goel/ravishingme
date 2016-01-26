@@ -18,7 +18,7 @@
 					<!-- /.button group -->
 				</div>
 				<!-- /.col -->
-				<div class="col-md-4 makeup-filter">
+				<div class="col-md-4 makeup-filter ${(searchParams?.services?.contains('2') || searchParams?.services == null)  ? '' : 'disabled'}">
 					<div class="button-group dropdown-scroll">
 						<button type="button" class="dropdown-filter-btn" data-toggle="dropdown">Bridal Makeup Range<span class="drp-caret"></span></button>
 						<g:hiddenField name="makeupRange" class="filter-makeup-range-input" />
