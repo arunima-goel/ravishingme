@@ -37,11 +37,9 @@
 							<li><g:link mapping="about">About</g:link></li>
 							<li><g:link mapping="faqs">FAQs</g:link></li>
 							<oauth:disconnected provider="facebook">
-								<li><oauth:connect provider="facebook"  class="facebookLogin"
-										id="facebook-connect-link">Sign in</oauth:connect></li>
 								<li><oauth:connect provider="facebook"
 										id="facebook-connect-link" class="signup-highlight" href="#"
-										data-toggle="modal" data-target="#signup">Sign up</oauth:connect>
+										data-toggle="modal" data-target="#signup">Login</oauth:connect>
 								</li>
 							</oauth:disconnected>
 							<oauth:connected provider="facebook">
@@ -90,21 +88,18 @@
 			<div class="modal-body">
 				<oauth:connect provider="facebook" id="facebook-connect-link"
 					class="btn btn-block btn-social btn-facebook facebookLogin">
-					<span class="fa fa-5x fa-facebook"></span>Sign up with Facebook</oauth:connect>
+					<span class="fa fa-5x fa-facebook"></span>Continue with Facebook</oauth:connect>
 				<p>We will not post anything without your permission</p>
 			</div>
 			<div class="signup-terms">
-				<p>By clicking "sign up", you confirm that you accept</p>
+				<p>By clicking "continue", you confirm that you accept</p>
 				<p>
 					our <a href="#">Terms of service</a> and <a href="#">Privacy
 						Policy</a>.
 				</p>
 			</div>
 			<div class="modal-footer">
-				<h4>
-					Already a member?
-					<oauth:connect provider="facebook" id="facebook-connect-link"
-						class="facebookLogin">Login</oauth:connect>
+				<h4>Already a member?</h4>
 			</div>
 		</div>
 	</div>

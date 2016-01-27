@@ -19,8 +19,9 @@
 		<!-- Settings Footer -->
 		<div class="settings-footer">
 			<div class="form-btns pull-right">
-				<a href="" class="cancel-btn">Cancel</a> <input type="submit"
-					value="Upload" class="save-btn" />
+				<a href="#" data-target="#warning-modal" data-toggle="modal"
+					class="cancel-btn">Cancel</a> 
+				<input type="submit" value="Upload" class="save-btn" />
 			</div>
 		</div>
 	</g:uploadForm>

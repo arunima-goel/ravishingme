@@ -6,7 +6,7 @@
 	<g:hiddenField name="id" value="${loggedInUser?.profile?.id}" />
 	<div class="row">
 		<div class="col-md-4 settings-label">
-			<label for="cosmetics">Cosmetics*</label>
+			<label for="cosmetics">Cosmetic Brands*</label>
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input">
@@ -48,7 +48,8 @@
 	<!-- Settings Footer -->
 	<div class="settings-footer">
 		<div class="form-btns pull-right">
-			<a href="" class="cancel-btn">Cancel</a>
+			<a href="#" data-target="#warning-modal" data-toggle="modal"
+				class="cancel-btn">Cancel</a>
 			<g:submitToRemote class="save-btn"
 				url="[controller:'profile', action:'updateSettings']"
 				value="Save"

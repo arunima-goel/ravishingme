@@ -72,10 +72,10 @@
 	<!-- Settings Footer -->
 	<div class="settings-footer">
 		<div class="form-btns pull-right">
-			<a href="" class="cancel-btn">Cancel</a>
+			<a href="#" data-target="#warning-modal" data-toggle="modal"
+				class="cancel-btn">Cancel</a>
 			<g:submitToRemote class="save-btn"
-				url="[controller:'profile', action:'updateSettings']" 
-				value="Save"
+				url="[controller:'profile', action:'updateSettings']" value="Save"
 				onSuccess="displaySuccessMessage()" />
 		</div>
 	</div>

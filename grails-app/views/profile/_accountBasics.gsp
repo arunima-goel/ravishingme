@@ -65,7 +65,7 @@
 	<!-- /.row -->
 	<div class="row">
 		<div class="col-md-4 settings-label">
-			<label for="location">Location*</label>
+			<label for="location">Address*</label>
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input">
@@ -126,7 +126,7 @@
 	<!-- /.row -->
 	<div class="row">
 		<div class="col-md-4 settings-label">
-			<label for="whatsapp">Whatsapp Number*</label>
+			<label for="whatsapp">WhatsApp Number*</label>
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input form-group">
@@ -139,7 +139,7 @@
 			<g:set var="displayTypeArtist"
 				value="${loggedInUser?.profile?.isArtist.equals(true) ? 'block' : 'none'}" />
 			<div class="whatsapp-msg" style="display:${displayTypeArtist}">Your
-				whatsapp number will be visible on your profile page.</div>
+				WhatsApp number will be visible on your profile page.</div>
 		</div>
 		<!-- /.col -->
 	</div>

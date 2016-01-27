@@ -2,7 +2,7 @@
 <g:form>
 	<g:hiddenField name="username" value="${profile?.username}" />
 	<g:hiddenField name="id" value="${profile?.id}" />
-	Cosmetics:</br>
+	Cosmetic Brands:</br>
 	<g:each in="${org.ravishingme.CosmeticBrand.list(sort: 'id', order: 'asc')}" var="cosmeticBrand" status="i">
 	    <g:checkBox name="preferredCosmeticBrands" value="${cosmeticBrand.id}" checked="${profile.preferredCosmeticBrands.contains(cosmeticBrand)}" />
 	    <label for="preferredCosmeticBrand">${cosmeticBrand.name}</label></br>

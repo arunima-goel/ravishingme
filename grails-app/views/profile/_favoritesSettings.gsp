@@ -37,8 +37,9 @@
 <!-- Settings Footer -->
 <div class="settings-footer">
 	<div class="form-btns pull-right">
-		<a href="" class="cancel-btn">Cancel</a>
-		<button class="save-btn">Save</button>
+		<a href="#" data-target="#warning-modal" data-toggle="modal"
+				class="cancel-btn">Cancel</a>
+		<button class="save-btn disabled">Save</button>
 	</div>
 </div>
 <!-- /.settings footer -->

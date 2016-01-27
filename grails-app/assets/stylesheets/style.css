@@ -415,6 +415,7 @@ img.home-bg {
   height: auto;
   top: 0;
   left: 0;
+  max-height: 450px;
 }
 
 .dropdown-search-btn, .dropdown-city-btn{
@@ -589,7 +590,6 @@ ul.sub_menu{
 }
 
 .home-callout{
-    padding: 35px 0px;
     text-align: center;
     text-transform: uppercase;
 }
@@ -1005,7 +1005,7 @@ ul.social-links li{
 
 .result-img{
     width: 100%; 
-    height: auto;
+    height: 200px;
 }
 
 .result-circle-img{
@@ -1122,7 +1122,7 @@ ul.social-links li{
 
 .cosmetics-filter .drp-caret{
     top: 19px;
-    right: 160px;
+    right: 135px;
 }
 
 

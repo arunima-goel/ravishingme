@@ -10,8 +10,7 @@
       <!-- Bootstrap Core CSS -->
       <asset:stylesheet src="bootstrap.min.css" />
       <!-- Font Awesome CSS -->
-      <asset:stylesheet
-         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
       <!-- Custom Checkboxes -->
       <asset:stylesheet src="prettyCheckable.css" />
       <!-- Custom CSS -->

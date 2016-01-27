@@ -7,7 +7,7 @@
 	<g:radio name="isWillingToTravel" value="true" checked="${profile?.isWillingToTravel.equals(true)}"/>Yes
 	<g:radio name="isWillingToTravel" value="false" checked="${profile?.isWillingToTravel.equals(false)}"/>No
 	</br>
-	Cosmetics:</br>
+	Cosmetic brands:</br>
 	<g:each in="${org.ravishingme.CosmeticBrand.list(sort: 'id', order: 'asc')}" var="cosmeticBrand" status="i">
 	    <g:checkBox name="cosmeticBrands" value="${cosmeticBrand.id}" checked="${profile.cosmeticBrands.contains(cosmeticBrand)}" />
 	    <label for="cosmeticBrands">${cosmeticBrand.name}</label></br>

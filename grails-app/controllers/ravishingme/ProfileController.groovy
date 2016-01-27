@@ -66,7 +66,33 @@ class ProfileController {
 			profileInstance.preferredCosmeticBrands.clear();
 			profileInstance.preferredServices.clear();
 		}
-
+		
+		// Add http:// prefix to social network urls if they don't already have it
+		String facebookUrl = params.socialNetworks.facebookUrl;
+		if(facebookUrl != null && !facebookUrl.startsWith("http")) {
+			params.socialNetworks.facebookUrl = "http://" + facebookUrl;
+		}
+		
+		String twitterUrl = params.socialNetworks.twitterUrl;
+		if(twitterUrl != null && !twitterUrl.startsWith("http")) {
+			params.socialNetworks.twitterUrl = "http://" + twitterUrl;
+		}
+		
+		String instagramUrl = params.socialNetworks.instagramUrl;
+		if(instagramUrl != null && !instagramUrl.startsWith("http")) {
+			params.socialNetworks.instagramUrl = "http://" + instagramUrl;
+		}
+		
+		String youtubeUrl = params.socialNetworks.youtubeUrl;
+		if(youtubeUrl != null && !youtubeUrl.startsWith("http")) {
+			params.socialNetworks.youtubeUrl = "http://" + youtubeUrl;
+		}
+		
+		String personalWebsite = params.socialNetworks.personalWebsite;
+		if(personalWebsite != null && !personalWebsite.startsWith("http")) {
+			params.socialNetworks.personalWebsite = "http://" + personalWebsite;
+		}
+		
 		bindData profileInstance, params;
 
 		profileInstance.address.state = profileInstance.address.city.state;

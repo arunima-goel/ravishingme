@@ -17,7 +17,7 @@
       <div class="home-callout container">
          <div class="row">
             <h3>Be Ravishing,
-               <span>Find and contact beauty professionals near you<span>
+               <span>Find stylists and beauty professionals near you<span>
             </h3>
             <hr/>
          </div>

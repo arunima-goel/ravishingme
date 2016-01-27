@@ -39,7 +39,7 @@
 				<!-- /.col -->
 				<div class="col-md-4 cosmetics-filter">
 					<div class="button-group dropdown-scroll">
-						<button type="button" class="dropdown-filter-btn" data-toggle="dropdown">Cosmetics<span class="drp-caret"></span></button>
+						<button type="button" class="dropdown-filter-btn" data-toggle="dropdown">Cosmetic Brands<span class="drp-caret"></span></button>
 						<ul class="filter-header-checkboxes dropdown-menu scrollable-menu" id="dropdown">
 						   <g:each in="${org.ravishingme.CosmeticBrand.list()}" var="cosmeticBrand" >
 	                          <li><input type="checkbox" name="cosmeticBrands" value="${cosmeticBrand.id}" data-label="${cosmeticBrand.name}"/></li>

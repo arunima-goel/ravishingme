@@ -37,11 +37,9 @@
 							<li><g:link mapping="about">About</g:link></li>
 							<li><g:link mapping="faqs">FAQs</g:link></li>
 							<oauth:disconnected provider="facebook">
-								<li><oauth:connect provider="facebook" class="facebookLogin"
-										id="facebook-connect-link">Sign in</oauth:connect></li>
 								<li><oauth:connect provider="facebook"
 										id="facebook-connect-link" class="signup-highlight" href="#"
-										data-toggle="modal" data-target="#signup">Sign up</oauth:connect>
+										data-toggle="modal" data-target="#signup">Login</oauth:connect>
 								</li>
 							</oauth:disconnected>
 							<oauth:connected provider="facebook">
@@ -117,7 +115,7 @@
 			<div class="modal-body">
 				<oauth:connect provider="facebook" id="facebook-connect-link"
 					class="btn btn-block btn-social btn-facebook facebookLogin">
-					<span class="fa fa-5x fa-facebook"></span>Sign up with Facebook</oauth:connect>
+					<span class="fa fa-5x fa-facebook"></span>Continue with Facebook</oauth:connect>
 				<p>We will not post anything without your permission</p>
 			</div>
 			<div class="signup-terms">

@@ -64,6 +64,7 @@ class UserService {
 
 		profile.setYearsOfExperience(0);
 		profile.setEmail(email);
+		profile.setIsWillingToTravel(false);
 
 		def user = new SecUser(userId, username,  profile)
 		user.save(failOnError: true)

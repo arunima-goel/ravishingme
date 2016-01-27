@@ -56,27 +56,27 @@
 			<h6>Meet the artist</h6>
 			<ul class="social-links">
 				<g:if test="${it.socialNetworks.twitterUrl != null}">
-					<a href="http://${it.socialNetworks.twitterUrl}" target="_blank"><li
+					<a href="${it.socialNetworks.twitterUrl}" target="_blank"><li
 						class="twitter-icon"></li></a>
 				</g:if>
 				<g:if test="${it.socialNetworks.facebookUrl != null}">
-					<a href="http://${it.socialNetworks.facebookUrl}" target="_blank"><li
+					<a href="${it.socialNetworks.facebookUrl}" target="_blank"><li
 						class="facebook-icon"></li></a>
 				</g:if>
 				<g:if test="${it.socialNetworks.instagramUrl != null}">
-					<a href="http://${it.socialNetworks.instagramUrl}" target="_blank"><li
+					<a href="${it.socialNetworks.instagramUrl}" target="_blank"><li
 						class="instagram-icon"></li></a>
 				</g:if>
 				<g:if test="${it.socialNetworks.youtubeUrl != null}">
-					<a href="http://${it.socialNetworks.youtubeUrl}" target="_blank"><li
+					<a href="${it.socialNetworks.youtubeUrl}" target="_blank"><li
 						class="youtube-icon"></li></a>
 				</g:if>
 				<g:if test="${it.socialNetworks.wordpressUrl != null}">
-					<a href="http://${it.socialNetworks.wordpressUrl}" target="_blank"><li
+					<a href="${it.socialNetworks.wordpressUrl}" target="_blank"><li
 						class="wordpress-icon"></li></a>
 				</g:if>
 				<g:if test="${it.socialNetworks.personalWebsite != null}">
-					<a href="http://${it.socialNetworks.personalWebsite}"
+					<a href="${it.socialNetworks.personalWebsite}"
 						target="_blank"><h6>
 							${it.socialNetworks.personalWebsite}
 						</h6>

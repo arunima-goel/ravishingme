@@ -52,16 +52,21 @@ class UserController {
 			// Get user id and username from facebook
 			def (userid, name, email) = facebookService.getUserIdAndName(facebookAccessToken, "me?fields=email,name")
 
+			boolean newUserCreated = false;
 			// Create the user in our database
 			if (!SecUser.findByUserid(userid)) {
 				def user = userService.createUser(name, userid, email)
 				fetchAndSaveProfileAndCoverPics(user.username, userid, facebookAccessToken);
-				
+				newUserCreated = true;
 			}
 
 			// Get the user and redirect to the profile of the user
 			SecUser user = SecUser.findByUserid(userid)
-			redirect(uri: params.redirectUri)
+			if (newUserCreated) {
+				redirect(uri: "/profile/settings")
+			} else {
+				redirect(uri: params.redirectUri)
+			}
 		} catch (Exception e) {
 			log.error("An exception occurred after successful facebook login " + e.getMessage());
 			flash.error = "An exception occurred during facebook login. Please try again.";
@@ -73,7 +78,7 @@ class UserController {
 	/**
 	 * Fetch profile and cover pics from facebook and save them in S3
 	 */
-	def fetchAndSaveProfileAndCoverPics(String username, String userid, Token facebookAccessToken) {
+	private fetchAndSaveProfileAndCoverPics(String username, String userid, Token facebookAccessToken) {
 		try {
 			// Fetch facebook profile and cover pics
 			def profilePicPath = "profile/" + username + "/profilePicture/";

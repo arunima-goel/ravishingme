@@ -29,6 +29,7 @@ class BootStrap {
 			"L’Oreal Paris",
 			"M.A.C.",
 			"Maybelline",
+			"Max Factor",
 			"Miss Claire",
 			"Nars",
 			"O.P.I.",
