@@ -21,6 +21,7 @@ class UrlMappings {
 		
 		name about: "/about"(controller:"base", action:"about")
 		name faqs: "/faqs"(controller:"base", action:"faqs")
+		name policies: "/policies"(controller:"base", action:"policies")
 		
 		"/search"(controller:"search", action:"index")
 		

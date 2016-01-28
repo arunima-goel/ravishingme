@@ -5,7 +5,7 @@
 		<div id="map-canvas"></div>
 	</div>
 	<div class="section-header text-center">
-		<h2 class="profile-section-header">Contact the artist</h2>
+		<h2 class="profile-section-header">Contact</h2>
 	</div>
 	<!-- Contact Form -->
 	<div class="row">
@@ -41,7 +41,7 @@
 			<!-- /Contact Form -->
 		</div>
 		<div class="col-md-4 contact-info">
-			<h6>Whatsapp</h6>
+			<h6>WhatsApp</h6>
 			<p>
 				${it.whatsAppNumber}
 			</p>
@@ -53,7 +53,6 @@
 				${it.businessHours.endTime}
 				${it.businessHours.endTimePeriod}
 			</p>
-			<h6>Meet the artist</h6>
 			<ul class="social-links">
 				<g:if test="${it.socialNetworks.twitterUrl != null}">
 					<a href="${it.socialNetworks.twitterUrl}" target="_blank"><li

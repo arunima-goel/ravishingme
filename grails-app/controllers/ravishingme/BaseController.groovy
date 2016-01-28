@@ -34,6 +34,17 @@ class BaseController {
 		render(view:'/faqs', model: [loggedInUser: getLoggedInUser(), searchParams: searchParams])
 		log.info("faqs() - end");
 	}
+	
+	/**
+	 * Endpoint to render the policies page
+	 */
+	def policies() {
+		log.info("policies() - begin - params [" + params + "]");
+		def searchParams = [:];
+		searchParams["city"] = "1";
+		render(view:'/policies', model: [loggedInUser: getLoggedInUser(), searchParams: searchParams])
+		log.info("policies() - end");
+	}
 
 	/**
 	 * Helper method to get logged in user
