@@ -6,7 +6,7 @@
 	<g:hiddenField name="id" value="${loggedInUser?.profile?.id}" />
 	<div class="row">
 		<div class="col-md-4 settings-label">
-			<label for="cosmetics">Cosmetic Brands*</label>
+			<label for="cosmetics">Cosmetics Brands*</label>
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input">

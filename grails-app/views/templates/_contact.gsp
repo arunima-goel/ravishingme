@@ -14,7 +14,7 @@
 				<h3 class="contact-header">Use the links on the right to see more information about the artist</h3>
 			</g:if>
 			<g:else>
-				<h3 class="contact-header">Let's have some beauty talk</h3>
+				<h3 class="contact-header">Let's talk beauty!</h3>
 				<g:form method="post" controller="user">
 					<g:hiddenField name="username" value="${it.username}" />
 					<g:hiddenField name="toEmailAddress" value="${it.email}" />

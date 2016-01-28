@@ -38,7 +38,7 @@
 	<!-- /.row -->
 	<div class="row">
 		<div class="col-md-4 settings-label">
-			<label for="cosmetics">Cosmetic Brands*</label>
+			<label for="cosmetics">Cosmetics Brands*</label>
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input form-group cosmetics-group">
@@ -55,7 +55,7 @@
 			<div class="help-block with-errors cosmetics"></div>
 			<div class="text-center settings-hint">
 				<p>
-					If you don't find a cosmetic of your choice, please <a
+					If you don't find a cosmetics brand of your choice, please <a
 						href="about.html#contact">contact us</a>
 				</p>
 			</div>
@@ -120,7 +120,7 @@
 	<!-- /.row -->
 	<div class="row">
 		<div class="col-md-4 settings-label">
-			<label for="experience">Years Experience*</label>
+			<label for="experience">Years of experience*</label>
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input form-group">

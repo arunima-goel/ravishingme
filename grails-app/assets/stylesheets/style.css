@@ -381,7 +381,7 @@ ul.dropdown-menu.arrow_box li a:hover{
 ---------------------------------*/
 .home-content{
     position: absolute;
-    top: 50%;
+    top: 47%;
     left:50%;
     transform: translate(-50%,-50%);
 }
@@ -690,7 +690,7 @@ ul.sub_menu{
 }
 
 .modal-dialog{
-    width: 425px;
+    width: 430px;
 }
 
 .modal-title{
@@ -2048,6 +2048,16 @@ a.leave-btn:hover, a.stay-btn:hover{
     margin-bottom: 30px;
 }
 
+.profile-section-header-2{
+    color: #FB4E41;
+    padding-top: 20px;
+    text-align: left;
+    width: 75%;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+
 .profile-section-header a{
     color: #fb4e41;
     margin-left: 10px;
@@ -2421,4 +2431,14 @@ a.sub-title.enabled{
 .profile-photo {
 	max-height: 200px;
 	max-width: 200px;
+}
+
+.emptySearchResults {
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 350px;
+}
+
+.emptySearchResultsLine1 {
+	font-size: 16px;
 }

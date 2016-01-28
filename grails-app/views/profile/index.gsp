@@ -15,7 +15,7 @@
 			<section class="about">
 				<div class="about-section">
 					<div class="section-header text-center">
-						<h2 class="profile-section-header">About</h2>
+						<h2 class="profile-section-header">Artist profile</h2>
 					</div>
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 text-center">
@@ -66,8 +66,7 @@
 			<section class="services">
 				<div class="services-content">
 					<div class="section-header text-center">
-						<h2 class="profile-section-header">Services With Their
-							Starting Prices</h2>
+						<h2 class="profile-section-header">Services</h2>
 						<a href="#contact" class="sub-title">Inquiry</a>
 					</div>
 					<div class="services-list">
@@ -95,6 +94,9 @@
 								</g:if>
 							</g:each>
 						</table>
+					</div>
+					<div class="section-header text-center">
+						<a class="sub-title"><i>All rates are starting prices and subject to change. Please confirm with artist before appointment.</i></a>
 					</div>
 				</div>
 			</section>

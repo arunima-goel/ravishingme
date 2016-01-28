@@ -45,7 +45,7 @@
 	<!-- /.row -->
 	<div class="row">
 		<div class="col-md-4 settings-label">
-			<label for="youtube">Youtube</label>
+			<label for="youtube">YouTube</label>
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input form-group">

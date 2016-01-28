@@ -16,7 +16,7 @@
       <!-- Callout -->
       <div class="home-callout container">
          <div class="row">
-            <h3>Be Ravishing,
+            <h3>Get ravishing!
                <span>Find stylists and beauty professionals near you<span>
             </h3>
             <hr/>

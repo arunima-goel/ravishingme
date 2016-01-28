@@ -22,48 +22,104 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<h2 class="profile-section-header">Fequently Asked Questions</h2>
+					<h2 class="profile-section-header">Frequently Asked Questions</h2></br>
+					<h2 class="profile-section-header-2">I am a make-up artist or stylist:</h2>
 					<ul class="faqs">
 						<li>
 							<div class="question">
-								<span>1.</span> What is ravishing.me
+								<span>1.</span> What is ravishing.me?
+
 							</div>
 							<div class="answer">
-								<p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-									ipsum lorem ipsu lorem ipsum lorem lorem ipsum lorem ipsum
-									lorem ipsu. lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-									lorem ipsum lorem ipsu lorem ipsum lorem lorem ipsum lorem
-									ipsum lorem ipsu.</p>
+								<p>Ravishing.me is an online platform for talented make-up artists, hair stylists, and fashion stylists to offer their services to everyone who needs them.</p>
 							</div>
 						</li>
 						<li>
 							<div class="question">
-								<span>2.</span> Why Ravishing.me will help your business
+								<span>2.</span>How will ravishing.me help my business?
+
 							</div>
 							<div class="answer">
-								<p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-									ipsum lorem ipsu lorem ipsum lorem lorem ipsum lorem ipsum
-									lorem ipsu.</p>
+								<p>Research shows that ___% of Indian youth are looking for beauty and grooming services online. And if you’re reading this, you’ve already made the right choice to promote yourself online. We can help you grow your online brand – by giving you a wider audience and making stronger connections with customers. Now, you don’t need to worry about word of mouth – your work will speak for itself. Just sign up with your Facebook account and create a portfolio for free! You can make your profile, list services and upload pictures of your work for all to see.</p>
 							</div>
 						</li>
 						<li>
 							<div class="question">
-								<span>3.</span> Why Ravishing.me will help your business
+								<span>3.</span>Can anyone join ravishing.me?
 							</div>
 							<div class="answer">
-								<p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-									ipsum lorem ipsu lorem ipsum lorem lorem ipsum lorem ipsum
-									lorem ipsu.</p>
+								<p>Yes! Anyone with a passion for make-up and styling can join and offer their services.</p>
 							</div>
 						</li>
 						<li>
 							<div class="question">
-								<span>4.</span> Why Ravishing.me will help your business
+								<span>4.</span>Do I have to pay to join ravishing. me?
 							</div>
 							<div class="answer">
-								<p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-									ipsum lorem ipsu lorem ipsum lorem lorem ipsum lorem ipsum
-									lorem ipsu.</p>
+								<p>Nope! It’s absolutely free.</p>
+							</div>
+						</li>
+					</ul>
+					<h2 class="profile-section-header-2">I am looking for a make-up artist or stylist:</h2>
+					<ul class="faqs">
+						<li>
+							<div class="question">
+								<span>1.</span> What is ravishing.me?
+
+							</div>
+							<div class="answer">
+								<p>Remember that wedding when you couldn’t find a reliable make-up artist in your neighborhood? 
+								Or that party you had to skip because the hair stylist your friend told you about messed up your hair?
+								Say goodbye to them. Now, you can hire talented make-up artists and stylists after seeing their work on ravishing.me.</p>
+							</div>
+						</li>
+						<li>
+							<div class="question">
+								<span>2.</span>Do I have to pay to join ravishing. me?
+							</div>
+							<div class="answer">
+								<p>Nope! You only pay the artist directly for the services you hire.</p>
+							</div>
+						</li>
+						<li>
+							<div class="question">
+								<span>3.</span> Where do I start?
+							</div>
+							<div class="answer">
+								<p>It’s very simple.</br>
+									Step 1: Enter the type of service you need in the search bar.</br>
+									Step 2: Pick a service provider from a list of verified and reputed professionals.</br>
+									Step 3: Contact them and book your appointment!</br>
+								</p>
+							</div>
+						</li>
+					</ul>
+					<h2 class="profile-section-header-2">Creating your account:</h2>
+					<ul class="faqs">
+						<li>
+							<div class="question">
+								<span>1.</span>How do I create a ravishing.me professional account?
+
+							</div>
+							<div class="answer">
+								<p>Just click on Login and you will be logged in using your Facebook account..</p>
+							</div>
+						</li>
+						<li>
+							<div class="question">
+								<span>2.</span> How do I edit my profile?
+
+							</div>
+							<div class="answer">
+								<p>???</p>
+							</div>
+						</li>
+						<li>
+							<div class="question">
+								<span>3.</span> Does ravishing.me have a mobile app?
+							</div>
+							<div class="answer">
+								<p>Not yet, but we’re working on it and will bring out an app soon!</p>
 							</div>
 						</li>
 					</ul>

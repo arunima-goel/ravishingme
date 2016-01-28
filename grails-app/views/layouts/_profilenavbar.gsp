@@ -34,7 +34,7 @@
 					<div class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-							<li><g:link mapping="about">About</g:link></li>
+							<li><g:link mapping="about">About Us</g:link></li>
 							<li><g:link mapping="faqs">FAQs</g:link></li>
 							<oauth:disconnected provider="facebook">
 								<li><oauth:connect provider="facebook"
@@ -81,7 +81,7 @@
 						</div>
 						<div class="col-md-6">
 							<ul class="second-nav">
-								<li class="selected"><a href="#about">About</a></li>
+								<li class="selected"><a href="#about">Artist Profile</a></li>
 								<li><a href="#portfolio">Portfolio</a></li>
 								<li><a href="#services">Services</a></li>
 								<li><a href="#contact">Contact</a></li>
@@ -107,29 +107,18 @@
 		<!-- Modal content-->
 		<div class="modal-content text-center">
 			<div class="modal-header">
-				<h4 class="modal-title">Create your ravishing account.</h4>
-				<h4>
-					It's <span>Free</span>
-				</h4>
+				<h4 class="modal-title">Login / Create your <span>free</span> account.</h4>
 			</div>
 			<div class="modal-body">
 				<oauth:connect provider="facebook" id="facebook-connect-link"
 					class="btn btn-block btn-social btn-facebook facebookLogin">
 					<span class="fa fa-5x fa-facebook"></span>Continue with Facebook</oauth:connect>
-				<p>We will not post anything without your permission</p>
-			</div>
-			<div class="signup-terms">
-				<p>By clicking "sign up", you confirm that you accept</p>
-				<p>
-					our <a href="#">Terms of service</a> and <a href="#">Privacy
-						Policy</a>.
-				</p>
+				<p>Well begun is half done!</br>
+				You made the right choice by signing up for Ravishing.me. </br></br>
+				If you’re an artist, you get your own page and amazing visibility among awesome customers.</br> 
+				If you’re looking for an artist, here you’ll find the best in class.</p>
 			</div>
 			<div class="modal-footer">
-				<h4>
-					Already a member?
-					<oauth:connect provider="facebook" id="facebook-connect-link"
-						class="facebookLogin">Login</oauth:connect>
 			</div>
 		</div>
 	</div>

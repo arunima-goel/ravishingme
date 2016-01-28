@@ -2,11 +2,13 @@ package ravishingme
 
 import javax.servlet.http.HttpServletResponse
 
+import org.apache.commons.lang.StringUtils;
 import org.ravishingme.Profile;
 import org.ravishingme.SecRole;
 import org.ravishingme.SecUser;
 import org.ravishingme.SecUserSecRole;
 import org.scribe.model.Token;
+
 import java.sql.Timestamp;
 
 class ProfileController {
@@ -68,33 +70,35 @@ class ProfileController {
 		}
 		
 		// Add http:// prefix to social network urls if they don't already have it
-		String facebookUrl = params.socialNetworks.facebookUrl;
-		if(facebookUrl != null && !facebookUrl.startsWith("http")) {
-			params.socialNetworks.facebookUrl = "http://" + facebookUrl;
-		}
-		
-		String twitterUrl = params.socialNetworks.twitterUrl;
-		if(twitterUrl != null && !twitterUrl.startsWith("http")) {
-			params.socialNetworks.twitterUrl = "http://" + twitterUrl;
-		}
-		
-		String instagramUrl = params.socialNetworks.instagramUrl;
-		if(instagramUrl != null && !instagramUrl.startsWith("http")) {
-			params.socialNetworks.instagramUrl = "http://" + instagramUrl;
-		}
-		
-		String youtubeUrl = params.socialNetworks.youtubeUrl;
-		if(youtubeUrl != null && !youtubeUrl.startsWith("http")) {
-			params.socialNetworks.youtubeUrl = "http://" + youtubeUrl;
-		}
-		
-		String personalWebsite = params.socialNetworks.personalWebsite;
-		if(personalWebsite != null && !personalWebsite.startsWith("http")) {
-			params.socialNetworks.personalWebsite = "http://" + personalWebsite;
+		if (params.socialNetworks) {
+			String facebookUrl = params.socialNetworks.facebookUrl;
+			if(StringUtils.isNotBlank(facebookUrl) && !facebookUrl.startsWith("http")) {
+				params.socialNetworks.facebookUrl = "http://" + facebookUrl;
+			}
+
+			String twitterUrl = params.socialNetworks.twitterUrl;
+			if(StringUtils.isNotBlank(twitterUrl) && !twitterUrl.startsWith("http")) {
+				params.socialNetworks.twitterUrl = "http://" + twitterUrl;
+			}
+
+			String instagramUrl = params.socialNetworks.instagramUrl;
+			if(StringUtils.isNotBlank(instagramUrl) && !instagramUrl.startsWith("http")) {
+				params.socialNetworks.instagramUrl = "http://" + instagramUrl;
+			}
+
+			String youtubeUrl = params.socialNetworks.youtubeUrl;
+			if(StringUtils.isNotBlank(youtubeUrl) && !youtubeUrl.startsWith("http")) {
+				params.socialNetworks.youtubeUrl = "http://" + youtubeUrl;
+			}
+
+			String personalWebsite = params.socialNetworks.personalWebsite;
+			if(StringUtils.isNotBlank(personalWebsite) && !personalWebsite.startsWith("http")) {
+				params.socialNetworks.personalWebsite = "http://" + personalWebsite;
+			}
 		}
 		
 		bindData profileInstance, params;
-
+		
 		profileInstance.address.state = profileInstance.address.city.state;
 		profileInstance.address.country = profileInstance.address.city.state.country;
 		profileInstance.address.save(flush:true);
