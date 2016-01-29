@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<h2 class="profile-section-header">Frequently Asked Questions</h2></br>
-					<h2 class="profile-section-header-2">I am a make-up artist or stylist:</h2>
+					<h2 class="profile-section-header-2">I am a make-up artist or stylist</h2>
 					<ul class="faqs">
 						<li>
 							<div class="question">
@@ -60,7 +60,7 @@
 							</div>
 						</li>
 					</ul>
-					<h2 class="profile-section-header-2">I am looking for a make-up artist or stylist:</h2>
+					<h2 class="profile-section-header-2">I am looking for a make-up artist or stylist</h2>
 					<ul class="faqs">
 						<li>
 							<div class="question">
@@ -94,7 +94,7 @@
 							</div>
 						</li>
 					</ul>
-					<h2 class="profile-section-header-2">Creating your account:</h2>
+					<h2 class="profile-section-header-2">Creating your account</h2>
 					<ul class="faqs">
 						<li>
 							<div class="question">
@@ -102,7 +102,7 @@
 
 							</div>
 							<div class="answer">
-								<p>Just click on Login and you will be logged in using your Facebook account..</p>
+								<p>Just click on Login and you will be logged in using your Facebook account.</p>
 							</div>
 						</li>
 						<li>
@@ -111,7 +111,7 @@
 
 							</div>
 							<div class="answer">
-								<p>???</p>
+								<p>To edit your profile, click on your profile picture on the top right and choose Settings in the dropdown menu.</p>
 							</div>
 						</li>
 						<li>

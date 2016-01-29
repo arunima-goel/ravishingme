@@ -73,7 +73,9 @@
 						<li class="artist-menu-item" style="display:${displayTypeArtist}"><a
 							data-toggle="pill" href="#profile-settings">Profile</a></li>
 						<li class="artist-menu-item" style="display:${displayTypeArtist}"><a
-							data-toggle="pill" href="#display-pic">Display Pic</a></li>
+							data-toggle="pill" href="#display-pic">Profile Picture</a></li>
+						<li class="artist-menu-item" style="display:${displayTypeArtist}"><a
+							data-toggle="pill" href="#cover-pic">Cover Picture</a></li>
 						<li class="artist-menu-item" style="display:${displayTypeArtist}"><a
 							data-toggle="pill" href="#social-networks-settings">Social
 								Networks</a></li>
@@ -90,7 +92,7 @@
 						<li class="user-menu-item" style="display:${displayTypeUser}"><a
 							data-toggle="pill" href="#favorites-settings">Favorites</a></li>
 						<li class="user-menu-item" style="display:${displayTypeUser}"><a
-							data-toggle="pill" href="#display-pic">Display Pic</a></li>
+							data-toggle="pill" href="#display-pic">Profile Picture</a></li>
 					</ul>
 				</div>
 				<!-- /.col -->

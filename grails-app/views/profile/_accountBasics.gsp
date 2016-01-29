@@ -1,5 +1,6 @@
 
-<h2 class="settings-header">All you need is a killer profile. Let’s get you started!</h2>
+<h2 class="settings-header">You’ve got an awesome profile - let’s make sure everyone can see it!</i>
+</h2>
 <g:form class="settings-form" data-toggle="validator">
 	<g:hiddenField name="username"
 		value="${loggedInUser?.profile?.username}" />

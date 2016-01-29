@@ -1763,6 +1763,16 @@ ul.settings-checkboxes{
     padding: 9px 30px;
 }
 
+.profilePicture{
+	max-height: 200px;
+	max-width: 200px;
+}
+
+.coverPicture{
+	max-height: 200px;
+	max-width: 350px;
+}
+
 a.cancel-btn:hover, a.save-btn:hover{
     color: #fff;
     text-decoration: none;
@@ -1770,20 +1780,6 @@ a.cancel-btn:hover, a.save-btn:hover{
 
 .services-prices-list{
     padding-left: 0px;
-}
-
-#display-pic img{
-    margin-bottom: 10px;
-}
-
-#display-pic .profile-pic-content a{
-    color: #fb4e41;
-    display: block;
-    margin-bottom: 20px;
-}
-
-#display-pic .settings-header{
-    margin-bottom: 30px;
 }
 
 ul.services-checkboxes{

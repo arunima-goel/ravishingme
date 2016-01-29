@@ -90,9 +90,9 @@ class BaseController {
 		profile.setBusinessHours(businessHours);
 
 		SocialNetworks socialNetworks = new SocialNetworks();
-		socialNetworks.twitterUrl = "www.twitter.com/ravishingdotme";
-		socialNetworks.wordpressUrl = "www.ravishingdotme.wordpress.com";
-		socialNetworks.facebookUrl = "www.facebook.com/Ravishingme-1621934231391175";
+		socialNetworks.twitterUrl = "http://www.twitter.com/ravishingdotme";
+		socialNetworks.wordpressUrl = "http://www.ravishingdotme.wordpress.com";
+		socialNetworks.facebookUrl = "http://www.facebook.com/Ravishingme-1621934231391175";
 		socialNetworks.save(failOnError:true);
 		profile.setSocialNetworks(socialNetworks);
 		

@@ -257,8 +257,8 @@ class ProfileController {
 		log.info("removeFavoriteFromAdmin() - end");
 	}
 
-	def uploadPicturesFromSettings() {
-		log.info("uploadPicturesFromSettings() - begin - params [" + params + "]");
+	def uploadProfilePictureFromSettings() {
+		log.info("uploadProfilePictureFromSettings() - begin - params [" + params + "]");
 
 		def loggedInUser = getLoggedInUser();
 
@@ -280,8 +280,34 @@ class ProfileController {
 				}
 			}
 
+			flash.info = "Please give us a few minutes while we save your picture."
 			redirect(uri: "/profile/settings");
-			log.info("uploadPicturesFromSettings() - end [" + params + "] end");
+			log.info("uploadProfilePictureFromSettings() - end");
+		}
+	}
+	
+	def uploadCoverPictureFromSettings() {
+		log.info("uploadCoverPictureFromSettings() - begin - params [" + params + "]");
+
+		def loggedInUser = getLoggedInUser();
+
+		def coverPicture = request.getFile('coverPicture')
+		log.info("Cover picture size: " + coverPicture.size)
+		if (coverPicture) {
+			if (coverPicture.size > 3000000) {
+				flash.error = "The file is too big, please upload a picture with size less than 3MB";
+			} else if (coverPicture.size == 0) {
+				flash.error = "Please select a valid file for upload";
+			} else {
+				coverPicture.inputStream.s3upload("cover.jpeg") {
+					bucket "ravishingme"
+					path "profile/" + loggedInUser.username + "/coverPicture/"
+				}
+			}
+			
+			flash.info = "Please give us a few minutes while we save your picture."
+			redirect(uri: "/profile/settings");
+			log.info("uploadCoverPictureFromSettings() - end");
 		}
 	}
 }

@@ -89,10 +89,11 @@ class UserController {
 				path profilePicPath
 			}
 
-			def (coverPicUrl) = facebookService.getCoverImage(facebookAccessToken, userid)
-			uploadedFile = new URL(coverPicUrl).openStream().s3upload("cover.jpeg") {
-				path coverPicPath
-			}
+			// Commenting out so that it can be reinstated later if needed
+//			def (coverPicUrl) = facebookService.getCoverImage(facebookAccessToken, userid)
+//			uploadedFile = new URL(coverPicUrl).openStream().s3upload("cover.jpeg") {
+//				path coverPicPath
+//			}
 		} catch(Exception e) {
 			log.error("Could not fetch profile and cover pictures from facebook: " + e.getMessage());
 		}

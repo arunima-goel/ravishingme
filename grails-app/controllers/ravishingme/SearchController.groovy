@@ -17,17 +17,21 @@ class SearchController {
 	def oauthService
 	def facebookService
 	def userService
-	
+
 	/**
 	 * Endpoint to search for users without filters
 	 * @return results
 	 */
 	def index() {
+
 		log.info("index() - begin - params [" + params + "]");
 
 		def searchParams = [:];
+		if (!params.city) {
+			params.city = "1";
+		}
 		searchParams["city"] = params.city;
-		
+
 		List<Long> servicesList = null;
 		if (params.services) {
 			servicesList = getLongListFromStringList(params.services)

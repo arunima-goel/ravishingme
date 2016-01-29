@@ -1,4 +1,4 @@
-<h2 class="settings-header">Add your social networks</h2>
+<h2 class="settings-header">Add your awards and affiliations</h2>
 <g:form class="settings-form" data-toggle="validator">
 	<g:hiddenField name="username"
 		value="${loggedInUser?.profile?.username}" />
@@ -9,7 +9,7 @@
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input">
-			<textarea name="awards" rows="10" cols="66">${loggedInUser?.profile?.awards}</textarea>
+			<textarea name="awards" rows="10" cols="66" placeholder="E.g. Best Wedding Make-up Artist 2015, Delhi">${loggedInUser?.profile?.awards}</textarea>
 		</div>
 		<!-- /.col -->
 	</div>
@@ -20,7 +20,7 @@
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input">
-			<textarea name="affiliations" rows="10" cols="66">${loggedInUser?.profile?.affiliations}</textarea>
+			<textarea name="affiliations" rows="10" cols="66" placeholder="E.g. Lakme Salon">${loggedInUser?.profile?.affiliations}</textarea>
 		</div>
 		<!-- /.col -->
 	</div>

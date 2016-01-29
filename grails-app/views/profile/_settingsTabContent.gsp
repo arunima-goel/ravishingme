@@ -11,7 +11,10 @@
 </div>
 
 <!-- Pictures tab -->
-<g:render template="/profile/pictures" />
+<g:render template="/profile/profilePicture" />
+
+<!-- Pictures tab -->
+<g:render template="/profile/coverPicture" />
 
 <!-- Social Networks -->
 <div id="social-networks-settings" class="tab-pane fade">
@@ -37,7 +40,7 @@
 </div>
 
 <!-- User Display Pic Tab -->
-<g:render template="/profile/pictures" />
+<g:render template="/profile/profilePicture" />
 
 <!-- /User Tabs -->
 

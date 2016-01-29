@@ -1,14 +1,13 @@
 <div id="display-pic" class="tab-pane fade">
-	<h2 class="settings-header">Upload your ravishing profile picture
-		and a cover photo</h2>
-	<g:uploadForm controller="profile" action="uploadPicturesFromSettings">
+	<h2 class="settings-header">Upload profile picture</h2>
+	<g:uploadForm controller="profile" action="uploadProfilePictureFromSettings">
 		<div class="row">
 			<div class="col-md-4 settings-label">
 				<label for="profilePicture">Profile picture</label>
 			</div>
 			<!-- /.col -->
 			<div class="col-md-8">
-				<img class="profile-photo" alt="Profile picture"
+				<img class="profilePicture" alt="Profile picture"
 					onError="this.onerror=null;this.src='http://placehold.it/200x200';"
 					src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/profilePicture/profile-large.jpeg" />
 				<input type="file" name="profilePicture" id="profilePicture"  accept="images/*"/>

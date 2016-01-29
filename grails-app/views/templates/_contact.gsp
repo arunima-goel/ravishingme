@@ -20,15 +20,15 @@
 					<g:hiddenField name="toEmailAddress" value="${it.email}" />
 					<label for="fromEmailName">Name <span class="required">*</span></label>
 					<input type="text" class="form-control" name="fromEmailName"
-						id="fromEmailName" required>
+						id="fromEmailName" required value="${loggedInUser?.profile?.name}">
 					<label for="fromEmailAddress">Email <span class="required">*</span>
 					</label>
 					<input type="email" class="form-control" id="fromEmailAddress"
-						name="fromEmailAddress" required>
+						name="fromEmailAddress" required value="${loggedInUser?.profile?.email}">
 					<label for="emailMessage">Message <span class="required">*</span>
 					</label>
 					<textarea name="emailMessage" id="emailMessage"
-						class="form-control" rows="5" required></textarea>
+						class="form-control" rows="5" required>Hey! I liked your work and would like to know more about you.</textarea>
 					<g:submitToRemote url="[controller: 'user', action: 'sendEmail']"
 						value="Submit" name="submit" id="submit"
 						class="btn btn-info contact-btn pull-left"

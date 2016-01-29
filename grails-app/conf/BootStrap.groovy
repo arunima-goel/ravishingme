@@ -62,23 +62,86 @@ class BootStrap {
 		// Populate countries, states and cities
 		Country country = new Country("India").save(failOnError: true);
 
-		def states = ["Delhi", "Karnataka", "Maharashtra", "Test State"];
+		def states = [
+			"Delhi NCR",
+			"Andhra Pradesh",
+			"Bihar", 
+			"Chandigarh",
+			"Goa",
+			"Gujarat",
+			"Karnataka", 
+			"Kerala",
+			"Madhya Pradesh",
+			"Maharashtra", 
+			"Punjab", 
+			"Rajasthan",
+			"Tamil Nadu",
+			"Telangana", 
+			"Uttar Pradesh",
+			"West Bengal"];
 		states.each { state ->
 			country.addToStates(new State(state));
 			country.save(flush:true);
 		}
 
 		def citiesStates = [
-			[city: "Delhi", state: "Delhi"],
+			[city: "Delhi", state: "Delhi NCR"],
+			[city: "Gurgaon", state: "Delhi NCR"],
+			[city: "Faridabad", state: "Delhi NCR"],
+			[city: "Ghaziabad", state: "Delhi NCR"],
+			[city: "Greater Noida", state: "Delhi NCR"],
+			
+			[city: "Visakhapatnam", state: "Andhra Pradesh"],
+			
+			[city: "Patna", state: "Bihar"],
+			
+			[city: "Chandigarh", state: "Chandigarh"],
+			
+			
+			[city: "Panaji", state: "Goa"],
+			
+			[city: "Ahemdabad", state: "Gujarat"],
+			[city: "Surat", state: "Gujarat"],
+			[city: "Vadodra", state: "Gujarat"],
+			
+			[city: "Mysuru", state: "Karnataka"],
+			[city: "Bengaluru", state: "Karnataka"],
+			
+			[city: "Kottayam", state: "Kerala"],
+			[city: "Kochi", state: "Kerala"],
+			[city: "Thiruvananthapuram", state: "Kerala"],
+			
+			[city: "Indore", state: "Madhya Pradesh"],
+			[city: "Bhopal", state: "Madhya Pradesh"],
+			[city: "Gwalior", state: "Madhya Pradesh"],
+			[city: "Ujjain", state: "Madhya Pradesh"],
+			
 			[city: "Mumbai", state: "Maharashtra"],
-			[city: "Mysore", state: "Karnataka"],
-			// TODO: remove below
-			[city: "test1", state: "Test State"],
-			[city: "test2", state: "Test State"],
-			[city: "test3", state: "Test State"],
-			[city: "test4", state: "Test State"],
-			// TODO: remove above 
-			[city: "Pune", state: "Maharashtra"]
+			[city: "Navi Mumbai", state: "Maharashtra"],
+			[city: "Thane", state: "Maharashtra"],
+			[city: "Pune", state: "Maharashtra"],
+			
+			[city: "Ludhiana", state: "Punjab"],
+			[city: "Patiala", state: "Punjab"],
+			[city: "Amritsar", state: "Punjab"],
+			
+			[city: "Jaipur", state: "Rajasthan"],
+			[city: "Udaipur", state: "Rajasthan"],
+			[city: "Jodhpur", state: "Rajasthan"],
+			
+			[city: "Chennai", state: "Tamil Nadu"],
+			[city: "Madurai", state: "Tamil Nadu"],
+			
+			[city: "Hyderabad", state: "Telangana"],
+			
+			[city: "Agra", state: "Uttar Pradesh"],
+			[city: "Lucknow", state: "Uttar Pradesh"],
+			[city: "Allahabad", state: "Uttar Pradesh"],
+			[city: "Varanasi", state: "Uttar Pradesh"],
+			[city: "Noida", state: "Uttar Pradesh"],
+			
+			[city: "Kolkata", state: "West Bengal"],
+			
 		]
 
 
