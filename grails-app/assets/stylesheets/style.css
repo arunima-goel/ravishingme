@@ -2141,6 +2141,10 @@ a.sub-title{
     background-size: contain;
 }
 
+.favoriteIconWhenLoggedOut {
+	max-height: 15px;
+	max-width: 15px;
+}
 .profile-banner{
     width: 100%;
     margin-bottom: 20px;

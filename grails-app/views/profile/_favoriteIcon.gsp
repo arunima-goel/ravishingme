@@ -14,8 +14,8 @@
 	</g:form>
 </oauth:connected>
 <oauth:disconnected provider="facebook">
-	<a href="#" data-target="#favorite-modal" data-toggle="modal"> <asset:image
-			src="heart-gray.png" />
+	<a href="#" data-target="#favorite-modal" data-toggle="modal" > <asset:image
+			src="heart-gray.png" class="favoriteIconWhenLoggedOut" />
 	</a>
 </oauth:disconnected>
 <span>Favorite</span>
