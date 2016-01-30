@@ -8,7 +8,7 @@
 			<!-- /.col -->
 			<div class="col-md-8">
 				<img class="profilePicture" alt="Profile picture"
-					onError="this.onerror=null;this.src='http://placehold.it/200x200';"
+					onError="this.onerror=null;this.src='http://placehold.it/50x50';"
 					src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/profilePicture/profile-large.jpeg" />
 				<input type="file" name="profilePicture" id="profilePicture"  accept="images/*"/>
 			</div>

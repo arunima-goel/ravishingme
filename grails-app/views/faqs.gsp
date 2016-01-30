@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<h2 class="profile-section-header">Frequently Asked Questions</h2></br>
-					<h2 class="profile-section-header-2">I am a make-up artist or stylist</h2>
+					<h5 class="profile-section-header-2">I am a make-up artist or stylist</h5>
 					<ul class="faqs">
 						<li>
 							<div class="question">
@@ -60,7 +60,7 @@
 							</div>
 						</li>
 					</ul>
-					<h2 class="profile-section-header-2">I am looking for a make-up artist or stylist</h2>
+					<h5 class="profile-section-header-2">I am looking for a make-up artist or stylist</h5>
 					<ul class="faqs">
 						<li>
 							<div class="question">
@@ -94,7 +94,7 @@
 							</div>
 						</li>
 					</ul>
-					<h2 class="profile-section-header-2">Creating your account</h2>
+					<h5 class="profile-section-header-2">Creating your account</h5>
 					<ul class="faqs">
 						<li>
 							<div class="question">

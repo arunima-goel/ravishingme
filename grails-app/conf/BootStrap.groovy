@@ -86,61 +86,61 @@ class BootStrap {
 
 		def citiesStates = [
 			[city: "Delhi", state: "Delhi NCR"],
-			[city: "Gurgaon", state: "Delhi NCR"],
-			[city: "Faridabad", state: "Delhi NCR"],
-			[city: "Ghaziabad", state: "Delhi NCR"],
-			[city: "Greater Noida", state: "Delhi NCR"],
+//			[city: "Gurgaon", state: "Delhi NCR"],
+//			[city: "Faridabad", state: "Delhi NCR"],
+//			[city: "Ghaziabad", state: "Delhi NCR"],
+//			[city: "Greater Noida", state: "Delhi NCR"],
+//			
+//			[city: "Visakhapatnam", state: "Andhra Pradesh"],
+//			
+//			[city: "Patna", state: "Bihar"],
+//			
+//			[city: "Chandigarh", state: "Chandigarh"],
 			
-			[city: "Visakhapatnam", state: "Andhra Pradesh"],
 			
-			[city: "Patna", state: "Bihar"],
+//			[city: "Panaji", state: "Goa"],
 			
-			[city: "Chandigarh", state: "Chandigarh"],
-			
-			
-			[city: "Panaji", state: "Goa"],
-			
-			[city: "Ahemdabad", state: "Gujarat"],
-			[city: "Surat", state: "Gujarat"],
-			[city: "Vadodra", state: "Gujarat"],
-			
-			[city: "Mysuru", state: "Karnataka"],
+//			[city: "Ahmedabad", state: "Gujarat"],
+//			[city: "Surat", state: "Gujarat"],
+//			[city: "Vadodra", state: "Gujarat"],
+//			
+//			[city: "Mysuru", state: "Karnataka"],
 			[city: "Bengaluru", state: "Karnataka"],
 			
-			[city: "Kottayam", state: "Kerala"],
-			[city: "Kochi", state: "Kerala"],
-			[city: "Thiruvananthapuram", state: "Kerala"],
-			
-			[city: "Indore", state: "Madhya Pradesh"],
-			[city: "Bhopal", state: "Madhya Pradesh"],
-			[city: "Gwalior", state: "Madhya Pradesh"],
-			[city: "Ujjain", state: "Madhya Pradesh"],
-			
+//			[city: "Kottayam", state: "Kerala"],
+//			[city: "Kochi", state: "Kerala"],
+//			[city: "Thiruvananthapuram", state: "Kerala"],
+//			
+//			[city: "Indore", state: "Madhya Pradesh"],
+//			[city: "Bhopal", state: "Madhya Pradesh"],
+//			[city: "Gwalior", state: "Madhya Pradesh"],
+//			[city: "Ujjain", state: "Madhya Pradesh"],
+//			
 			[city: "Mumbai", state: "Maharashtra"],
-			[city: "Navi Mumbai", state: "Maharashtra"],
-			[city: "Thane", state: "Maharashtra"],
-			[city: "Pune", state: "Maharashtra"],
-			
-			[city: "Ludhiana", state: "Punjab"],
-			[city: "Patiala", state: "Punjab"],
-			[city: "Amritsar", state: "Punjab"],
-			
-			[city: "Jaipur", state: "Rajasthan"],
-			[city: "Udaipur", state: "Rajasthan"],
-			[city: "Jodhpur", state: "Rajasthan"],
-			
-			[city: "Chennai", state: "Tamil Nadu"],
-			[city: "Madurai", state: "Tamil Nadu"],
-			
-			[city: "Hyderabad", state: "Telangana"],
-			
-			[city: "Agra", state: "Uttar Pradesh"],
-			[city: "Lucknow", state: "Uttar Pradesh"],
-			[city: "Allahabad", state: "Uttar Pradesh"],
-			[city: "Varanasi", state: "Uttar Pradesh"],
-			[city: "Noida", state: "Uttar Pradesh"],
-			
-			[city: "Kolkata", state: "West Bengal"],
+//			[city: "Navi Mumbai", state: "Maharashtra"],
+//			[city: "Thane", state: "Maharashtra"],
+//			[city: "Pune", state: "Maharashtra"],
+//			
+//			[city: "Ludhiana", state: "Punjab"],
+//			[city: "Patiala", state: "Punjab"],
+//			[city: "Amritsar", state: "Punjab"],
+//			
+//			[city: "Jaipur", state: "Rajasthan"],
+//			[city: "Udaipur", state: "Rajasthan"],
+//			[city: "Jodhpur", state: "Rajasthan"],
+//			
+//			[city: "Chennai", state: "Tamil Nadu"],
+//			[city: "Madurai", state: "Tamil Nadu"],
+//			
+//			[city: "Hyderabad", state: "Telangana"],
+//			
+//			[city: "Agra", state: "Uttar Pradesh"],
+//			[city: "Lucknow", state: "Uttar Pradesh"],
+//			[city: "Allahabad", state: "Uttar Pradesh"],
+//			[city: "Varanasi", state: "Uttar Pradesh"],
+//			[city: "Noida", state: "Uttar Pradesh"],
+//			
+//			[city: "Kolkata", state: "West Bengal"],
 			
 		]
 
@@ -169,7 +169,7 @@ class BootStrap {
 		profile.setAboutYou("Test about you");
 
 		Address address = new Address();
-		City city = City.findByName("Pune");
+		City city = City.findByName("Mumbai");
 		address.setCity(city);
 		address.setState(city.state);
 		address.setCountry(city.state.country);

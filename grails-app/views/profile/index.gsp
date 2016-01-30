@@ -7,7 +7,7 @@
 	<!-- Page Content -->
 	<div id="profile-page-wrapper">
 		<img class="profile-banner" alt=""
-			onError="this.onerror=null;this.src='http://placehold.it/1024x200';"
+			onError="this.onerror=null;this.src='http://placehold.it/1436x270';"
 			src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/coverPicture/cover.jpeg" />
 	
 		<div class="container-fluid">
@@ -54,7 +54,7 @@
 						<div class="col-md-8 col-md-offset-2">
 							<g:each in="${profile.portfolioImages}" var="portfolioImage">
 								<img alt="" src="${portfolioImage}" class="portfolioImage col-md-6"
-									onError="this.onerror=null;this.src='http://placehold.it/455x310';" />
+									onError="this.onerror=null;this.src='http://placehold.it/50x50';" />
 							</g:each>
 						</div>
 
@@ -67,7 +67,7 @@
 				<div class="services-content">
 					<div class="section-header text-center">
 						<h2 class="profile-section-header">Services</h2>
-						<a href="#contact" class="sub-title">Inquiry</a>
+						<a href="#contact" class="sub-title forInquiry">Inquiry</a>
 					</div>
 					<div class="services-list">
 						<table class="col-md-offset-4" width="35%" margin-left="auto"

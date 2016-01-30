@@ -1,8 +1,11 @@
-<span class="anchor" id="contact"></span>
+
+<span  id="contact"></span>
 <section class="contact">
 	<!-- Google Map -->
 	<div class="row">
-		<div id="map-canvas"></div>
+		<img class="profile-banner" alt=""
+			onError="this.onerror=null;this.src='http://placehold.it/1436x270';"
+			src="https://s3.amazonaws.com/ravishingme/profile/${it.username}/coverPicture/cover.jpeg" />
 	</div>
 	<div class="section-header text-center">
 		<h2 class="profile-section-header">Contact</h2>

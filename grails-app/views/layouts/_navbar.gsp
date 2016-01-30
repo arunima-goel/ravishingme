@@ -14,7 +14,7 @@
 	<div class="container-fluid">
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container-fluid nav-container">
+			<div class="container-;luid nav-container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
 					<g:render template="/layouts/flashMessages" />
@@ -35,6 +35,7 @@
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li><g:link mapping="about">About Us</g:link></li>
+							<li><a href="https://ravishingdotme.wordpress.com/" target="_blank">Blog</a></li>
 							<li><g:link mapping="faqs">FAQs</g:link></li>
 							<oauth:disconnected provider="facebook">
 								<li><oauth:connect provider="facebook"

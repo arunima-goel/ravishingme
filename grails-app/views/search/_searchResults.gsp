@@ -13,7 +13,7 @@
 						<g:link mapping="profileView" target="_blank"
 								params="[username: profile.username]">
 							<img class="result-img" alt=""
-								onError="this.onerror=null;this.src='http://placehold.it/350x200';"
+								onError="this.onerror=null;this.src='http://placehold.it/360x200';"
 								src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/coverPicture/cover.jpeg" />
 						</g:link>
 						<div class="row result-info">
