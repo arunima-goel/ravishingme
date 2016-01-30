@@ -69,7 +69,7 @@ class UserController {
 			}
 		} catch (Exception e) {
 			log.error("An exception occurred after successful facebook login " + e.getMessage());
-			flash.error = "An exception occurred during facebook login. Please try again.";
+			flash.error = "Something went wrong! Please try again.";
 			logout();
 		}
 		log.info("loginSuccess() - end");
@@ -115,8 +115,7 @@ class UserController {
 		log.info("logout() - begin params [" + params + "]");
 		if (session[oauthService.findSessionKeyForAccessToken('facebook')]) {
 			session[oauthService.findSessionKeyForAccessToken('facebook')] = null;
-			flash.message = "Token revoked successfully.";
-			log.info("token revoked successfully");
+			log.info("Token revoked successfully");
 		}
 		if (params.redirectUri != null && params.redirectUri != "" && !params.redirectUri.contains("settings")) {
 			log.info("Redirecting to URI [" + params.redirectUri + "]");

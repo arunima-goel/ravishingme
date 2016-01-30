@@ -25,8 +25,8 @@
 							<div class="row text-center about-list">
 								<div class="col-md-4">
 									<g:if test="${profile.isWillingToTravel == true}">Yes</g:if>
-									<g:else>No</g:else>
-									<span>To Travel</span>
+									<g:else>Not</g:else>
+									<span>Willing to travel</span>
 								</div>
 								<div class="col-md-4">
 									${profile.yearsOfExperience}<span>Years of Experience</span>

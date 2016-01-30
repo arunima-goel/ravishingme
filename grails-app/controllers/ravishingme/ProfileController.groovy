@@ -128,12 +128,12 @@ class ProfileController {
 				[profile:profile, loggedInUser: loggedInUser]
 			} else {
 				redirect(uri: "/")
-				flash.info = "The artist you are looking for was not found in our system.";
+				flash.info = username + " was not found! Please try again.";
 				log.info("index() - end");
 			}
 		} catch (Exception e) {
 			log.error("There was an error while fetching profile for user " + username + " " + e.getMessage());
-			flash.error = "There was an error while fetching profile for user " + username;
+			flash.error = "Something went wrong! Please try again.";
 			redirect(uri: "/")
 			log.info("index() - end");
 		}
@@ -170,7 +170,8 @@ class ProfileController {
 				log.info("settings() - end");
 			}
 		} catch (Exception e) {
-			flash.error = "There was an error while fetching your settings. Please contact ravishing@ravishingme.com.";
+			log.error("There was an error while fetching settings for user" + e.getMessage());
+			flash.error = "Something went wrong! Please try again.";
 			redirect(uri: "/")
 			log.info("settings() - end");
 		}
@@ -277,9 +278,9 @@ class ProfileController {
 		log.info("Profile picture size: " + profilePicture.size)
 		if (profilePicture) {
 			if (profilePicture.size > 3000000) {
-				flash.error = "The file is too big, please upload a picture with size less than 3MB";
+				flash.error = "The file is too big, please upload a picture with size less than 3MB.";
 			} else if (profilePicture.size == 0) {
-				flash.error = "Please select a valid file for upload";
+				flash.error = "Please upload a valid file.";
 			} else {
 				aws.s3().on("ravishingme").rename(
 						"profile-large.jpeg",
@@ -289,9 +290,9 @@ class ProfileController {
 					bucket "ravishingme"
 					path "profile/" + loggedInUser.username + "/profilePicture/"
 				}
+				flash.info = "Please give us a few minutes while we save your picture."
 			}
 
-			flash.info = "Please give us a few minutes while we save your picture."
 			redirect(uri: "/profile/settings");
 			log.info("uploadProfilePictureFromSettings() - end");
 		}
@@ -306,17 +307,17 @@ class ProfileController {
 		log.info("Cover picture size: " + coverPicture.size)
 		if (coverPicture) {
 			if (coverPicture.size > 3000000) {
-				flash.error = "The file is too big, please upload a picture with size less than 3MB";
+				flash.error = "The file is too big, please upload a picture with size less than 3MB.";
 			} else if (coverPicture.size == 0) {
-				flash.error = "Please select a valid file for upload";
+				flash.error = "Please upload a valid file";
 			} else {
 				coverPicture.inputStream.s3upload("cover.jpeg") {
 					bucket "ravishingme"
 					path "profile/" + loggedInUser.username + "/coverPicture/"
 				}
+				flash.info = "Please give us a few minutes while we save your picture."
 			}
 
-			flash.info = "Please give us a few minutes while we save your picture."
 			redirect(uri: "/profile/settings");
 			log.info("uploadCoverPictureFromSettings() - end");
 		}

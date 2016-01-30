@@ -1,4 +1,4 @@
 <footer class="text-center">
-	<div class="copyright-text">2015 ©Ravishing.me. All Rights
-		Reserved</div>
+	<div class="copyright-text">2016 ©ravishing.me | All rights
+		reserved | <g:link mapping="policies" class="termsandprivacy">Terms and Privacy</g:link></div>
 </footer>

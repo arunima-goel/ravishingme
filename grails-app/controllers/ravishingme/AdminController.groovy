@@ -49,7 +49,7 @@ class AdminController {
 			return SecUser.findByUserid(userid)
 		} catch (CustomException ce) {
 			log.info("Error getting logged in user")
-			flash.error = "Exception during login"
+			flash.error = "Something went wrong! Please try again."
 		}
 	}
 

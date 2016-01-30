@@ -381,7 +381,7 @@ ul.dropdown-menu.arrow_box li a:hover{
 ---------------------------------*/
 .home-content{
     position: absolute;
-    top: 47%;
+    top: 44%;
     left:50%;
     transform: translate(-50%,-50%);
 }
@@ -589,15 +589,20 @@ ul.sub_menu{
     background-size: cover;
 }
 
+.termsandprivacy{
+	color: #444444;	
+}
+
 .home-callout{
     text-align: center;
     text-transform: uppercase;
 }
 
 .home-callout h3{
-    font-size: 24px;
+    font-size: 22px;
     font-weight: normal;
     color: #717275;
+    padding-top: 10px;
 }
 
 .home-callout h3 span{
@@ -1085,13 +1090,22 @@ ul.social-links li{
     text-align: center;
 }
 
+.filter{
+	padding: 11px;
+    font-size: 14px;
+    width: 100%;
+    background-color: white;
+    border: none;
+    text-align: center;
+}
+
 .dropdown-filter-btn:focus{
     outline: none;
 }
 
 .travel-filter .drp-caret{
     top: 19px;
-    right: 175px;
+    right: 120px;
 }
 
 .travel-filter ul.dropdown-menu li a.active{
@@ -1117,12 +1131,12 @@ ul.social-links li{
 
 .makeup-filter .drp-caret{
     top: 19px;
-    right: 120px;
+    right: 98px;
 }
 
 .cosmetics-filter .drp-caret{
     top: 19px;
-    right: 135px;
+    right: 113px;
 }
 
 
