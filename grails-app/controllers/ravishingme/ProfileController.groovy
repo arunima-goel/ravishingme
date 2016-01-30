@@ -68,7 +68,7 @@ class ProfileController {
 			profileInstance.preferredCosmeticBrands.clear();
 			profileInstance.preferredServices.clear();
 		}
-		
+
 		// Add http:// prefix to social network urls if they don't already have it
 		if (params.socialNetworks) {
 			String facebookUrl = params.socialNetworks.facebookUrl;
@@ -96,9 +96,9 @@ class ProfileController {
 				params.socialNetworks.personalWebsite = "http://" + personalWebsite;
 			}
 		}
-		
+
 		bindData profileInstance, params;
-		
+
 		profileInstance.address.state = profileInstance.address.city.state;
 		profileInstance.address.country = profileInstance.address.city.state.country;
 		profileInstance.address.save(flush:true);
@@ -119,7 +119,7 @@ class ProfileController {
 		try {
 			SecUser loggedInUser = getLoggedInUser();
 			Profile profile = Profile.findByUsername(username)
-			// Fetch the profile information only if its an artist 
+			// Fetch the profile information only if its an artist
 			if (profile && (profile.isArtist == true)) {
 				// TODO:  checkMinContent(username) // if logged in user is the same as the username,
 				// then check min content and display edit page
@@ -137,6 +137,17 @@ class ProfileController {
 			redirect(uri: "/")
 			log.info("index() - end");
 		}
+	}
+
+	def redirectFromSettings(String username) {
+		log.info("redirectFromSettings() - begin - params [" + params + "]");
+		Profile profile = Profile.findByUsername(username)
+		if (profile.getIsArtist()) {
+			redirect(uri: "/profile/" + profile.getUsername())
+		} else {
+			redirect(uri: "/");
+		}
+		log.info("redirectFromSettings() - end");
 	}
 
 	/**
@@ -285,7 +296,7 @@ class ProfileController {
 			log.info("uploadProfilePictureFromSettings() - end");
 		}
 	}
-	
+
 	def uploadCoverPictureFromSettings() {
 		log.info("uploadCoverPictureFromSettings() - begin - params [" + params + "]");
 
@@ -304,7 +315,7 @@ class ProfileController {
 					path "profile/" + loggedInUser.username + "/coverPicture/"
 				}
 			}
-			
+
 			flash.info = "Please give us a few minutes while we save your picture."
 			redirect(uri: "/profile/settings");
 			log.info("uploadCoverPictureFromSettings() - end");

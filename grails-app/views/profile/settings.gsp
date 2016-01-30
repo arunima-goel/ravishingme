@@ -20,7 +20,7 @@
 					<p class="save-before">Save before you go!</p>
 				</div>
 				<div class="modal-footer">
-					<g:link mapping="profileView" class="leave-btn"
+					<g:link mapping="redirectFromSettings" class="leave-btn"
 						params="[username: loggedInUser.profile.username]">
 						Leave
 					</g:link>

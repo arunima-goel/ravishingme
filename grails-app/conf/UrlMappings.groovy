@@ -19,6 +19,7 @@ class UrlMappings {
 		name removeFavoriteFromSettings: "/profile/removeFavoriteFromSettings" (controller: "profile", action: "removeFavoriteFromSettings")
 		name settings: "/profile/settings"(controller:"profile", action: "settings")
 		name profileView: "/profile/$username" (controller:"profile", action:"index")
+		name redirectFromSettings: "/profile/redirectFromSettings" (controller:"profile", action:"redirectFromSettings")
 		
 		name about: "/about"(controller:"base", action:"about")
 		name faqs: "/faqs"(controller:"base", action:"faqs")
