@@ -175,6 +175,7 @@ grails {
 			ses {
 				enabled = true
 				from = "ravishingdotme@gmail.com"
+				region = "US_WEST_2"
 			}
 		}
 	}

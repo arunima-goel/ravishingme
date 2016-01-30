@@ -135,18 +135,16 @@ class UserController {
 		log.info("sendEmail() - begin params [" + params + "]");
 		try {
 			sesMail {
-				to params.toEmailAddress
-				cc "ravishingdotme@gmail.com", params.fromEmailAddress
-				subject "You have received a new inquiry from " + params.fromEmailName + "!"
-				body params.emailMessage
+				to "ravishingdotme@gmail.com"
+				subject "Email from ravishing.me!!"
+				body "To username: " + params.username + "\nTo email: " + params.toEmailAddress + "\n\nFrom name: " + params.fromEmailName + "\nFrom email: " + params.fromEmailAddress + "\nMessage:\n" + params.emailMessage;
 			}
 		} catch (Exception e) {
-			log.error("An error occurred while sending the an email with params [" + params + "] with exception [" + e + "]");
+			log.error("An error occurred while sending the an email with exception [" + e + "]");
 			render status: HttpServletResponse.SC_INTERNAL_SERVER_ERROR 
 
 		}
 		render status:HttpServletResponse.SC_NO_CONTENT
 		log.info("sendEmail() - end");
 	}
-
 }
