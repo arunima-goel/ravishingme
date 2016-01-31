@@ -1189,7 +1189,7 @@ ul.social-links li{
 }
 
 .cosmetics-filter ul.filter-header-checkboxes li{
-    padding-left: 45px;
+    padding-left: 15px;
 }
 
 .filters span{
@@ -1312,9 +1312,6 @@ a.filter-search-btn.fixed-btn:hover{
     overflow-y: scroll;
 }
 
-.scrollable-menu::-webkit-scrollbar { width: 0 !important };
-ul.scrollable-menu{ -ms-overflow-style: none !important; };
-.scrollable-menu{ overflow: -moz-scrollbars-none; };
 
 /* About Page Styles
 ---------------------------------*/
@@ -2498,4 +2495,8 @@ a.sub-title.enabled{
 
 .emptySearchResultsLine1 {
 	font-size: 16px;
+}
+
+.filter{
+	cursor: auto;
 }

@@ -4,12 +4,10 @@
 	      <div class="button-group">
 	         <div class="drp-caret"></div>
 	         <button type="button" class="dropdown-search-btn" data-prev-services-search="${searchParams?.services}" data-toggle="dropdown">Bridal Makeup</button>
-	         <ul class="search-header-checkboxes dropdown-menu outer-noscroll">
-	            <div class="inner-noscroll">
+	         <ul class="search-header-checkboxes dropdown-menu scrollable-menu" id="dropdown">
 	               <g:each in="${org.ravishingme.Service.list()}" var="service">
 	                  <li><input type="checkbox" name="services" value="${service.id}" data-label="${service.name}"/></li>
 	               </g:each>
-	            </div>
 	            <div class="scroll-opac"></div>
 	         </ul>
 	      </div>
@@ -20,12 +18,10 @@
 	            <div class="drp-caret"></div>
 	            <g:hiddenField name="city" class="home-city-input" value="${searchParams?.city}"/>
 			    <input type="button" class="dropdown-city-btn dropdown-city-btn-search-form" data-toggle="dropdown"></input>
-	            <ul class="dropdown-menu dropdown-city-menu outer-noscroll">
-	               <div class="inner-noscroll">
-	                  <g:each in="${org.ravishingme.City.list()}" var="city">
-		                  <li value="${city.id}" class="${searchParams?.city.equals(String.valueOf(city.id)) ? 'selected' : ''}"><a>${city.name}</a></li>
-	                  </g:each>
-	               </div>
+	            <ul class="dropdown-menu dropdown-city-menu scrollable-menu">
+                  <g:each in="${org.ravishingme.City.list()}" var="city">
+                    <li value="${city.id}" class="${searchParams?.city.equals(String.valueOf(city.id)) ? 'selected' : ''}"><a>${city.name}</a></li>
+                   </g:each>
 	            </ul>
 	         </div>
 	         <span class="input-group-btn">
