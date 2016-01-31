@@ -50,14 +50,6 @@
 			<p>
 				${it.whatsAppNumber}
 			</p>
-			<h6>Business Hours</h6>
-			<p>
-				${it.businessHours.startTime}
-				${it.businessHours.startTimePeriod}
-				-
-				${it.businessHours.endTime}
-				${it.businessHours.endTimePeriod}
-			</p>
 			<ul class="social-links">
 				<g:if test="${it.socialNetworks.twitterUrl != null}">
 					<a href="${it.socialNetworks.twitterUrl}" target="_blank"><li

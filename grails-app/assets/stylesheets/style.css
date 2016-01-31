@@ -2109,7 +2109,7 @@ a.sub-title{
     display: block;
 }
 
-a.sub-title.forInquiry {
+a.sub-title.forInquiry, .colorRed {
 	color: #fb4e41;
 }
 

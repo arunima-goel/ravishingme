@@ -22,7 +22,7 @@
 		<div class="container">
 			<div class="row ">
 				<div class="col-md-12 col-md-offset-1 policies-content-2">
-                  <div class="policies-section-header">Terms of Service and Privacy</div>
+                  <div class="policies-section-header">Terms of Service and Privacy Policy</div>
                   </br>
                   <p>Welcome to ravishing.me!</p>
                   </br>
@@ -36,9 +36,9 @@
                   client. Any decision by a client to receive services or by a professional to provide services 
                   is a decision made in such person's sole discretion.</p>
                   </br>
-                  <h5>Registration and Log in</h5>
+                  <h5>Registration and Login</h5>
                   <p>To access certain features or areas of ravishing.me, you may be required to provide personal 
-                  and/or demographic information as part of a registration or log-in process. You agree to provide 
+                  and/or demographic information as part of a registration or login process. You agree to provide 
                   true, accurate, current and complete information about yourself as prompted, and you are 
                   responsible for keeping such information up-to-date (this includes your contact information, 
                   so that we can reliably contact you), and you may not sell, share or otherwise transfer your 
@@ -46,7 +46,7 @@
                   </br>
                   <p>You are responsible for all activity occurring when ravishing.me is accessed through your 
                   account, whether authorized by you or not. Therefore, if you create an account, be sure to protect 
-                  the confidentiality of your log-in credential. We are not liable for any loss or damage arising 
+                  the confidentiality of your login credentials. We are not liable for any loss or damage arising 
                   from your failure to protect your password or account information. </p>
                   </br>
                   <h5>Changes to the website</h5>

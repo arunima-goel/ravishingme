@@ -114,10 +114,10 @@
 				<oauth:connect provider="facebook" id="facebook-connect-link"
 					class="btn btn-block btn-social btn-facebook facebookLogin">
 					<span class="fa fa-5x fa-facebook"></span>Continue with Facebook</oauth:connect>
-				<p class="loginText">Well begun is half done!</br>
-				If you’re an artist, you get your own page and amazing visibility among awesome customers.</br> 
+				<p class="loginText">Well begun is half done!</br></br>
+				If you’re an artist, you get your own page and amazing visibility among awesome customers.</br></br>
 				If you’re looking for an artist, here you’ll find the best in class.</p>
-				<p>We will not post anything without your permission. </br>By clicking "continue", you confirm that you accept our <g:link mapping="policies">Terms and Privacy Policy</g:link>.</p>
+				<p>We will not post anything without your permission. </br>By clicking "continue", you confirm that you accept our <g:link mapping="policies">Terms of Service and Privacy Policy</g:link>.</p>
 			</div>
 			<div class="modal-footer">
 			</div>

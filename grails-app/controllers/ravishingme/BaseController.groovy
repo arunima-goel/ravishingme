@@ -81,14 +81,6 @@ class BaseController {
 		address.save(failOnError:true);
 		profile.setAddress(address);
 
-		BusinessHours businessHours = new BusinessHours();
-		businessHours.setStartTime(BusinessHours.Time.TEN);
-		businessHours.setStartTimePeriod(BusinessHours.Period.AM);
-		businessHours.setEndTime(BusinessHours.Time.TEN_THIRTY);
-		businessHours.setEndTimePeriod(BusinessHours.Period.PM);
-		businessHours.save(failOnError:true);
-		profile.setBusinessHours(businessHours);
-
 		SocialNetworks socialNetworks = new SocialNetworks();
 		socialNetworks.twitterUrl = "http://www.twitter.com/ravishingdotme";
 		socialNetworks.wordpressUrl = "http://www.ravishingdotme.wordpress.com";
@@ -97,7 +89,8 @@ class BaseController {
 		profile.setSocialNetworks(socialNetworks);
 		
 		profile.email = "ravishingdotme@gmail.com";
-
+		profile.setWhatsAppNumber("+91 8826570213");
+		
 		profile.setYearsOfExperience(0);
 		log.info("buildRavMeProfile() - end");
 		return profile;

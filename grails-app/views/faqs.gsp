@@ -31,7 +31,7 @@
 
 							</div>
 							<div class="answer">
-								<p>ravishing.me is an online platform for talented makeup artists, hair stylists, and fashion stylists to offer their services to everyone who needs them.</p>
+								<p>ravishing.me is an online platform for talented makeup artists and hair stylists to offer their services to everyone who needs them.</p>
 							</div>
 						</li>
 						<li>
@@ -87,8 +87,8 @@
 							</div>
 							<div class="answer">
 								<p>It’s very simple.</br>
-									Step 1: Enter the type of service you need in the search bar.</br>
-									Step 2: Pick a service provider from a list of verified and reputed professionals.</br>
+									Step 1: Choose the type of service you need and your city in the search bar.</br>
+									Step 2: Pick a service provider from a list of reputed professionals.</br>
 									Step 3: Contact them and book your appointment!</br>
 								</p>
 							</div>
