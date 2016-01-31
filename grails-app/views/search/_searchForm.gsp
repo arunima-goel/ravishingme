@@ -18,10 +18,10 @@
 	            <div class="drp-caret"></div>
 	            <g:hiddenField name="city" class="home-city-input" value="${searchParams?.city}"/>
 			    <input type="button" class="dropdown-city-btn dropdown-city-btn-search-form" data-toggle="dropdown"></input>
-	            <ul class="dropdown-menu dropdown-city-menu scrollable-menu">
-                  <g:each in="${org.ravishingme.City.list()}" var="city">
-                    <li value="${city.id}" class="${searchParams?.city.equals(String.valueOf(city.id)) ? 'selected' : ''}"><a>${city.name}</a></li>
-                   </g:each>
+	            <ul class="dropdown-menu dropdown-city-menu outer-noscroll">
+	                  <g:each in="${org.ravishingme.City.list()}" var="city">
+		                  <li value="${city.id}" class="${searchParams?.city.equals(String.valueOf(city.id)) ? 'selected' : ''}"><a>${city.name}</a></li>
+	                  </g:each>
 	            </ul>
 	         </div>
 	         <span class="input-group-btn">

@@ -36,7 +36,7 @@
 			<!-- Modal content-->
 			<div class="modal-content text-center">
 				<div class="modal-header">
-					<h4 class="modal-title">Thanks! Your profile is saved.</h4>
+					<h4 class="modal-title">Thanks! Your information is saved.</h4>
 				</div>
 				<div class="modal-footer"></div>
 			</div>

@@ -490,7 +490,7 @@ ul.sub_menu{
     width: 106%;
 }
 
-.home-city .inner-noscroll li, .sh-city .inner-noscroll li{
+.home-city li, .sh-city .inner-noscroll li{
     padding-top: 8px;
     padding-bottom: 8px;
     color: #a0a0a2;
@@ -2393,6 +2393,10 @@ a.sub-title.enabled{
     margin-top: -10px;
 }
 
+.scrollable-menu::-webkit-scrollbar { width: 0 !important };
+ul.scrollable-menu{ -ms-overflow-style: none !important; };
+.scrollable-menu{ overflow: -moz-scrollbars-none; };
+ 
 .dropdown-menu.outer-noscroll.settings-dropdown-menu.hours-pm{
     margin-top: -10px;
     margin-left: 122px;

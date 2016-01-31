@@ -20,7 +20,7 @@
 			   <button type="button" class="dropdown-city-btn" data-toggle="dropdown">Delhi</button>
                <ul class="dropdown-menu scrollable-menu">
                   <g:each in="${org.ravishingme.City.list()}" var="city" >
-                     <li value="${city.id}" class=${city.id == 1 ?'selected':''}><a>${city.name}</a></li>
+                     <li value="${city.id}" class="${city.id == 1 ?'selected':''}"><a>${city.name}</a></li>
                   </g:each>
                </ul>
             </div>

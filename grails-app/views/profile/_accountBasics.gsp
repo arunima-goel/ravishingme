@@ -93,7 +93,6 @@
 							</a></li>
 						</g:each>
 					</div>
-					<div class="scroll-opac"></div>
 				</ul>
 				<div class="help-block with-errors"></div>
 				<!-- /.col -->
