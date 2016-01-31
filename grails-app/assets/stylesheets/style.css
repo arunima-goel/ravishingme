@@ -1537,8 +1537,19 @@ ul.portfolio-categories li a:hover{
 
 .contact input[type="text"], input[type="email"]{
     min-height: 10px;
-    margin-bottom: 20px;
     width: 75%;
+}
+
+.contact-name.help-block.with-errors{
+	margin-bottom: 20px;
+}
+
+.contact-email.help-block.with-errors{
+	margin-bottom: 20px;
+}
+
+.contact-message.help-block.with-errors{
+	margin-bottom: 20px;
 }
 
 .contact label{

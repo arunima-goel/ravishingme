@@ -58,7 +58,7 @@
 		<!-- /.col -->
 		<div class="col-md-8 settings-input read-only">
 			<input type="text" id="settings-username"
-				value="www.ravishing.me/${loggedInUser?.profile?.username}" readonly>
+				value="www.ravishing.me/profile/${loggedInUser?.profile?.username}" readonly>
 		</div>
 		<!-- /.col -->
 	</div>

@@ -298,16 +298,25 @@ function validateContactForm() {
 	/** Name validation **/
 	if (!$("#fromEmailName")[0].checkValidity()) {
 		isEverythingValid = false;
+		$(".contact-name.help-block.with-errors").text("Please enter a valid name.");
+	} else {
+		$(".contact-name.help-block.with-errors").text("");
 	}
 	
 	/** Email address validation **/
 	if (!$("#fromEmailAddress")[0].checkValidity()) {
 		isEverythingValid = false;
+		$(".contact-email.help-block.with-errors").text("Please enter a valid email address.");
+	} else {
+		$(".contact-email.help-block.with-errors").text("");
 	}
 	
 	/** Message validation **/
-	if (!$("#emailMessage")[0].checkValidity()) {
+	if (!$("#emailMessage")[0].checkValidity() || $("#emailMessage").text() == "") {
 		isEverythingValid = false;
+		$(".contact-message.help-block.with-errors").text("Please enter your message.");
+	} else {
+		$(".contact-message.help-block.with-errors").text("");
 	}
 	
 	return isEverythingValid;	

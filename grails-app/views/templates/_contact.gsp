@@ -24,14 +24,17 @@
 					<label for="fromEmailName">Name <span class="required">*</span></label>
 					<input type="text" class="form-control" name="fromEmailName"
 						id="fromEmailName" required value="${loggedInUser?.profile?.name}">
+					<div class="contact-name help-block with-errors"></div>
 					<label for="fromEmailAddress">Email <span class="required">*</span>
 					</label>
 					<input type="email" class="form-control" id="fromEmailAddress"
 						name="fromEmailAddress" required value="${loggedInUser?.profile?.email}">
+					<div class="contact-email help-block with-errors"></div>
 					<label for="emailMessage">Message <span class="required">*</span>
 					</label>
 					<textarea name="emailMessage" id="emailMessage"
 						class="form-control" rows="5" required>Hey! I liked your work and would like to know more about you.</textarea>
+					<div class="contact-message help-block with-errors"></div>
 					<g:submitToRemote url="[controller: 'user', action: 'sendEmail']"
 						value="Submit" name="submit" id="submit"
 						class="btn btn-info contact-btn pull-left"
