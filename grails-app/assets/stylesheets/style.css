@@ -2199,6 +2199,10 @@ a.sub-title.forInquiry {
     padding-bottom: 0px;
 }
 
+.navbar-inverse .navbar-nav>li>a.blogLink:hover, .navbar-inverse .navbar-nav>li>a.blogLink:focus {
+    color: #b0b0b2 !important;
+}
+
 /* About Page Styles
 ---------------------------------*/
 .about-content{

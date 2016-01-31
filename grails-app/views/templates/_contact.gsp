@@ -99,7 +99,7 @@
                <div class="modal-header">
                   <h4 class="modal-title">Thanks! We’ll get back to you soon.</h4>
                </div>
-               <div class="modal-body">
+               <div class="modal-footer">
                </div>
             </div>
          </div>
@@ -113,7 +113,7 @@
 				<div class="modal-header">
 					<h4 class="modal-title">Something went wrong! Please try again.</h4>
 				</div>
-				<div class="modal-body"></div>
+				<div class="modal-footer"></div>
 			</div>
 		</div>
 	</div>

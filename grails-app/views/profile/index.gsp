@@ -115,8 +115,7 @@
                <div class="modal-header">
                   <h4 class="modal-title">Do you want to save favorites? Please sign in.</h4>
                </div>
-               <div class="modal-body">
-               </div>
+               <div class="modal-footer"></div>
             </div>
          </div>
       </div>

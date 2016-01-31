@@ -20,7 +20,7 @@ class ProfileController {
 
 
 	/**
-	 * Endpoint to update settings of a profile
+	 * Endpoint to update settings of a profile from the admin page
 	 */
 	def update() {
 		log.info("update() - begin - params [" + params + "]");
@@ -53,59 +53,72 @@ class ProfileController {
 	}
 
 	/**
-	 * Endpoint to update settings
+	 * Endpoint to update profile from the settings section
 	 */
-	def updateSettings() { // TODO: check where this is called?
-		// TODO: get logged in user and compare the ID here - do not update if there is no
-		log.info("updateSettings() - begin - params [" + params + "]");
-
-		def profileInstance = Profile.get(params.id);
-
-		// ***deselected values don't get saved if we don't clear the values here
-		if (profileInstance.getIsArtist()) {
-			profileInstance.cosmeticBrands.clear();
-		} else {
-			profileInstance.preferredCosmeticBrands.clear();
-			profileInstance.preferredServices.clear();
+	def updateSettings() { 
+		try {
+			SecUser loggedInUser = getLoggedInUser();
+		
+			if (loggedInUser != null && loggedInUser.profile.id == Integer.parseInt(params.id)) {
+				log.info("updateSettings() - begin - params [" + params + "]");
+		
+				def profileInstance = Profile.get(params.id);
+		
+				// ***deselected values don't get saved if we don't clear the values here
+				if (profileInstance.getIsArtist()) {
+					profileInstance.cosmeticBrands.clear();
+				} else {
+					profileInstance.preferredCosmeticBrands.clear();
+					profileInstance.preferredServices.clear();
+				}
+		
+				// Add http:// prefix to social network urls if they don't already have it
+				if (params.socialNetworks) {
+					String facebookUrl = params.socialNetworks.facebookUrl;
+					if(StringUtils.isNotBlank(facebookUrl) && !facebookUrl.startsWith("http")) {
+						params.socialNetworks.facebookUrl = "http://" + facebookUrl;
+					}
+		
+					String twitterUrl = params.socialNetworks.twitterUrl;
+					if(StringUtils.isNotBlank(twitterUrl) && !twitterUrl.startsWith("http")) {
+						params.socialNetworks.twitterUrl = "http://" + twitterUrl;
+					}
+		
+					String instagramUrl = params.socialNetworks.instagramUrl;
+					if(StringUtils.isNotBlank(instagramUrl) && !instagramUrl.startsWith("http")) {
+						params.socialNetworks.instagramUrl = "http://" + instagramUrl;
+					}
+		
+					String youtubeUrl = params.socialNetworks.youtubeUrl;
+					if(StringUtils.isNotBlank(youtubeUrl) && !youtubeUrl.startsWith("http")) {
+						params.socialNetworks.youtubeUrl = "http://" + youtubeUrl;
+					}
+		
+					String personalWebsite = params.socialNetworks.personalWebsite;
+					if(StringUtils.isNotBlank(personalWebsite) && !personalWebsite.startsWith("http")) {
+						params.socialNetworks.personalWebsite = "http://" + personalWebsite;
+					}
+				}
+		
+				bindData profileInstance, params;
+		
+				profileInstance.address.state = profileInstance.address.city.state;
+				profileInstance.address.country = profileInstance.address.city.state.country;
+				profileInstance.address.save(flush:true);
+				profileInstance.save(flush:true);
+		
+				render status:HttpServletResponse.SC_NO_CONTENT;
+				log.info("updateSettings() - end");
+			} else {
+				log.error("Either logged in user is null or the user tried to save settings for another user. LoggedInUser: " + loggedInUser?.profile?.id + "Params Id: " + params.id);
+				flash.error = "Something went wrong! Please try again.";
+				render status:HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
+			} 
+		} catch (Exception e) {
+			log.error("An exception occurred while saving settings: " + e.getMessage());
+			flash.error = "Something went wrong! Please try again.";
+			render status:HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 		}
-
-		// Add http:// prefix to social network urls if they don't already have it
-		if (params.socialNetworks) {
-			String facebookUrl = params.socialNetworks.facebookUrl;
-			if(StringUtils.isNotBlank(facebookUrl) && !facebookUrl.startsWith("http")) {
-				params.socialNetworks.facebookUrl = "http://" + facebookUrl;
-			}
-
-			String twitterUrl = params.socialNetworks.twitterUrl;
-			if(StringUtils.isNotBlank(twitterUrl) && !twitterUrl.startsWith("http")) {
-				params.socialNetworks.twitterUrl = "http://" + twitterUrl;
-			}
-
-			String instagramUrl = params.socialNetworks.instagramUrl;
-			if(StringUtils.isNotBlank(instagramUrl) && !instagramUrl.startsWith("http")) {
-				params.socialNetworks.instagramUrl = "http://" + instagramUrl;
-			}
-
-			String youtubeUrl = params.socialNetworks.youtubeUrl;
-			if(StringUtils.isNotBlank(youtubeUrl) && !youtubeUrl.startsWith("http")) {
-				params.socialNetworks.youtubeUrl = "http://" + youtubeUrl;
-			}
-
-			String personalWebsite = params.socialNetworks.personalWebsite;
-			if(StringUtils.isNotBlank(personalWebsite) && !personalWebsite.startsWith("http")) {
-				params.socialNetworks.personalWebsite = "http://" + personalWebsite;
-			}
-		}
-
-		bindData profileInstance, params;
-
-		profileInstance.address.state = profileInstance.address.city.state;
-		profileInstance.address.country = profileInstance.address.city.state.country;
-		profileInstance.address.save(flush:true);
-		profileInstance.save(flush:true);
-
-		render status:HttpServletResponse.SC_NO_CONTENT
-		log.info("updateSettings() - end");
 	}
 
 	/**
@@ -121,8 +134,7 @@ class ProfileController {
 			Profile profile = Profile.findByUsername(username)
 			// Fetch the profile information only if its an artist
 			if (profile && (profile.isArtist == true)) {
-				// TODO:  checkMinContent(username) // if logged in user is the same as the username,
-				// then check min content and display edit page
+				// TODO:  checkMinContent(username) 
 
 				log.info("index() - end");
 				[profile:profile, loggedInUser: loggedInUser]
@@ -158,8 +170,7 @@ class ProfileController {
 		log.info("settings() - begin - params [" + params + "]");
 		try {
 			// TODO: checkMinContent(username)
-			// then check min content and display edit page
-
+			
 			SecUser loggedInUser = getLoggedInUser();
 			if (loggedInUser) {
 				log.info("settings() - end");
@@ -240,9 +251,9 @@ class ProfileController {
 	}
 
 	/**
-	 * Endpoint to remove a favorite
+	 * Endpoint to remove a favorite from the settings page
 	 */
-	def removeFavoriteFromSettings() { //TODO: check exactly where this is called from
+	def removeFavoriteFromSettings() { 
 		log.info("removeFavoriteFromSettings() - begin - params [" + params + "]");
 		def favoriteProfileInstance = Profile.findById(params.favoriteId)
 
@@ -255,9 +266,9 @@ class ProfileController {
 	}
 
 	/**
-	 * Endpoint to remove a favorite
+	 * Endpoint to remove a favorite from the admin page
 	 */
-	def removeFavoriteFromAdmin() { //TODO: check exactly where this is called from
+	def removeFavoriteFromAdmin() { 
 		log.info("removeFavoriteFromAdmin() - begin - params [" + params + "]");
 		def favoriteProfileInstance = Profile.findById(params.favoriteId)
 
