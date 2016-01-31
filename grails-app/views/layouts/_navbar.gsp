@@ -87,7 +87,7 @@
 				<oauth:connect provider="facebook" id="facebook-connect-link"
 					class="btn btn-block btn-social btn-facebook facebookLogin">
 					<span class="fa fa-5x fa-facebook"></span>Continue with Facebook</oauth:connect>
-				<p>Well begun is half done!</br>
+				<p class="loginText">Well begun is half done!</br>
 				You made the right choice by signing up for Ravishing.me. </br></br>
 				If you’re an artist, you get your own page and amazing visibility among awesome customers.</br> 
 				If you’re looking for an artist, here you’ll find the best in class.</p>

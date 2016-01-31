@@ -2046,6 +2046,9 @@ a.leave-btn:hover, a.stay-btn:hover{
     margin-top: -15px;   
 }
 
+.loginText {
+	color: #444444;
+}
 .profile-section-header{
     color: #464548;
     font-size: 18px;
@@ -2055,6 +2058,14 @@ a.leave-btn:hover, a.stay-btn:hover{
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
+}
+
+.policies-section-header{
+    color: #464548;
+    font-size: 18px;
+    margin: 0px;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .profile-section-header-2{
@@ -2214,6 +2225,20 @@ a.sub-title.forInquiry {
 .faq-content{
     margin-top: 100px;
     margin-bottom: 50px;
+}
+
+.policies-content{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.policies-content-2{
+    width: 75%;
+}
+
+.policies-content h5{
+	color: #464548;
+	font-size: 15px;
 }
 
 .question{
