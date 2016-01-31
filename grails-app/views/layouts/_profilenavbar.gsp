@@ -117,7 +117,7 @@
 				You made the right choice by signing up for ravishing.me. </br></br>
 				If you’re an artist, you get your own page and amazing visibility among awesome customers.</br> 
 				If you’re looking for an artist, here you’ll find the best in class.</p>
-				<p>By clicking "continue", you confirm that you accept our <g:link mapping="policies">Terms of Service</g:link> and <g:link mapping="policies">Privacy Policy</g:link>.</p>
+				<p>We will not post anything without your permission. By clicking "continue", you confirm that you accept our <g:link mapping="policies">Terms and Privacy Policy</g:link>.</p>
 			</div>
 			<div class="modal-footer">
 			</div>
