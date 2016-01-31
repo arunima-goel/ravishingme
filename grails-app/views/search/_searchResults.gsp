@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row" id="search-results-container">
 			<g:if test="${profiles == null || profiles.isEmpty()}">
-				<div class="emptySearchResults col-md-6 col-md-offset-1">
+				<div class="emptySearchResults col-md-12 col-md-offset-1">
 					<div class="emptySearchResultsLine1">Oops! Looks like we don’t have this service yet. 
 					Tell us what you were looking for <g:link mapping="about" fragment="contact">here</g:link>.</div>
 					

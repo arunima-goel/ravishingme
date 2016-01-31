@@ -60,8 +60,8 @@ class SearchController {
 	 * Endpoint to search for users along with filters
 	 * @return Search results
 	 */
-	def search() { // TODO: change this to filter
-		log.info("search() - begin - params [" + params + "]");
+	def filter() { 
+		log.info("filter() - begin - params [" + params + "]");
 
 		String city = null;
 		if (params.city) { // TODO: rename city to cityId?
@@ -93,7 +93,7 @@ class SearchController {
 		def result = performSearch(city, servicesList, isWillingToTravel, bridalMakeupRange, cosmeticsList);
 
 		render(template:'/search/searchResults', model: [profiles: result])
-		log.info("search() - end");
+		log.info("filter() - end");
 	}
 
 	/**
