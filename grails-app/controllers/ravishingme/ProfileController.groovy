@@ -110,7 +110,7 @@ class ProfileController {
 				render status:HttpServletResponse.SC_NO_CONTENT;
 				log.info("updateSettings() - end");
 			} else {
-				log.error("Either logged in user is null or the user tried to save settings for another user. LoggedInUser: " + loggedInUser?.profile?.id + "Params Id: " + params.id);
+				log.error("Either logged in user is null or the user tried to save settings for another user. LoggedInUser: " + loggedInUser?.profile?.id + " Params Id: " + params.id);
 				flash.error = "Something went wrong! Please try again.";
 				render status:HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 			} 

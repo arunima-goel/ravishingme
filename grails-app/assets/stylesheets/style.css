@@ -53,6 +53,8 @@ a, a:hover, a:active {
 ---------------------------------*/
 html{
     overflow-x: hidden;
+    position: relative;
+  min-height: 100%;
 }
 
 body {
@@ -61,7 +63,15 @@ body {
     font-size: 14px;
     font-weight: normal;
     color: #a0a0a2;
-    margin: 0;
+    margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
 }
 
 h2 {
