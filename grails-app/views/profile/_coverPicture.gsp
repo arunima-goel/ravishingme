@@ -3,11 +3,11 @@
 	<g:uploadForm controller="profile" action="uploadCoverPictureFromSettings">
 		<div class="row">
 			<div class="col-md-4 settings-label">
-				<label for="coverPicture">Cover picture</label>
+				<label for="coverPicture">Cover photo</label>
 			</div>
 			<!-- /.col -->
 			<div class="col-md-8">
-				<img class="coverPicture" alt="Cover picture"
+				<img class="coverPicture" alt="Cover photo"
 					onError="this.onerror=null;this.src='http://placehold.it/1436x270';"
 					src="https://s3.amazonaws.com/ravishingme/profile/${loggedInUser.username}/coverPicture/cover.jpeg" />
 				<input type="file" name="coverPicture" id="coverPicture"  accept="images/*"/>

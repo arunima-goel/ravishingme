@@ -6,14 +6,13 @@
     </div>
 </g:if>
 
-<g:if test="${flash.info}">
+<g:elseif test="${flash.info}">
     <div class="error-container">
         <div class="error-msg yellow">
             <p>${flash.info}</p>
         </div>
     </div>
-</g:if>
+</g:elseif>
 
-<g:if test="${flash.message}">
-    
-</g:if>
+<g:elseif test="${flash.message}">
+</g:elseif>

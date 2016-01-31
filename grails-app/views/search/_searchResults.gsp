@@ -3,8 +3,9 @@
 		<div class="row" id="search-results-container">
 			<g:if test="${profiles == null || profiles.isEmpty()}">
 				<div class="emptySearchResults col-md-6 col-md-offset-1">
-					<div class="emptySearchResultsLine1">Oops! That’s an empty closet.</br></div>
-					Looks like we don’t have this service yet. Tell us what you were looking for <g:link mapping="about" fragment="contact">here</g:link>.
+					<div class="emptySearchResultsLine1">Oops! Looks like we don’t have this service yet. 
+					Tell us what you were looking for <g:link mapping="about" fragment="contact">here</g:link>.</div>
+					
 				</div>
 			</g:if>
 			<g:else>
@@ -28,7 +29,9 @@
 								</g:link>
 							</h3>
 							<div class="col-md-6 travel">
-								Travel<span> ${profile.isWillingToTravel}
+								Travel<span> 
+								<g:if test="${profile.isWillingToTravel == true}">Yes</g:if>
+								<g:else>No</g:else>
 								</span>
 							</div>
 							<div class="col-md-6 inquiry">

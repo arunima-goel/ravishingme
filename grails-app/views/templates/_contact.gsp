@@ -95,7 +95,7 @@
             <!-- Modal content-->
             <div class="modal-content text-center">
                <div class="modal-header">
-                  <h4 class="modal-title">Please wait for 24 hours to hear back!</h4>
+                  <h4 class="modal-title">Thanks! We’ll get back to you soon.</h4>
                </div>
                <div class="modal-body">
                </div>
@@ -109,7 +109,7 @@
 			<!-- Modal content-->
 			<div class="modal-content text-center">
 				<div class="modal-header">
-					<h4 class="modal-title">An error occurred, please try sending again.</h4>
+					<h4 class="modal-title">Something went wrong! Please try again.</h4>
 				</div>
 				<div class="modal-body"></div>
 			</div>

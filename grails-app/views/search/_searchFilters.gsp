@@ -11,12 +11,12 @@
 				<div class="col-md-11">
 					<div class="col-md-4 travel-filter">
 						<div class="button-group">
-							<button type="button" class="dropdown-filter-btn" data-toggle="dropdown">Willing to travel<span class="drp-caret"></span>
+							<button type="button" class="dropdown-filter-btn" data-toggle="dropdown">Artist Travel Preference<span class="drp-caret"></span>
 							</button>
 							<g:hiddenField name="travel" class="filter-travel-input" />
 				   			<ul class="dropdown-menu">
-								<li><a href="#">Yes</a></li>
-								<li class="second"><a href="#">No</a></li>
+								<li><a href="#">Willing to travel</a></li>
+								<li class="second"><a href="#">Not willing to travel</a></li>
 								<g:submitToRemote class="btn btn-default filter-search-btn" url="[controller:'search', action:'search']" update="search-results" value="Filter"/>
 		          			</ul>
 						</div>

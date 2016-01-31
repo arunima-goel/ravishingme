@@ -77,7 +77,7 @@ class SearchController {
 
 		Boolean isWillingToTravel = null;
 		if (params.travel) {
-			isWillingToTravel = (params.travel == "No") ? false : true;
+			isWillingToTravel = (params.travel == "Not willing to travel") ? false : true;
 		}
 
 		Double bridalMakeupRange = null;

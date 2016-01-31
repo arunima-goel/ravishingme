@@ -95,7 +95,7 @@ class UserController {
 //				path coverPicPath
 //			}
 		} catch(Exception e) {
-			log.error("Could not fetch profile and cover pictures from facebook: " + e.getMessage());
+			log.error("Could not fetch profile picture from facebook: " + e.getMessage());
 		}
 	}
 	/**

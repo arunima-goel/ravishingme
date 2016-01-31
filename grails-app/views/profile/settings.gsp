@@ -73,7 +73,7 @@
 						<li class="artist-menu-item" style="display:${displayTypeArtist}"><a
 							data-toggle="pill" href="#display-pic">Profile Picture</a></li>
 						<li class="artist-menu-item" style="display:${displayTypeArtist}"><a
-							data-toggle="pill" href="#cover-pic">Cover Picture</a></li>
+							data-toggle="pill" href="#cover-pic">Cover Photo</a></li>
 						<li class="artist-menu-item" style="display:${displayTypeArtist}"><a
 							data-toggle="pill" href="#social-networks-settings">Social
 								Networks</a></li>

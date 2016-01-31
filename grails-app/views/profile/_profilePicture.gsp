@@ -1,5 +1,5 @@
 <div id="display-pic" class="tab-pane fade">
-	<h2 class="settings-header">Upload profile picture</h2>
+	<h2 class="settings-header">Upload your profile picture</h2>
 	<g:uploadForm controller="profile" action="uploadProfilePictureFromSettings">
 		<div class="row">
 			<div class="col-md-4 settings-label">

@@ -9,7 +9,7 @@
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input">
-			<textarea name="awards" rows="10" cols="66" placeholder="E.g. Best Wedding Make-up Artist 2015, Delhi">${loggedInUser?.profile?.awards}</textarea>
+			<textarea name="awards" rows="10" cols="66" placeholder="E.g. Best Wedding Makeup Artist 2015, Delhi">${loggedInUser?.profile?.awards}</textarea>
 		</div>
 		<!-- /.col -->
 	</div>

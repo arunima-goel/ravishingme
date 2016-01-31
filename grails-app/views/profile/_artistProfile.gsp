@@ -12,7 +12,8 @@
 		<!-- /.col -->
 		<div class="col-md-8 settings-input form-group">
 			<textarea required name="aboutYou" id="settings-aboutyou" rows="10"
-				cols="66" maxlength="1000">${loggedInUser?.profile?.aboutYou}</textarea>
+				cols="66" maxlength="1000" 
+				placeholder="Tell us about yourself and your work. Do not forget to mention whether you travel to clients’ locations - e.g. destination weddings, home appointments etc.">${loggedInUser?.profile?.aboutYou}</textarea>
 			<div class="bio-msg">Maximum 1,000 characters</div>
 			<div class="help-block with-errors"></div>
 		</div>
@@ -55,8 +56,8 @@
 			<div class="help-block with-errors cosmetics"></div>
 			<div class="text-center settings-hint">
 				<p>
-					If you don't find a cosmetics brand of your choice, please <a
-						href="about.html#contact">contact us</a>
+					If you don't find a cosmetics brand of your choice, please 
+					<g:link mapping="about" fragment="contact">contact us</g:link>.</a>
 				</p>
 			</div>
 		</div>
