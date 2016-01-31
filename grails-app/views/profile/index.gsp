@@ -7,7 +7,7 @@
 	<!-- Page Content -->
 	<div id="profile-page-wrapper">
 		<img class="profile-banner" alt=""
-			onError="this.onerror=null;this.src='http://placehold.it/1436x270';"
+			onError="this.onerror=null;this.src='/assets/defaultCoverPhoto.jpg';"
 			src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/coverPicture/cover.jpeg" />
 	
 		<div class="container-fluid">

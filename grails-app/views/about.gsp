@@ -32,7 +32,7 @@
                   <div class="colorRed">If you are a makeup artist or hair stylist</div>
                   <p>Research shows that more people are 
                   looking for beauty and grooming services online. And if you’re reading this, you’ve already made 
-                  the right choice to promote yourself online. We can help you grow your online brand – by giving you a wider audience and making stronger 
+                  the right choice to promote yourself online. We can help you grow your online brand by giving you a wider audience and making stronger 
                   connections with customers. Just sign up with your Facebook account and create a portfolio for free!</p>
                   </br>
                   <h5>Privacy & Security</h5>

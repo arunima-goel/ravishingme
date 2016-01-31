@@ -3,15 +3,15 @@ dataSource {
     jmxExport = true
     driverClassName = "org.postgresql.Driver"
     username = "postgres"
-    password = "arunima()"
+    password = "E2m0V1@6R"
     url = "jdbc:postgresql:localhost:5432/ravme"
 	dialect = "org.ravishingme.TableNameSequencePostgresDialect"
     dbCreate = update
 }
+
 hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = false
-//    cache.region.factory_class = 'org.hibernate.cache.SingletonEhCacheRegionFactory' // Hibernate 3
     cache.region.factory_class = 'org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory' // Hibernate 4
     singleSession = true // configure OSIV singleSession mode
     flush.mode = 'manual' // OSIV session flush mode outside of transactional context

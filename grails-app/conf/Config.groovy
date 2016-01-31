@@ -96,8 +96,8 @@ environments {
 			providers {
 				facebook {
 					api = org.scribe.builder.api.FacebookApi
-					key = '1672109019699805'
-					secret = '8a9c57e53f3e37a96427dbabb2fe3bed'
+					key = '1674436499467057'
+					secret = 'e39418757e388a90986b18f868bb6833'
 					successUri = '/user/loginSuccess'
 					failureUri = '/user/loginError'
 					callback = "http://localhost:8080/oauth/facebook/callback"
@@ -109,18 +109,18 @@ environments {
 	production {
 		grails.logging.jul.usebridge = false
 		grails.app.context = "/"
-		grails.serverURL = "http://www.makeupartistsindia.com" // TODO: fix this
+		grails.serverURL = "http://www.ravishing.me" 
 		logDirectory = "logs"
 		
 		oauth {
 			providers {
 				facebook {
 					api = org.scribe.builder.api.FacebookApi
-					key = '1674436499467057'
-					secret = 'e39418757e388a90986b18f868bb6833'
+					key = '1672109019699805'
+					secret = '8a9c57e53f3e37a96427dbabb2fe3bed'
 					successUri = '/user/loginSuccess'
 					failureUri = '/user/loginError'
-					callback = "http://www.makeupartistsindia.com/oauth/facebook/callback/" // TODO: change this
+					callback = "http://www.ravishing.me/oauth/facebook/callback/" 
 					callbackParams = ""
 				}
 			}
@@ -180,20 +180,4 @@ grails {
 		}
 	}
 }
-//
-//grails {
-//	mail {
-//		host = "smtp.gmail.com"
-//		port = 587
-//		username = "ravishingdotme@gmail.com"
-//		password = "ravdotme"
-//		props = [
-//			'mail.transport.protocol': 'aws', 
-//            'mail.aws.class': 'com.amazonaws.services.simpleemail.AWSJavaMailTransport',
-//            'mail.aws.user': '<your aws access key>',
-//            'mail.aws.password': '<your aws secret key>']
-//	}
-//}
-
-
 
