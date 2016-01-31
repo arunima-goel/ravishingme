@@ -8,7 +8,7 @@
 	</br>
 	Full name: <g:textField name="name" value="${profile?.name}"/></br>
 	Email: <g:textField name="email" value="${profile?.email}"/></br>
-	Username: www.ravishing.me/${profile?.username} </br><!-- TODO: convert this to a link? -->
+	Username: www.ravishing.me/profile/${profile?.username}</br>
     Location: </br>
     Street Address: <g:textField name="address.streetAddress" value="${profile?.address?.streetAddress}"/> </br>
     City: <g:select name="address.city"

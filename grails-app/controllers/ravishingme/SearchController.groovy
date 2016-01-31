@@ -64,7 +64,7 @@ class SearchController {
 		log.info("filter() - begin - params [" + params + "]");
 
 		String city = null;
-		if (params.city) { // TODO: rename city to cityId?
+		if (params.city) { // This is the city Id
 			city = params.city;
 		}
 

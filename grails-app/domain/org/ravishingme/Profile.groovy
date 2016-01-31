@@ -6,7 +6,7 @@ class Profile implements Serializable {
 	Profile(String username, String name) {
 		this.name = name
 		this.username = username
-		this.isArtist = true // TODO: this should be false
+		this.isArtist = false
 	}
 
 	Date lastUpdated
@@ -49,12 +49,12 @@ class Profile implements Serializable {
 		return aws.s3().on("ravishingme").getByCriteria_Prefix("profile/" + username + "/portfolioPictures/p-");
 	}
 
-	static constraints = { // TODO: check constraints
+	static constraints = { 
 		isArtist blank: false, nullable: false
 		name blank: false, nullable: false
 		username blank: false, nullable: false, editable: false
 		email email: true, nullable: true
-		aboutYou nullable:true, maxSize: 1000 // TODO: check size
+		aboutYou nullable:true, maxSize: 1000
 		affiliations nullable: true
 		address nullable: true
 		awards nullable: true
