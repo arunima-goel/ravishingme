@@ -40,7 +40,7 @@
 
 							</div>
 							<div class="answer">
-								<p>Research shows that ___% of Indian youth are looking for beauty and grooming services online. And if you’re reading this, you’ve already made the right choice to promote yourself online. We can help you grow your online brand – by giving you a wider audience and making stronger connections with customers. Now, you don’t need to worry about word of mouth – your work will speak for itself. Just sign up with your Facebook account and create a portfolio for free! You can make your profile, list services and upload pictures of your work for all to see.</p>
+								<p>Research shows that more people are looking for beauty and grooming services online. And if you’re reading this, you’ve already made the right choice to promote yourself online. We can help you grow your online brand – by giving you a wider audience and making stronger connections with customers. Now, you don’t need to worry about word of mouth – your work will speak for itself. Just sign up with your Facebook account and create a portfolio for free! You can make your profile, list services and upload pictures of your work for all to see.</p>
 							</div>
 						</li>
 						<li>

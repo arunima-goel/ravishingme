@@ -26,7 +26,7 @@
                   </br>
                   <p>Welcome to ravishing.me!</p>
                   </br>
-                  <p>Please read these terms and conditions carefully. By using the website, either as
+                  <p>Please read this document carefully. By using the website, either as
                   a registered user or guest, you demonstrate that you accept these terms and conditions.</p>
                   </br>
                   <p>ravishing.me does not provide or contract for any services, and professionals and clients
@@ -51,7 +51,7 @@
                   </br>
                   <h5>Changes to the website</h5>
                   <p>We reserve the right to make changes to, or to suspend or discontinue (temporarily or permanently), 
-                  the Site or any portion of the Site. You agree that we will not be liable to you or to any third party 
+                  the website or any portion of the website. You agree that we will not be liable to you or to any third party 
                   for any such modification, suspension or discontinuation.</p>
                   </br>
                   <h5>Privacy</h5>

@@ -1,7 +1,6 @@
 
 <span  id="contact"></span>
 <section class="contact">
-	<!-- Google Map -->
 	<div class="row">
 		<img class="profile-banner" alt=""
 			onError="this.onerror=null;this.src='http://placehold.it/1436x270';"
