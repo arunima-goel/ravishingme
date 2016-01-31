@@ -20,7 +20,7 @@
 					<g:render template="/layouts/flashMessages" />
 
 					<g:link mapping="landingPage" class="navbar-brand">
-						<asset:image class="logo" src="logo.png" alt="Ravishing.me" />
+						<asset:image class="logo" src="logo.png" alt="ravishing.me" />
 					</g:link>
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
 						data-target="#bs-example-navbar-collapse-1">
@@ -88,7 +88,7 @@
 					class="btn btn-block btn-social btn-facebook facebookLogin">
 					<span class="fa fa-5x fa-facebook"></span>Continue with Facebook</oauth:connect>
 				<p class="loginText">Well begun is half done!</br>
-				You made the right choice by signing up for Ravishing.me. </br></br>
+				You made the right choice by signing up for ravishing.me. </br></br>
 				If you’re an artist, you get your own page and amazing visibility among awesome customers.</br> 
 				If you’re looking for an artist, here you’ll find the best in class.</p>
 				<p>By clicking "continue", you confirm that you accept our <g:link mapping="policies">Terms of Service</g:link> and <g:link mapping="policies">Privacy Policy</g:link>.</p>

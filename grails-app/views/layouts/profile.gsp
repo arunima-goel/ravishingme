@@ -4,9 +4,9 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Ravishing.me">
+      <meta name="description" content="ravishing.me">
       <meta name="author" content="Arunima Goel">
-      <title>Ravishing.me</title>
+      <title>ravishing.me</title>
       <!-- Bootstrap Core CSS -->
       <asset:stylesheet src="bootstrap.min.css" />
       <!-- Font Awesome CSS -->

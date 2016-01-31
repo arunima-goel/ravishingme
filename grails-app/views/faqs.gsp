@@ -31,7 +31,7 @@
 
 							</div>
 							<div class="answer">
-								<p>Ravishing.me is an online platform for talented make-up artists, hair stylists, and fashion stylists to offer their services to everyone who needs them.</p>
+								<p>ravishing.me is an online platform for talented make-up artists, hair stylists, and fashion stylists to offer their services to everyone who needs them.</p>
 							</div>
 						</li>
 						<li>
@@ -53,7 +53,7 @@
 						</li>
 						<li>
 							<div class="question">
-								<span>4.</span>Do I have to pay to join ravishing. me?
+								<span>4.</span>Do I have to pay to join ravishing.me?
 							</div>
 							<div class="answer">
 								<p>Nope! It’s absolutely free.</p>
@@ -75,7 +75,7 @@
 						</li>
 						<li>
 							<div class="question">
-								<span>2.</span>Do I have to pay to join ravishing. me?
+								<span>2.</span>Do I have to pay to join ravishing.me?
 							</div>
 							<div class="answer">
 								<p>Nope! You only pay the artist directly for the services you hire.</p>

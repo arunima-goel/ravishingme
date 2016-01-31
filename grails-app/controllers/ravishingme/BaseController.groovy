@@ -70,7 +70,7 @@ class BaseController {
 	 */
 	def buildRavMeProfile() {
 		log.info("buildRavMeProfile() - begin");
-		def profile = new Profile("ravishing-me", "Ravishing.me");
+		def profile = new Profile("ravishing-me", "ravishing.me");
 
 		Address address = new Address();
 		City city = City.findByName("Delhi");
