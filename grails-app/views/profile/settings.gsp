@@ -15,7 +15,7 @@
 						page?</h4>
 				</div>
 				<div class="modal-body">
-					<p>Hey there! It looks like you're in the middle of completing
+					<p>It looks like you're in the middle of completing
 						your profile and you haven't saved all your content.</p>
 					<p class="save-before">Save before you go!</p>
 				</div>
@@ -36,8 +36,7 @@
 			<!-- Modal content-->
 			<div class="modal-content text-center">
 				<div class="modal-header">
-					<h4 class="modal-title">Your profile information was saved
-						successfully.</h4>
+					<h4 class="modal-title">Thanks! Your profile is saved.</h4>
 				</div>
 				<div class="modal-body"></div>
 			</div>
@@ -50,8 +49,7 @@
 			<!-- Modal content-->
 			<div class="modal-content text-center">
 				<div class="modal-header">
-					<h4 class="modal-title">Your profile information was not saved
-						successfully. Please contact ravme.</h4>
+					<h4 class="modal-title">Something went wrong! Please try again.</h4>
 				</div>
 				<div class="modal-body"></div>
 			</div>

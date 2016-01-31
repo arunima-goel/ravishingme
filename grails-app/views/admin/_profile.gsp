@@ -2,7 +2,7 @@
 <g:form>
 	<g:hiddenField name="username" value="${profile?.username}" />
 	<g:hiddenField name="id" value="${profile?.id}" />
-	Bio: <g:textField name="aboutYou" value="${profile?.aboutYou}"/></br>
+	About you: <g:textField name="aboutYou" value="${profile?.aboutYou}"/></br>
 	Willing to travel: 
 	<g:radio name="isWillingToTravel" value="true" checked="${profile?.isWillingToTravel.equals(true)}"/>Yes
 	<g:radio name="isWillingToTravel" value="false" checked="${profile?.isWillingToTravel.equals(false)}"/>No

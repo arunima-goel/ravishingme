@@ -1,5 +1,5 @@
 
-<h2 class="settings-header">Add some basic information to setup
+<h2 class="settings-header">Add some basic information to set up
 	your profile</h2>
 <g:form class="settings-form" data-toggle="validator">
 	<g:hiddenField name="username"
@@ -7,7 +7,7 @@
 	<g:hiddenField name="id" value="${loggedInUser?.profile?.id}" />
 	<div class="row">
 		<div class="col-md-4 settings-label">
-			<label for="bio">Bio*</label>
+			<label for="bio">About you*</label>
 		</div>
 		<!-- /.col -->
 		<div class="col-md-8 settings-input form-group">

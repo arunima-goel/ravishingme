@@ -133,7 +133,7 @@
 			<input type="text" name="whatsAppNumber" id="settings-whatsapp"
 				value="${loggedInUser?.profile?.whatsAppNumber}" required
 				placeholder="1234567890"
-				data-error="Please enter a valid Whatsapp number."
+				data-error="Please enter a valid WhatsApp number."
 				pattern="[0-9]{1,13}">
 			<div class="help-block with-errors"></div>
 			<g:set var="displayTypeArtist"
