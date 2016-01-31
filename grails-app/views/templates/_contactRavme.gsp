@@ -7,7 +7,7 @@
 			src="https://s3.amazonaws.com/ravishingme/profile/${it.username}/coverPicture/cover.jpeg" />
 	</div>
 	<div class="section-header text-center">
-		<h2 class="profile-section-header">Contact the artist</h2>
+		<h2 class="profile-section-header">Contact us</h2>
 	</div>
 	<!-- Contact Form -->
 	<div class="row">
@@ -32,7 +32,7 @@
 					<label for="emailMessage">Message <span class="required">*</span>
 					</label>
 					<textarea name="emailMessage" id="emailMessage"
-						class="form-control" rows="5" required>Hey! I liked your work and would like to know more about you.</textarea>
+						class="form-control" rows="5" required>Hey! I need some information about...</textarea>
 					<div class="contact-message help-block with-errors"></div>
 					<g:submitToRemote url="[controller: 'user', action: 'sendEmail']"
 						value="Submit" name="submit" id="submit"
@@ -48,12 +48,7 @@
 		<div class="col-md-4 contact-info">
 			<h6>WhatsApp</h6>
 			<p>
-				<oauth:connected provider="facebook">
-					${it.whatsAppNumber}
-				</oauth:connected>
-				<oauth:disconnected provider="facebook">
-					Login to see contact info
-				</oauth:disconnected>
+				${it.whatsAppNumber}
 			</p>
 			<h6>Business Hours</h6>
 			<p>

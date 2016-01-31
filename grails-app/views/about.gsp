@@ -30,7 +30,7 @@
       </div>
       <!-- /About Page Content -->
       <!-- Contact Section -->
-      <g:render template="/templates/contact" bean="${profile}" />
+      <g:render template="/templates/contactRavme" bean="${profile}" />
       
       <!-- jQuery -->
       <asset:javascript src="jquery.js"/>

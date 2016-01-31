@@ -26,7 +26,6 @@
 		                  <li value="${city.id}" class="${searchParams?.city.equals(String.valueOf(city.id)) ? 'selected' : ''}"><a>${city.name}</a></li>
 	                  </g:each>
 	               </div>
-	               <div class="scroll-opac"></div>
 	            </ul>
 	         </div>
 	         <span class="input-group-btn">

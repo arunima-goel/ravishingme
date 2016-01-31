@@ -26,7 +26,6 @@
                         <li value="${city.id}" class=${city.id == 1 ?'selected':''}><a>${city.name}</a></li>
                      </g:each>
                   </div>
-                  <div class="scroll-opac"></div>
                </ul>
             </div>
             <span class="input-group-btn">
