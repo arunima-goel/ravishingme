@@ -290,7 +290,7 @@ class ProfileController {
 					bucket "ravishingme"
 					path "profile/" + loggedInUser.username + "/profilePicture/"
 				}
-				flash.info = "Please give us a few minutes while we save your picture."
+				flash.info = "Saving your picture..."
 			}
 
 			redirect(uri: "/profile/settings");
@@ -315,7 +315,7 @@ class ProfileController {
 					bucket "ravishingme"
 					path "profile/" + loggedInUser.username + "/coverPicture/"
 				}
-				flash.info = "Please give us a few minutes while we save your picture."
+				flash.info = "Saving your picture..."
 			}
 
 			redirect(uri: "/profile/settings");

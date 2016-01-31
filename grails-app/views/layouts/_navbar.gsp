@@ -53,7 +53,7 @@
 										</a>
 										<ul class="dropdown-menu arrow_box">
 											<li id="profileLink" class="${loggedInUser?.profile?.isArtist ? '' : 'disabled'}">
-												<g:link mapping="profileView" id="profileLink"
+												<g:link mapping="profileView" 
 													params="[username: loggedInUser.profile.username]">Profile</g:link>
 											</li>
 											<li><g:link mapping="settings">Settings</g:link></li>
