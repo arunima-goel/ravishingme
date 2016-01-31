@@ -490,7 +490,7 @@ ul.sub_menu{
     width: 106%;
 }
 
-.home-city li, .sh-city .inner-noscroll li{
+.home-city .inner-noscroll li, .sh-city .inner-noscroll li{
     padding-top: 8px;
     padding-bottom: 8px;
     color: #a0a0a2;
