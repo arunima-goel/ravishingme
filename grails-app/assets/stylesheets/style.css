@@ -2403,9 +2403,6 @@ a.sub-title.enabled{
     margin-top: -10px;
 }
 
-.scrollable-menu::-webkit-scrollbar { width: 0 !important };
-ul.scrollable-menu{ -ms-overflow-style: none !important; };
-.scrollable-menu{ overflow: -moz-scrollbars-none; };
  
 .dropdown-menu.outer-noscroll.settings-dropdown-menu.hours-pm{
     margin-top: -10px;
