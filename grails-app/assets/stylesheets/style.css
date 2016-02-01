@@ -1001,9 +1001,27 @@ ul.social-links li{
     margin-bottom: 50px;
 }
 
+pre {
+	box-sizing: border-box;
+	color: #b9babe;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 24px;
+	margin: 0px 0px 0px 0px;
+	text-align: center;
+	background-color: transparent;
+	border: 0px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	word-break: break-word;
+}
+
 .portfolioImage{
 	width: 50%;
     height: 310px;
+    margin-bottom: 20px;
 }
 .result-info{
     border: 2px solid #f4f4f4;
@@ -1459,8 +1477,12 @@ ul.portfolio-categories li a:hover{
 }
 
 .services{
-    border-bottom: 1px solid #f0f3f7;
-    padding-bottom: 50px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.awards-and-affiliations{
+	padding-bottom: 50px;
     margin-left: -15px;
     margin-right: -15px;
     margin-bottom: 20px;

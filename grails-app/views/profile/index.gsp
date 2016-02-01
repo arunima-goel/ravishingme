@@ -19,9 +19,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 text-center">
-							<p>
-								${profile.aboutYou}
-							</p>
+							<pre>${profile.aboutYou}</pre>
 							<div class="row text-center about-list">
 								<div class="col-md-4">
 									<g:if test="${profile.isWillingToTravel == true}">Yes</g:if>
@@ -99,6 +97,22 @@
 						<a class="sub-title"><i>All rates are starting prices and subject to change. Please confirm with artist before appointment.</i></a>
 					</div>
 				</div>
+			</section>
+			<span class="anchor" id="awards"></span>
+			<section class="awards-and-affiliations">
+				<div class="awards-and-affiliations-section">
+					<div class="section-header text-center">
+						<h2 class="profile-section-header">Awards and Affiliations</h2>
+					</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<pre>${profile.awards}</pre>
+							<pre>${profile.affiliations}</pre>
+						</div>
+					</div>
+					<!-- /.row -->
+				</div>
+				<!--  /.about-section -->
 			</section>
 			<!-- Services Section -->
 			<g:render template="/templates/contact" bean="${profile}" />
