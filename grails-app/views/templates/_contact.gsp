@@ -1,11 +1,11 @@
-
-<span  id="contact"></span>
-<section class="contact">
-	<div class="row">
-		<img class="profile-banner" alt=""
+<div class="profile-banner"">
+		<img alt=""
 			onError="this.onerror=null;this.src='/assets/defaultCoverPhoto.jpg';"
 			src="https://s3.amazonaws.com/ravishingme/profile/${it.username}/coverPicture/cover.jpeg" />
 	</div>
+<span  id="contact"></span>
+<section class="contact">
+	
 	<div class="section-header text-center">
 		<h2 class="profile-section-header">Contact the artist</h2>
 	</div>

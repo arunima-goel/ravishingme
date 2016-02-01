@@ -6,10 +6,11 @@
 <body>
 	<!-- Page Content -->
 	<div id="profile-page-wrapper">
-		<img class="profile-banner" alt=""
-			onError="this.onerror=null;this.src='/assets/defaultCoverPhoto.jpg';"
-			src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/coverPicture/cover.jpeg" />
-	
+		<div class="profile-banner">
+			<img alt=""
+				onError="this.onerror=null;this.src='/assets/defaultCoverPhoto.jpg';"
+				src="https://s3.amazonaws.com/ravishingme/profile/${profile.username}/coverPicture/cover.jpeg" />
+		</div>
 		<div class="container-fluid">
 			<span class="anchor" id="about"></span>
 			<section class="about">
@@ -115,8 +116,8 @@
 				<!--  /.about-section -->
 			</section>
 			<!-- Services Section -->
-			<g:render template="/templates/contact" bean="${profile}" />
 		</div>
+		<g:render template="/templates/contact" bean="${profile}" />
 	</div>
 	<!-- /Page Content Wrapper -->
 	

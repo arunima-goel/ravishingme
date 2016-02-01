@@ -1020,7 +1020,7 @@ pre {
 
 .portfolioImage{
 	width: 50%;
-    height: 310px;
+    height: auto;
     margin-bottom: 20px;
 }
 .result-info{
@@ -2220,7 +2220,15 @@ a.sub-title.forInquiry, .colorRed {
     margin-bottom: 20px;
     margin-top: -55px;
     height: 270px;
+    display: block;
 }
+
+
+.profile-banner img{
+	max-height: 100%;
+	width: 100%;
+}
+
 
 .profile-left-header .profile-pic{
    margin-left: 35px;
